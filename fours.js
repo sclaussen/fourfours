@@ -36,7 +36,7 @@ function findSolutions(goal) {
 
                 // i, j, and k represent the order of operator evaluation
                 for (let i = 1; i <= 3; i++) {
-                    for (let j = i; j <= 3; j++) {
+                    for (let j = 1; j <= 3; j++) {
                         if (j === i) {
                             continue;
                         }
