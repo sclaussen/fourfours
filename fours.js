@@ -15,7 +15,7 @@ function main() {
 
 function fours() {
     for (let goal = 0; goal <= 100; goal++) {
-        if (solve(goal) == false) {
+        if (findSolutions(goal) === false) {
             solutions.push(goal + ': Not Found');
         }
     }
@@ -26,18 +26,22 @@ function fours() {
 }
 
 
-function solve(goal) {
+function findSolutions(goal) {
     let solved = false;
+
+    // op1, op2, and op3 are the operators to apply to the 4s
     for (let op1 of operations) {
         for (let op2 of operations) {
             for (let op3 of operations) {
+
+                // i, j, and k represent the order of operator evaluation
                 for (let i = 1; i <= 3; i++) {
-                    for (let j = 1; j <= 3; j++) {
-                        if (i === j) {
+                    for (let j = i; j <= 3; j++) {
+                        if (j === i) {
                             continue;
                         }
                         for (let k = 1; k <= 3; k++) {
-                            if (i === k || j === k) {
+                            if (k === i || k === j) {
                                 continue;
                             }
 
