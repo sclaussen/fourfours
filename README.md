@@ -122,7 +122,6 @@ Here's the first (of often thousands) solution the four fours
 algorithm found to each integer between 0 and 1000:
 
 ```
-1000: sqrt ((square (sum 4 * sum 4) * sum 4) * sum 4)
 001: sqrt (sqrt (sqrt (sqrt 4! * sqrt 4!) * sqrt 4!) / sqrt 4!)!
 002: sqrt (sqrt (sqrt (sqrt 4 * sqrt 4) * sqrt 4) * sqrt 4)
 003: sqrt (sqrt (sum (sqrt 4 * 4) * square 4!) / square 4)
