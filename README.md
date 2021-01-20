@@ -118,8 +118,8 @@ differentiate the two cases:
 
 ## Spoiler
 
-Here's the first solution the four fours algorithm found to each
-integer between 0 and 1000:
+Here's the first (of often thousands) solution the four fours
+algorithm found to each integer between 0 and 1000:
 
 ```
 $ cat solution1000.md
