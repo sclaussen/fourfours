@@ -1,4 +1,4 @@
-# Four Fours Problem
+## Four Fours Problem
 
 
 From [Wikipedia - Four Fours](https://en.wikipedia.org/wiki/Four_fours):
@@ -53,6 +53,34 @@ Given the above, here are the rules I used:
     any number or the result of an evaluation (directly prior to a
     parenthesis).
     - Valid expressions: `square ((4! + 4)! + 4)! + 4)`,  `sqrt 44! / sum 44!`,  `(4 ^ 4 ^ 4 ^ 4)!`
+
+
+
+## Algorithm
+
+This algorithm generates permutations of the four fours expressions
+and then evaluates the expressions.  If the evaluation of an
+expression results in a number between 0 and 1000 then a solution is
+found.  As a result of the permutation generator, billions of
+expressions are generated to be evaluated.
+
+The generation algorithm works like this:
+- Stage 1: Numberic permutations are generated
+- Stage 2: Infix operation permutations are applied
+- Stage 3: Parenthesis permutations are applied
+- Stage 4: Prefix operation permutations are applied
+- Stage 5: Postfix operation permutations are applied
+- Stage 6: Expression evaluation
+
+### Evalution limits
+
+The following somewhat arbitrary thresholds are enforced during
+evaluation:
+- No factorial above 8 (eg 8!)
+- No summation above 500 (sum 500)
+- No power above 8 (eg 2^8)
+
+### Precedence
 
 When the current algorithm generates the expression permutations the
 functions (square, sqrt, and sum) are applied prior to a number and

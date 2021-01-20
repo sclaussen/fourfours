@@ -242,7 +242,10 @@ function evaluateInfix(n1, operator, n2) {
     case '-':
         return n1 - n2;
     case '^':
-        // if (n2 >
+        if (n2 > constants.MAX_EXPONENT) {
+            throw 'Exponent too large';
+        }
+
         return Math.pow(n1, n2);
     }
 }
@@ -253,15 +256,15 @@ function evaluateFactorial(n) {
         throw 'Factorial only supported for integer values';
     }
 
-    if (n > 8) {
+    if (n > constants.MAX_FACTORIAL) {
         throw 'Factorial number too large';
     }
 
-    return evaluateFactorialRecursive(n);
+    return evaluateFactorialIteratively(n);
 }
 
 
-function evaluateFactorialRecursive(n) {
+function evaluateFactorialIteratively(n) {
     if (factorialCache[n]) {
         return factorialCache[n];
     }
@@ -276,16 +279,16 @@ function evaluateFactorialRecursive(n) {
 }
 
 
-// function evaluateFactorialRecursive(n) {
-//     if (n === 0) {
-//         return 1;
-//     }
+function evaluateFactorialRecursive(n) {
+    if (n === 0) {
+        return 1;
+    }
 
-//     return n * evaluateFactorialRecursive(n - 1);
-// }
+    return n * evaluateFactorialRecursive(n - 1);
+}
 
 
-function evaluateFunction(functionName, number) {
+gfunction evaluateFunction(functionName, number) {
     switch (functionName) {
     case 'square':
         return number * number;
@@ -296,7 +299,7 @@ function evaluateFunction(functionName, number) {
             throw 'Summation only supported for integer values';
         }
 
-        if (number > 500) {
+        if (number > constants.MAX_SUM) {
             throw 'Summation number too large';
         }
 
