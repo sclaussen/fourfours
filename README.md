@@ -31,7 +31,7 @@ Given the above, here are the rules I used:
     together.
     - Valid numbers: `4`, `44`, `444`, `4444`
   - Precisely four 4s must be used in the expression.
-    - Valid expressions: `4 + 4 + 4 + 4`, `44 + 44, 444 + 4`, `4444`
+    - Valid expressions: `4 + 4 + 4 + 4`, `44 + 44`, `444 + 4`, `4444`
     - Invalid expressions `4 + 4`, `444 + 4444`
   - Each number can contain a leading decimal, a trailing decimal, or a
     decimal in between the digits.
