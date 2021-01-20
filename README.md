@@ -81,10 +81,13 @@ Given the wikipedia article, here are the rules I used:
 ### Evalution limits
 
 The following somewhat arbitrary thresholds are enforced during
-evaluation:
+evaluation to help maintain some degree of evaluation performance:
 - No factorial above 8 (eg 8!)
-- No summation above 500 (sum 500)
-- No power above 8 (eg 2^8)
+- No power above 8 (eg 4^8)
+- No summation of a number over 500 (sum 500)
+- No square of a number over 500 (eg square 500)
+
+
 
 ### Precedence
 

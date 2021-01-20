@@ -4,6 +4,8 @@ module.exports.postfixOperators = [ '!' ]
 module.exports.prefixOperators = [ 'sqrt', 'square', 'sum' ];
 
 const MAX_GOAL = 1000;
+
 const MAX_FACTORIAL = 8;
 const MAX_EXPONENT = 8;
+const MAX_SQUARE = 500;
 const MAX_SUM = 500;

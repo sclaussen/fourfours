@@ -291,6 +291,10 @@ function evaluateFactorialRecursive(n) {
 gfunction evaluateFunction(functionName, number) {
     switch (functionName) {
     case 'square':
+        if (number > constants.MAX_SQUARE) {
+            throw 'Square number too large';
+        }
+
         return number * number;
     case 'sqrt':
         return Math.sqrt(number);
