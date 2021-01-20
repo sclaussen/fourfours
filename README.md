@@ -54,22 +54,25 @@ Given the above, here are the rules I used:
     parenthesis).
     - Valid expressions: `square ((4! + 4)! + 4)! + 4)`,  `sqrt 44! / sum 44!`,  `(4 ^ 4 ^ 4 ^ 4)!`
 
-Currently, the functions (square, sqrt, and sum) are applied prior to
-a number and a factorial operator afterward without parenthesis,
-raising the question of evaluation order.  For example, the algorithm
-can generate this expression:
+When the current algorithm generates the expression permutations the
+functions (square, sqrt, and sum) are applied prior to a number and
+the factorial operator is applied afterward without parenthesis which
+raises the question of evaluation order.
+
+For example, the algorithm can generate this expression:
 
 - `(((4 * square 4!) + 4) + 4)`
 
-In this case, the inner expression `4 * square 4!` is evaluated in
-this order:
+In this case, the inner expression `4 * square 4!` is currently
+evaluated in this order:
 1. factorial: `(4!)`
 2. function: `(square 24)`
 3. multiplication: `(4 * square 24)`
 
-I plan to resolve this precedence issue by adding addtional
-parenthesis so the above expression would be differentiated by
-generating two expressions, eg:
+Although the correct precedence is applied, the result is a missing
+expression where the square occurs prior to the factorial.  To resolve
+this I plan to generate two expressions with parenthesis to
+differentiate the two cases:
 - `(((4 * (square 4)!) + 4) + 4)`
 - `(((4 * square (4!)) + 4) + 4)`
 
