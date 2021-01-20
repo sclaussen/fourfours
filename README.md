@@ -22,7 +22,29 @@ the gamma function (Γ(), where Γ(x) = (x − 1)!), and percent
 ("%").
 ```
 
-Given the above, here are the rules I used:
+
+
+## Algorithm
+
+This algorithm generates permutations of the four fours expressions
+and then evaluates the expressions.  If the evaluation of an
+expression results in a number between 0 and 1000 then a solution is
+found.  As a result of the permutation generator, billions of
+expressions are generated to be evaluated.
+
+The generation algorithm works like this:
+- Stage 1: Numberic permutations are generated
+- Stage 2: Infix operation permutations are applied
+- Stage 3: Parenthesis permutations are applied
+- Stage 4: Prefix operation permutations are applied
+- Stage 5: Postfix operation permutations are applied
+- Stage 6: Expression evaluation
+
+
+
+## Rules
+
+Given the wikipedia article, here are the rules I used:
 
 - Numbers:
   - All numbers in the expression must contain one or more 4s and no
@@ -55,22 +77,6 @@ Given the above, here are the rules I used:
     - Valid expressions: `square ((4! + 4)! + 4)! + 4)`,  `sqrt 44! / sum 44!`,  `(4 ^ 4 ^ 4 ^ 4)!`
 
 
-
-## Algorithm
-
-This algorithm generates permutations of the four fours expressions
-and then evaluates the expressions.  If the evaluation of an
-expression results in a number between 0 and 1000 then a solution is
-found.  As a result of the permutation generator, billions of
-expressions are generated to be evaluated.
-
-The generation algorithm works like this:
-- Stage 1: Numberic permutations are generated
-- Stage 2: Infix operation permutations are applied
-- Stage 3: Parenthesis permutations are applied
-- Stage 4: Prefix operation permutations are applied
-- Stage 5: Postfix operation permutations are applied
-- Stage 6: Expression evaluation
 
 ### Evalution limits
 
