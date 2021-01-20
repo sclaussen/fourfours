@@ -1,8 +1,9 @@
 # Four Fours Problem
 
 
+From [Wikipedia - Four Fours](https://en.wikipedia.org/wiki/Four_fours):
+
 ```
-From https://en.wikipedia.org/wiki/Four_fours:
 
 There are many variations of four fours; their primary difference
 is which mathematical symbols are allowed.
