@@ -4,7 +4,6 @@
 From [Wikipedia - Four Fours](https://en.wikipedia.org/wiki/Four_fours):
 
 ```
-
 There are many variations of four fours; their primary difference
 is which mathematical symbols are allowed.
 
@@ -28,31 +27,51 @@ Given the above, here are the rules I used:
 - Numbers:
   - All numbers in the expression must contain one or more 4s and no
     other digits
-  - Each number can comprised of one or more digits
-    - Valid numbers 4, 44, 444, 4444
-  - Precisely four 4s must be used in the expression
-    - Valid 4 + 4 + 4 + 4, 44 + 44, 444 + 4, 4444
-    - Invalid 4 + 4, 444 + 4444
+  - Each number can comprised of one to four digits concatenated
+    together.
+    - Valid numbers: 4, 44, 444, 4444
+  - Precisely four 4s must be used in the expression.
+    - Valid expressions: 4 + 4 + 4 + 4, 44 + 44, 444 + 4, 4444
+    - Invalid expressions 4 + 4, 444 + 4444
   - Each number can contain a leading decimal, a trailing decimal, or a
-    decimal in between the digits
-    - Valid 4, .4, .44, .444, .4444, 4.4, 4.44, 4.444, 444.4
-    - Invalid 40, .04, .004, 4.04
+    decimal in between the digits.
+    - Valid numbers: 4, .4, .44, .444, .4444, 4.4, 4.44, 4.444, 444.4
+    - Invalid numbers: 40, .04, .004, 4.04
 
 - Parenthesis:
   - Parenthesis can be applied to the combination of the number and the
     infix operators to force evaluation precedence.
-    - Valid ((44 + 4) * 4) and (44 + (4 * 4))
+    - Valid expressions: ((44 + 4) * 4) and (44 + (4 * 4))
 
 - Operations:
   - The operators +, -, *, /, and ^ (power) can be used.
-    - Valid 4 + 4 + 4 + 4 ,  44 * 44,  4 ^ 4 ^ 4 ^ 4
+    - Valid expressions: 4 + 4 + 4 + 4 ,  44 * 44,  4 ^ 4 ^ 4 ^ 4
   - Factorial can be applied to any number or the result of an
     evaluation (directly after a parenthesis).
-    - Valid ((4! + 4)! + 4)! + 4) ,  44! / 44!,  (4 ^ 4 ^ 4 ^ 4)!
+    - Valid expressions: ((4! + 4)! + 4)! + 4) ,  44! / 44!,  (4 ^ 4 ^ 4 ^ 4)!
   - The functions square, square root, and summation can be applied to
     any number or the result of an evaluation (directly prior to a
     parenthesis).
-    - Valid square ((4! + 4)! + 4)! + 4) ,  sqrt 44! / sum 44!,  (4 ^ 4 ^ 4 ^ 4)!
+    - Valid expressions: square ((4! + 4)! + 4)! + 4) ,  sqrt 44! / sum 44!,  (4 ^ 4 ^ 4 ^ 4)!
+
+Currently, the functions (square, sqrt, and sum) are applied prior to
+a number and a factorial operator afterward without parenthesis,
+raising the question of evaluation order.  For example, the algorithm
+can generate this expression:
+
+- `(((4 * square 4!) + 4) + 4)`
+
+In this case, the inner expression `4 * square 4!` is evaluated in
+this order: factorial (4!), function (square 24), and then
+multiplication (4 * square 24).
+
+I plan to resolve this precedence issue by adding addtional
+parenthesis thus the above expression would be differentiated by
+generating two expressions, eg:
+
+- `(((4 * (square 4)!) + 4) + 4)`
+- `(((4 * square (4!)) + 4) + 4)`
+
 
 
 ## Spoiler
