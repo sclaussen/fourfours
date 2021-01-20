@@ -30,7 +30,7 @@ This algorithm generates permutations of the four fours expressions
 and then evaluates the expressions.  If the evaluation of an
 expression results in a number between 0 and 1000 then a solution is
 found.  As a result of the permutation generator, billions of
-expressions are generated to be evaluated.
+expressions are generated and evaluated.
 
 The generation algorithm works like this:
 - Stage 1: Numberic permutations are generated
@@ -87,6 +87,7 @@ evaluation to help maintain some degree of evaluation performance:
 - No summation of a number over 500 (sum 500)
 - No square of a number over 500 (eg square 500)
 
+Note: Summations and factorials are only applied to integers.
 
 
 ### Precedence
