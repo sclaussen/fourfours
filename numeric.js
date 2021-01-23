@@ -3,29 +3,29 @@ process.env.DEBUG = process.env.DEBUG ? process.env.DEBUG : 'numeric';
 
 const d = require('debug')('numeric');
 const p = require('./util').p(d);
+const pc = require('./util').pc(d);
 const e = require('./util').e(d);
 const ex = require('./util').ex(d);
 
-const fmtc = require('./expression').fmtc;
-const outc = require('./util').outc;
-const pc = require('./util').pc;
+const constants = require('./constants');
+const fmt = require('./expression').fmt;
+const pfmt = require('./expression').pfmt;
+const pfmtc = require('./expression').pfmtc;
 
 
 // Tests
-// outc(generateNumericPermutations([ 4, 44 ]));
-// outc(generateNumericPermutations([ 4, 44, 444 ]));
-// outc(generateNumericPermutations([ 4, 44, 444, 4444, 4.4, .44, 44.4, 4.44, .444, 444.4, 44.44, 4.444, .4444 ]));
+// pc(numeric([ 4, 44 ]));
+// pc(numeric([ 4, 44, 444 ]));
+// pc(numeric([ 4, 44, 444, 4444, 4.4, .44, 44.4, 4.44, .444, 444.4, 44.44, 4.444, .4444 ]));
 
 
-function generateNumericPermutations(numbers) {
-    let newExpressions = generateNumericPermutationsRecursively(numbers, [], 0, 1);
-    console.log(newExpressions);
-
+function numeric(numbers) {
+    let newExpressions = numericRecursive(numbers, [], 0, 1);
     return newExpressions;
 }
 
 
-function generateNumericPermutationsRecursively(numbers, equation, currentFourCount, stack) {
+function numericRecursive(numbers, equation, currentFourCount, stack) {
     if (parseInt(currentFourCount) == 4) {
         return [ equation ];
     }
@@ -48,7 +48,7 @@ function generateNumericPermutationsRecursively(numbers, equation, currentFourCo
         // recursively continue on
         let equationCopy = [...equation];
         equationCopy.push(number);
-        let response = generateNumericPermutationsRecursively(numbers, equationCopy, totalFours, ++stack);
+        let response = numericRecursive(numbers, equationCopy, totalFours, ++stack);
 
         equations = equations.concat(response);
     }
@@ -57,4 +57,4 @@ function generateNumericPermutationsRecursively(numbers, equation, currentFourCo
 }
 
 
-module.exports.generateNumericPermutations = generateNumericPermutations;
+module.exports = numeric;

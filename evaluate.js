@@ -16,6 +16,10 @@ var sumCache = {};
 
 
 // Tests
+p(evaluate('sum 100'));
+// p(evaluate('((sqrt ((square (4 + 4!))) + 4!)) + 4))');
+// p(evaluate('(4 - 444)!'));
+// p(evaluate('((((sqrt 4)! * (sqrt 4)!)! * (sqrt 4)!)! * (sqrt 4!))!'));
 // p(evaluate('sqrt (sqrt (sum (sum 4! * sum 4!)! * sqrt 4!)! * sqrt 4!)!'));
 // p(evaluate('sqrt (sum (square (sqrt 4 * 4)! * 4!) * sqrt 4!)!'));
 // p(evaluate('sum 4'));
@@ -28,6 +32,8 @@ var sumCache = {};
 // p(evaluate('(1 + square 2 + sqrt 4 + sum 4)'));
 // p(evaluate('(1 + 4! * 2)'));
 // p(evaluate('(4 - 2 * 6)'));
+// ((square ((square (4! + 4!))) + 4!))) + 4!))))
+
 
 
 function evaluate(expression) {
@@ -45,16 +51,21 @@ function evaluate(expression) {
 
 
 function evaluateArray(expression) {
+    e('evaluateArray', fmt(expression));
     while (true) {
         expression = findAndEvaluateSubexpression(expression);
         if (expression.length === 1) {
             return expression[0];
+        }
+        if (expression.length === 3 && expression[0] === '(' && expression[2] === ')') {
+            return expression[1];
         }
     }
 }
 
 
 function findAndEvaluateSubexpression(expression) {
+
     // Corner case where all the sub-expressions have been evaluated
     // and there's a single value left in the expression array
     if (expression.length ===  1) {
@@ -108,6 +119,7 @@ function findAndEvaluateSubexpression(expression) {
     // (9) -> 9
     if (evaluatedSubexpression.length === 3 && evaluatedSubexpression[0] === '(' && evaluatedSubexpression[2] === ')') {
         evaluatedSubexpression = [ evaluatedSubexpression[1] ];
+        p('Removing parens: ' + evaluatedSubexpression);
     }
 
     // Substitue the subexpression with the evaluated subexpression:
@@ -115,15 +127,25 @@ function findAndEvaluateSubexpression(expression) {
     // - (2 + 3) -> 5
     // - 2 + 3 * 4 -> 2 + 12
     // - (2 + sqrt 3 * 4!) -> (2 + sqrt 3 * 24)
-    expression = resolveSubexpression(expression, evaluatedSubexpression, start, end)
+    while (true) {
+        expression = resolveSubexpression(expression, evaluatedSubexpression, start, end)
+        p('expression returned: ' + expression);
+        if (evaluatedSubexpression.length === 3 && evaluatedSubexpression[0] === '(' && evaluatedSubexpression[2] === ')') {
+            evaluatedSubexpression = [ evaluatedSubexpression[1] ];
+            p('Removing parens: ' + evaluatedSubexpression);
+            continue;
+        }
+        break;
+    }
+
     return expression;
 }
 
 
 function evaluateSubexpression(expression) {
-    e('evaluateSubexpression', expression);
+    e('evaluateSubexpression', fmt(expression));
 
-    // Search for a factorial oeprator, if found, evaluate, and return
+    // Search for a factorial operator, if found, evaluate, and return
     let previousNumber = 0;
     for (let i in expression) {
         let token = expression[i];
@@ -209,13 +231,14 @@ function evaluateSubexpression(expression) {
         }
     }
 
-    console.log('Error...', fmt(expression));
+    console.error('Error: Expecting an operator and found none during the inner evaluation of: ' + fmt(expression));
 
     process.exit(1);
 }
 
 
 function resolveSubexpression(expression, evaluatedSubexpression, start, end) {
+    e('resolveSubexpression', evaluatedSubexpression);
     let j = end;
     for (let i in evaluatedSubexpression) {
         let token = evaluatedSubexpression[i];
@@ -245,6 +268,9 @@ function evaluateInfix(n1, operator, n2) {
         if (n2 > constants.MAX_EXPONENT) {
             throw 'Exponent too large';
         }
+        if (n2 < (0 - constants.MAX_EXPONENT)) {
+            throw 'Exponent too small';
+        }
 
         return Math.pow(n1, n2);
     }
@@ -254,6 +280,10 @@ function evaluateInfix(n1, operator, n2) {
 function evaluateFactorial(n) {
     if (!Number.isInteger(n)) {
         throw 'Factorial only supported for integer values';
+    }
+
+    if (n < 1) {
+        throw 'Factorial only supported for positive integer values';
     }
 
     if (n > constants.MAX_FACTORIAL) {
@@ -271,7 +301,7 @@ function evaluateFactorialIteratively(n) {
 
     let answer = 1;
     for (let i = 2; i <= n; i++) {
-        answer = answer * i;
+        answer *= i;
     }
 
     factorialCache[n] = answer;
@@ -279,25 +309,27 @@ function evaluateFactorialIteratively(n) {
 }
 
 
-function evaluateFactorialRecursive(n) {
-    if (n === 0) {
-        return 1;
-    }
-
-    return n * evaluateFactorialRecursive(n - 1);
-}
-
-
-gfunction evaluateFunction(functionName, number) {
+function evaluateFunction(functionName, number) {
     switch (functionName) {
+
     case 'square':
         if (number > constants.MAX_SQUARE) {
-            throw 'Square number too large';
+            throw 'Base to be squared is too large';
+        }
+
+        if (number < (0 - constants.MAX_SQUARE)) {
+            throw 'Base to be squared is too small';
         }
 
         return number * number;
+
     case 'sqrt':
+        if (number < 0) {
+            throw 'Square root only supported for values >= 0';
+        }
+
         return Math.sqrt(number);
+
     case 'sum':
         if (!Number.isInteger(number)) {
             throw 'Summation only supported for integer values';
@@ -307,13 +339,23 @@ gfunction evaluateFunction(functionName, number) {
             throw 'Summation number too large';
         }
 
+        if (number < (0 - constants.MAX_SUM)) {
+            throw 'Summation number too small';
+        }
+
         if (sumCache[number]) {
             return sumCache[number];
         }
 
         let answer = 0;
-        for (let i = number; i > 0; i--) {
-            answer += i;
+        if (number < 0) {
+            for (let i = number; i < 0; i++) {
+                answer += i;
+            }
+        } else {
+            for (let i = number; i > 0; i--) {
+                answer += i;
+            }
         }
 
         sumCache[number] = answer;

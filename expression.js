@@ -75,14 +75,16 @@ function parse(expressionString) {
 
 function fmt(expression) {
     let expressionString = '';
-
+    let previous = '';
     for (let token of expression) {
 
         // Token a function name?
         if (constants.prefixOperators.includes(token)) {
+            previous = 'function';
             expressionString += token + ' ';
             continue;
         }
+        previous = '';
 
         // Token an infix operation?
         if (constants.infixOperators.includes(token)) {
@@ -90,7 +92,6 @@ function fmt(expression) {
             continue;
         }
 
-        // (, ), number, !
         expressionString += token;
     }
 
@@ -98,9 +99,14 @@ function fmt(expression) {
 }
 
 
-function fmtc(expressions) {
+function pfmt(expression) {
+    console.log(fmt(expression));
+}
+
+
+function pfmtc(expressions) {
     for (let expression of expressions) {
-        console.log(fmt(expression));
+        pfmt(expression);
     }
 }
 
@@ -125,4 +131,5 @@ function isDigit(ch) {
 
 module.exports.parse = parse;
 module.exports.fmt = fmt;
-module.exports.fmtc = fmtc;
+module.exports.pfmt = pfmt;
+module.exports.pfmtc = pfmtc;

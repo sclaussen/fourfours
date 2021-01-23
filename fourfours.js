@@ -19,6 +19,7 @@ const fmt = require('./expression').fmt;
 const fmtc = require('./expression').fmtc;
 
 const zeroPad = (num, places) => String(num).padStart(places, '0')
+const spacePad = (num, places) => String(num).padStart(places, ' ')
 
 var evaluationTotal = 0;
 var evaluationInRange = 0;
@@ -30,21 +31,28 @@ fourfours();
 
 function fourfours() {
 
-    let numericExpressions = numeric.generateNumericPermutations(constants.fourVariants)
+    // 4 4 4 4
+    let numericExpressions = numeric(constants.numericVariants)
     for (let numericExpression of numericExpressions) {
-        console.error(m() + 'Evaluating ' + numericExpression);
+        msg(numericExpression, false);
 
-        let infixExpressions = infix.generateInfixPermutations([ numericExpression ]);
+        // 4 * 4 + 4 - 4
+        let infixExpressions = infix([ numericExpression ]);
         for (let infixExpression of infixExpressions) {
-            console.error(m() + 'Evaluating ' + fmt(infixExpression) + ' permutations');
+            msg(infixExpression);
 
-            let parenExpressions = paren.generateParenPermutations([ infixExpression ]);
+            // (((4 + 4) + 4) + 4)
+            let parenExpressions = paren([ infixExpression ]);
             for (let parenExpression of parenExpressions) {
-                console.error(m() + 'Evaluating ' + fmt(parenExpression) + ' permutations (total ' + evaluationTotal.toLocaleString() + ' / in range ' + evaluationInRange.toLocaleString() + ')');
+                msg(parenExpression);
 
-                let prefixExpressions = prefix.generatePrefixPermutations([ parenExpression ]);
+                // (sum(sqrt(square(sum(4) + sqrt(4)) + sqaure(4)) + sum(4)))
+                let prefixExpressions = prefix([ parenExpression ]);
                 for (let prefixExpression of prefixExpressions) {
-                    let postfixExpressions = postfix.generatePostfixPermutations([ prefixExpression ]);
+                    msg(prefixExpression);
+
+                    // (sum(sum(sum(sum(4!)! + sum(4!)!)! + sum(4!)!)! + sum(4!)!)!)!
+                    let postfixExpressions = postfix([ prefixExpression ]);
                     evaluateExpressions(postfixExpressions);
                 }
             }
@@ -66,9 +74,11 @@ function evaluateExpressions(expressions) {
         } catch (e) {
             // Purposefully ignore
             // - Divide by zero
-            // - Summation of non-integer
-            // - Factorial of number > 10
-            // - Factorial of non-integer
+            // - Exponent too large
+            // - Summation of non-integer, too large, too small
+            // - Square root of negative
+            // - Factorial of non-integer, negative, too large
+            // - Base squared too small, too large
         }
 
         if (Number.isInteger(answer) && answer >= 0 && answer <= constants.MAX_GOAL) {
@@ -100,17 +110,18 @@ function evaluateExpressions(expressions) {
     // }
 
 
-    // let total = 0;
     for (let answer of Object.keys(answers)) {
         for (let expression of answers[answer]) {
             console.log(zeroPad(answer, 3) + ': ' + fmt(expression));
         }
     }
-
-    // console.log('Expressions (result of >= 0 and <= ' + constants.MAX_GOAL + '): ' + total);
 }
 
 
-function m() {
-    return moment().format('h:mm:ssa') + ' ';
+function msg(s, format) {
+    if (format === undefined) {
+        console.error(moment().format('h:mm:ssa') + '  ' + spacePad(evaluationTotal.toLocaleString(), 11) + '  ' + spacePad(evaluationInRange.toLocaleString(), 9) + '  Evaluating permutations of: ' + fmt(s));
+    } else {
+        console.error(moment().format('h:mm:ssa') + '  ' + spacePad(evaluationTotal.toLocaleString(), 11) + '  ' + spacePad(evaluationInRange.toLocaleString(), 9) + '  Evaluating permutations of: ' + s);
+    }
 }

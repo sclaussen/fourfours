@@ -8,26 +8,28 @@ const ex = require('./util').ex(d);
 
 const constants = require('./constants');
 const fmt = require('./expression').fmt;
-const fmtc = require('./expression').fmtc;
+const pfmt = require('./expression').pfmt;
+const pfmtc = require('./expression').pfmtc;
 
 
 // Tests
-// fmtc(generateInfixPermutations([ [ 4, 4, 4, 4 ] ]));
-// fmtc(generateInfixPermutations([ [4, 4, 4, 4], [ 4444 ] ]));
-// fmtc(generateInfixPermutations([ [4, 4, 4, 4], [4, 4, 44], [ 44, 44], [ 4444 ] ]));
+// pfmtc(infix([ [ 4, 4, 4, 4 ] ]));
+// pfmtc(infix([ [ 44, 44 ] ]));
+// pfmtc(infix([ [4, 4, 4, 4], [ 4444 ] ]));
+// pfmtc(infix([ [4, 4, 4, 4], [4, 4, 44], [ 44, 44], [ 4444 ] ]));
 
 
-function generateInfixPermutations(expressions) {
+function infix(expressions) {
     let newExpressions = [];
     for (let expression of expressions) {
-        let response = generateInfixPermutationsRecursively(expression, [], 1);
+        let response = infixRecursive(expression, [], 1);
         newExpressions = newExpressions.concat(response);
     }
     return newExpressions;
 }
 
 
-function generateInfixPermutationsRecursively(expression, newExpression, stack) {
+function infixRecursive(expression, newExpression, stack) {
     newExpression.push(expression[0]);
     expression.shift();
     if (expression.length === 0) {
@@ -37,14 +39,9 @@ function generateInfixPermutationsRecursively(expression, newExpression, stack) 
     let expressions = [];
     for (let operator of constants.infixOperators) {
 
-        if (operator === '!' && isFloat(expressionCopy[0])) {
-            continue;
-        }
-
-        let expressionCopy = [...expression];
         let newExpressionCopy = [...newExpression];
         newExpressionCopy.push(operator);
-        let response = generateInfixPermutationsRecursively(expressionCopy, newExpressionCopy, ++stack);
+        let response = infixRecursive([...expression], newExpressionCopy, ++stack);
 
         expressions = expressions.concat(response);
     }
@@ -53,9 +50,4 @@ function generateInfixPermutationsRecursively(expression, newExpression, stack) 
 }
 
 
-function isFloat(n) {
-    return n.toString().includes('.');
-}
-
-
-module.exports.generateInfixPermutations = generateInfixPermutations;
+module.exports = infix;

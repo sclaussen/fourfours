@@ -10,20 +10,28 @@ const ex = require('./util').ex(d);
 
 const constants = require('./constants');
 const fmt = require('./expression').fmt;
-const fmtc = require('./expression').fmtc;
+const pfmt = require('./expression').pfmt;
+const pfmtc = require('./expression').pfmtc;
+
 const parse = require('./expression').parse;
+const paren = require('./paren');
+const postfix = require('./postfix');
 
 
 // Tests
-// fmtc(generatePrefixPermutations([ parse('(((4*4)*4)*4)') ]));
-// fmtc(generatePrefixPermutations([ [ 4, '+', 4, '+', 4, '+', 4 ] ]));
-// fmtc(generatePrefixPermutations([ [ 4, '+', 4, '+', 4, '+', 4 ], [ 44, '*', 4, '/', 4] ]));
+// pfmtc(prefix('4'));
+// pfmtc(postfix(prefix('(4 + 4)')));
+// pfmtc(postfix(prefix(paren('4 + 4 + 4 + 4'))));
 
 
-function generatePrefixPermutations(expressions) {
+function prefix(expressions) {
+    if (typeof expressions === 'string') {
+        expressions = [ parse(expressions) ];
+    }
+
     let newExpressions = [];
     for (let expression of expressions) {
-        let response = generatePrefixPermutationsRecursively(expression, [], 1);
+        let response = prefixRecursive(expression, [], 1);
         newExpressions = newExpressions.concat(response);
     }
 
@@ -35,20 +43,28 @@ function generatePrefixPermutations(expressions) {
 }
 
 
-function generatePrefixPermutationsRecursively(expression, newExpression, stack) {
+function prefixRecursive(expression, newExpression, stack, comment) {
+    e('prefixRecursive', stack + ': [' + newExpression + '] [' + expression + '] ' + comment);
+
+
     if (expression.length === 0) {
+        ex('prefixRecursive (head)', stack + ': [' + newExpression + '] ' + comment);
         return [ newExpression ];
     }
 
 
-    // Iterate through the expression until we find a spot where the
-    // prefix operation can be applied.  Valid spots:
-    // - Before (
+    // Iterate through the expression, adding each token to the new
+    // expression, until we find a spot where the prefix operation can
+    // be applied.
+    //
+    // Valid spots:
     // - Before a Number
+    // - Before an open parenthesis (
     let tokenCount = 0;
     for (let token of expression) {
 
-        if (constants.infixOperators.includes(token) || constants.postfixOperators.includes(token)) {
+        // Add * / + - ^ to the new expression
+        if (constants.infixOperators.includes(token)) {
             tokenCount++;
             newExpression.push(token);
             continue;
@@ -60,47 +76,88 @@ function generatePrefixPermutationsRecursively(expression, newExpression, stack)
             continue;
         }
 
-        // Must be at either a number or open paren
-        break;
+        // For a ( or number break to insert the prefix operator(s)
+        if (token === '(' || typeof token === 'number') {
+            break;
+        }
+
+        console.error('ERROR: Encountered unknown token in the expression: ' + token);
+        process.exit(1);
     }
 
 
-
-    let expressionCopy = [...expression];
-    expressionCopy.splice(0, tokenCount);
-    if (expressionCopy.length === 0) {
+    // Remove all the tokens added to the newExpression from
+    // the original expression
+    expression.splice(0, tokenCount);
+    if (expression.length === 0) {
+        ex('prefixRecursive (mid)', stack + ': [' + newExpression + '] ' + comment);
         return [ newExpression ];
     }
 
 
+    let token = expression[0];
     let expressions = [];
+    p('token', token);
     for (let operator of constants.prefixOperators) {
 
-        if (operator === 'sum' && isFloat(expressionCopy[0])) {
-            continue;
+
+        // Do not generate an expression when the operator is sum and the number is a float
+        // Do not generate an expression when the operator is sqrt and the number is negative
+        if (typeof token === 'number') {
+            if (operator === 'sum' && !Number.isInteger(token)) {
+                continue;
+            }
+            if (operator === 'sqrt' && token < 0) {
+                continue;
+            }
         }
 
+        // Before the recursive call is made, this code does this:
+        // 54 -> (square 54) -- on set for numbers
+        // (4 + (44 + 4)) -> (square(4 + (44 + 4)))  -- one set for ()
+        let expressionLeftCopy = [...expression];
         let newExpressionLeftCopy = [...newExpression];
+        newExpressionLeftCopy.push('(');
         newExpressionLeftCopy.push(operator);
-        newExpressionLeftCopy.push(expressionCopy[0]);
-        let expressionLeftCopy = expressionCopy.slice(1);
-        let leftResponse = generatePrefixPermutationsRecursively(expressionLeftCopy, newExpressionLeftCopy, ++stack);
-        expressions = expressions.concat(leftResponse);
+        newExpressionLeftCopy.push(token);
+        if (typeof token === 'number') {
+            newExpressionLeftCopy.push(')');
+        } else {
+            let depth = 1;
+            for (let i = 1; i < expressionLeftCopy.length; i++) {
+                let token2 = expressionLeftCopy[i];
+                if (token2 === '(') {
+                    depth++;
+                    continue;
+                }
+                if (token2 === ')') {
+                    depth--;
+                    if (depth === 0) {
+                        expressionLeftCopy.splice(i, 0, ')');
+                        break;
+                    }
+                    continue;
+                }
+            }
+        }
 
-        let newExpressionRightCopy = [...newExpression];
-        newExpressionRightCopy.push(expressionCopy[0]);
-        let expressionRightCopy = expressionCopy.slice(1);
-        let rightResponse = generatePrefixPermutationsRecursively(expressionRightCopy, newExpressionRightCopy, ++stack);
-        expressions = expressions.concat(rightResponse);
+        expressionLeftCopy.shift();
+        let leftResponse = prefixRecursive(expressionLeftCopy, newExpressionLeftCopy, (stack + 1), 'left');
+        expressions = expressions.concat(leftResponse);
     }
+
+
+    // Invoke the next level of recursion WITHOUT adding the operator
+    // to permutate the generated expressions
+    let expressionRightCopy = [...expression];
+    let newExpressionRightCopy = [...newExpression];
+    newExpressionRightCopy.push(token);
+    expressionRightCopy.shift();
+    let rightResponse = prefixRecursive(expressionRightCopy, newExpressionRightCopy, (stack + 1), 'right');
+    expressions = expressions.concat(rightResponse);
 
     return expressions;
 }
 
 
-function isFloat(n) {
-    return n.toString().includes('.');
-}
-
-
-module.exports.generatePrefixPermutations = generatePrefixPermutations;
+module.exports = prefix;

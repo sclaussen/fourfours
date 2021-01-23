@@ -1,11 +1,5 @@
-1000-sv.md
-1000.md
-count.md
-count100.md
-out.md
-out2.md
-solution100.md
-solution1000.md
+1000.txt
+output1/
 *.sh
 *.csv
 *.dat

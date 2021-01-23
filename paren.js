@@ -9,20 +9,28 @@ const ex = require('./util').ex(d);
 
 const constants = require('./constants');
 const fmt = require('./expression').fmt;
-const fmtc = require('./expression').fmtc;
+const pfmt = require('./expression').pfmt;
+const pfmtc = require('./expression').pfmtc;
+
+const parse = require('./expression').parse;
 
 
 // Tests
-// fmtc(generateParenPermutations([ [ 4, '+', 4, '+', 4, '+', 4 ] ]));
-// fmtc(generateParenPermutations([ [ 4, '+', 4, '+', 4, '+', 4 ], [ 44, '+', 44, '*', 4.4 ], [ 44, '+', 44 ], [ 4444 ] ]));
+// pfmtc(paren('4+4+4+4'));
+// pfmtc(paren([ parse('4+4+4+4'), parse('44+4+4'), parse('4444') ]));
 
-function generateParenPermutations(expressions) {
+
+function paren(expressions) {
     let orders = [
         generateOrderPermutationsRecursively([], [], 1),
         generateOrderPermutationsRecursively([ 1 ], [], 1),
         generateOrderPermutationsRecursively([ 1, 2 ], [], 1),
         generateOrderPermutationsRecursively([ 1, 2, 3 ], [], 1),
     ];
+
+    if (typeof expressions === 'string') {
+        expressions = [ parse(expressions) ];
+    }
 
     let newExpressions = [];
     for (let expression of expressions) {
@@ -37,17 +45,6 @@ function generateParenPermutations(expressions) {
     let newExpressionsUnique = Array.from(newExpressionsSet).map(JSON.parse);
 
     return newExpressionsUnique;
-}
-
-
-function getOperatorCount(expression) {
-    let operatorCount = 0;
-    for (let token of expression) {
-        if (constants.infixOperators.includes(token)) {
-            operatorCount++;
-        }
-    }
-    return operatorCount;
 }
 
 
@@ -105,13 +102,13 @@ function generateParenPermutation(expression, order) {
             }
 
             // Depth of zero, left of number, (, or at beginning, insert open paren prior
-            if (depth === 0 && (typeof expression[j] === "number" || expression[j] === '(' || j === 0)) {
+            if (depth === 0 && (typeof expression[j] === 'number' || expression[j] === '(' || j === 0)) {
                 expression.splice(j, 0, '(');
                 break;
             }
         }
 
-        // Walk forward from operator to infmtt close paren
+        // Walk forward from operator to insert close paren
         depth = 0;
         parenAdded = false;
         for (let j = operatorIndex + 1; j < expression.length; j++) {
@@ -135,4 +132,15 @@ function generateParenPermutation(expression, order) {
 }
 
 
-module.exports.generateParenPermutations = generateParenPermutations;
+function getOperatorCount(expression) {
+    let operatorCount = 0;
+    for (let token of expression) {
+        if (constants.infixOperators.includes(token)) {
+            operatorCount++;
+        }
+    }
+    return operatorCount;
+}
+
+
+module.exports = paren;

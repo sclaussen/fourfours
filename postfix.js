@@ -10,18 +10,26 @@ const ex = require('./util').ex(d);
 
 const constants = require('./constants');
 const fmt = require('./expression').fmt;
-const fmtc = require('./expression').fmtc;
+const pfmt = require('./expression').pfmt;
+const pfmtc = require('./expression').pfmtc;
+
+const paren = require('./paren');
+const parse = require('./expression').parse;
 
 
 // Tests
-fmtc(generatePostfixPermutations([ [ 4, '+', 4, '+', 4, '+', 4 ] ]));
-// fmtc(generatePostfixPermutations([ [ 4, '+', 4, '+', 4, '+', 4 ], [ 44, '*', 4, '/', 4] ]));
+// pfmtc(postfix(paren('4+4+4')));
+// pfmtc(postfix(paren('4+4+4+4')));
 
 
-function generatePostfixPermutations(expressions) {
+function postfix(expressions) {
+    if (typeof expressions === 'string') {
+        expressions = [ parse(expressions) ];
+    }
+
     let newExpressions = [];
     for (let expression of expressions) {
-        let response = generatePostfixPermutationsRecursively(expression, [], 1);
+        let response = postfixRecursive(expression, [], 1);
         newExpressions = newExpressions.concat(response);
     }
 
@@ -32,7 +40,7 @@ function generatePostfixPermutations(expressions) {
 }
 
 
-function generatePostfixPermutationsRecursively(expression, newExpression, stack) {
+function postfixRecursive(expression, newExpression, stack, comment) {
     if (expression.length === 0) {
         return [ newExpression ];
     }
@@ -57,38 +65,59 @@ function generatePostfixPermutationsRecursively(expression, newExpression, stack
             continue;
         }
 
-        // Must be at either a number or closed paren
-        break;
+        // For a ( or number break to insert the postfix operator(s)
+        if (token === ')' || typeof token === 'number') {
+            break;
+        }
+
+        console.error('ERROR: Encountered unknown token in the expression: ' + token);
+        process.exit(1);
     }
 
 
 
-    let expressionCopy = [...expression];
-    expressionCopy.splice(0, tokenCount);
+    // Remove all the tokens added to the newExpression from
+    // the original expression
+    expression.splice(0, tokenCount);
     if (expression.length === 0) {
+        ex('postfixRecursive (mid)', stack + ': [' + newExpression + '] ' + comment);
         return [ newExpression ];
     }
 
 
+    let token = expression[0];
     let expressions = [];
     for (let operator of constants.postfixOperators) {
 
-        let newExpressionLeftCopy = [...newExpression];
-        newExpressionLeftCopy.push(expressionCopy[0]);
-        newExpressionLeftCopy.push(operator);
-        let expressionLeftCopy = expressionCopy.slice(1);
-        let leftResponse = generatePostfixPermutationsRecursively(expressionLeftCopy, newExpressionLeftCopy, ++stack);
-        expressions = expressions.concat(leftResponse);
 
-        let newExpressionRightCopy = [...newExpression];
-        newExpressionRightCopy.push(expressionCopy[0]);
-        let expressionRightCopy = expressionCopy.slice(1);
-        let rightResponse = generatePostfixPermutationsRecursively(expressionRightCopy, newExpressionRightCopy, ++stack);
-        expressions = expressions.concat(rightResponse);
+        // Do not generate an expression for factorial of a float
+        if (typeof token === 'number') {
+            if (!Number.isInteger(token)) {
+                continue;
+            }
+        }
+
+        let expressionLeftCopy = [...expression];
+        let newExpressionLeftCopy = [...newExpression];
+        newExpressionLeftCopy.push(token);
+        newExpressionLeftCopy.push(operator);
+        expressionLeftCopy.shift();
+        let leftResponse = postfixRecursive(expressionLeftCopy, newExpressionLeftCopy, (stack + 1), 'left');
+        expressions = expressions.concat(leftResponse);
     }
+
+
+    // Invoke the next level of recursion WITHOUT adding the operator
+    // to permutate the generated expressions
+    let expressionRightCopy = [...expression];
+    let newExpressionRightCopy = [...newExpression];
+    newExpressionRightCopy.push(token);
+    expressionRightCopy.shift();
+    let rightResponse = postfixRecursive(expressionRightCopy, newExpressionRightCopy, (stack + 1), 'right');
+    expressions = expressions.concat(rightResponse);
 
     return expressions;
 }
 
 
-module.exports.generatePostfixPermutations = generatePostfixPermutations;
+module.exports = postfix;
