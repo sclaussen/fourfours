@@ -7,6 +7,9 @@ const p = require('./util').p(d);
 const e = require('./util').e(d);
 const ex = require('./util').ex(d);
 
+const o = require('./util').o;
+const oc = require('./util').oc;
+
 const xc = require('./util').xc;
 const x = require('./util').x;
 const xs = require('./util').xs;
@@ -19,7 +22,7 @@ var rules;
 
 
 // Tests
-// xc(infix([ [ 4, 4, 4, 4 ] ], ruleSet.simple));
+// xc(infix(simple)([ [ 4, 4, 4, 4 ] ]))
 // xc(infix([ [ 4, 4, 4, 4 ] ], ruleSet.advanced));
 
 

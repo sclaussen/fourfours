@@ -13,18 +13,26 @@ const x = require('./util').x;
 const xs = require('./util').xs;
 
 const simple = require('./rules').simple;
-const adv = require('./rules').advanced;
+const advanced = require('./rules').advanced;
+const advancedT = require('./rules').advancedT;
+const factorial = require('./rules').factorial;
+const factorialT = require('./rules').factorialT;
+const functionsT = require('./rules').functionsT;
 
 const parse = require('./expression').parse;
 
 const paren = require('./paren');
+const prefix = require('./prefix');
 
 
 var rules;
 
 
 // Tests
-// xc(postfix(adv)(paren(adv)('4+4+4')));
+// for (let exp of prefix(advancedT)('(((4 * 4) / 4) + 4)')) {
+//     console.error(xs(exp));
+//     xc(postfix(advancedT)([ exp ]));
+// }
 
 function postfix(r) {
     rules = r;

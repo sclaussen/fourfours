@@ -39,11 +39,11 @@ expression results in an integer between 0 and 1000 inclusively then a
 solution is found (all other solutions are ignored).
 
 The generation algorithm works like this:
-- Stage 1: Numeric permutations are generated (eg 4 4 4 4)
-- Stage 2: Infix operation permutations are generated (eg 4 + 4 + 4 + 4)
-- Stage 3: Parenthesis permutations are generated (eg (((4 + 4) + 4) + 4))
-- Stage 4: Prefix operation permutations are generated (eg sqrt(4) + sqrt(4) + sqrt(4) + sqrt(4))
-- Stage 5: Postfix operation permutations are generated (eg sqrt(4!) + sqrt(4)! + sqrt(4) + sqrt(4!))
+- Stage 1: Numeric permutations are generated (eg 4 4 4 4)  ([Number permutations](./examples/numeric.md)).
+- Stage 2: Infix operation permutations are generated (eg 4 + 4 + 4 + 4)  ([Infix operator permutations](./examples/infix.md) for *, /, +, -, and ^ for four fours: `4 4 4 4`).
+- Stage 3: Parenthesis permutations are generated (eg (((4 + 4) + 4) + 4))  ([Paren permutations](./examples/paren.md) for the expression `4 * 4 / 4 + 4`).
+- Stage 4: Prefix operation permutations are generated (eg sqrt(4) + sqrt(4) + sqrt(4) + sqrt(4))  ([256 Function permutations](./examples/prefix.md) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F).  ([16,384 Function permutations](./examples/prefixT.md) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T).
+- Stage 5: Postfix operation permutations are generated (eg sqrt(4!) + sqrt(4)! + sqrt(4) + sqrt(4!))  ([Factorial permutations](./examples/postfix.md) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F).  ([Factorial permutations](./examples/postfixT.md) for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T).
 - Stage 6: Expression evaluation
 
 
@@ -52,6 +52,8 @@ The generation algorithm works like this:
 
 Given the wikipedia article, here are the capabilities the algorithm
 supports to generate expressions.
+
+
 
 ### Numbers
 
@@ -69,11 +71,15 @@ supports to generate expressions.
   - Valid numbers (complete set): `4`, `.4`, `44`, `.44`, `4.4`, `444`, `.444`, `4.44`, `44.4`, `4444`, `.4444`, `4.444`, `44.44`, `444.4`
   - Invalid numbers: `40`, `.04`, `.004`, `4.04`
 
+
+
 ### Parenthesis
 
 - Parenthesis are applied to the combination of the number and the
   infix operators to force evaluation precedence.
   - Valid expressions: `(((4 + 4) + 4) + 4)`, `((44 + 4) * 4)`, `(44 + (4 * 4))`
+
+
 
 ### Operators
 
@@ -89,6 +95,8 @@ supports to generate expressions.
   the number) or the result of an evaluation (directly after any
   parenthesis).
   - Valid expressions: `((4! + 4)! + 4)! + 4)`,  `44! / 44!`,  `(44! / 44)!`,  `(4 ^ 4 ^ 4 ^ 4)!`
+
+
 
 ### Valid expressions and limits
 
@@ -110,6 +118,8 @@ operations to speed up execution:
 Note: Summations are only applied to integers.
 Note: Factorials are only applied to positive integers.
 Note: Square roots are only applied to zero and positive numbers.
+
+
 
 ### Rule Sets
 

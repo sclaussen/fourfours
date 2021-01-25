@@ -7,6 +7,9 @@ const p = require('./util').p(d);
 const e = require('./util').e(d);
 const ex = require('./util').ex(d);
 
+const o = require('./util').o;
+const oc = require('./util').oc;
+
 const xc = require('./util').xc;
 const x = require('./util').x;
 const xs = require('./util').xs;
@@ -19,16 +22,14 @@ var rules;
 
 
 // Tests
-// pc(numeric(ruleSet.simple));
-// pc(numeric(ruleSet.advanced));
+// oc(numeric(adv)());
 
 
 function numeric(r) {
     rules = r;
 
     return function() {
-        let newExpressions = numericRecursive(rules.numbers, [], 0, 1);
-        return newExpressions;
+        return numericRecursive(rules.numbers, [], 0, 1);
     }
 }
 

@@ -12,8 +12,9 @@ const x = require('./util').x;
 const xs = require('./util').xs;
 
 const simple = require('./rules').simple;
-const adv = require('./rules').advanced;
-const max = require('./rules').maximum;
+const functions = require('./rules').functions;
+const functionsT = require('./rules').functionsT;
+const advanced = require('./rules').advanced;
 
 const parse = require('./expression').parse;
 
@@ -25,6 +26,7 @@ var rules;
 
 
 // Tests
+// xc(prefix(functions)('(((4 * 4) / 4) + 4)'));
 // xc(postfix(adv)(prefix(adv)(paren(adv)('4 + 4 + 4 + 4'))));
 // for (let exp of prefix(max)(paren(max)('4 + 4 + 4 + 4'))) {
 //     // console.error(xs(exp));

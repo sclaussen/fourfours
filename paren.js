@@ -21,7 +21,7 @@ var rules;
 
 
 // Tests
-// xc(paren(simple)('4+4+4+4'));
+// xc(paren(simple)('4*4/4+4'));
 // xc(paren([ parse('4+4+4+4'), parse('44+4+4'), parse('4444') ]));
 
 

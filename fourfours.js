@@ -51,39 +51,38 @@ function fourfours(args) {
     // 4 4 4 4
     let numericExpressions = numeric();
     for (let numericExpression of numericExpressions) {
-        // msg(numericExpression, false);
+        msg(numericExpression, false);
 
 
-        // 4 * 4 + 4 - 4
-        let infixExpressions = infix([ numericExpression ]);
-        for (let infixExpression of infixExpressions) {
-            // 3031
-            msg(infixExpression);
+        // // 4 * 4 + 4 - 4
+        // let infixExpressions = infix([ numericExpression ]);
+        // for (let infixExpression of infixExpressions) {
+        //     // msg(infixExpression);
 
 
-            // (((4 + 4) + 4) + 4)
-            let parenExpressions = paren([ infixExpression ]);
-            for (let parenExpression of parenExpressions) {
-                // msg(parenExpression);
+        //     // (((4 + 4) + 4) + 4)
+        //     let parenExpressions = paren([ infixExpression ]);
+        //     for (let parenExpression of parenExpressions) {
+        //         // msg(parenExpression);
 
 
-                // (sum(sqrt(square(sum(4) + sqrt(4)) + sqaure(4)) + sum(4)))
-                let prefixExpressions = prefix([ parenExpression ]);
-                for (let prefixExpression of prefixExpressions) {
-                    // msg(prefixExpression);
+        //         // (sum(sqrt(square(sum(4) + sqrt(4)) + sqaure(4)) + sum(4)))
+        //         let prefixExpressions = prefix([ parenExpression ]);
+        //         for (let prefixExpression of prefixExpressions) {
+        //             // msg(prefixExpression);
 
 
-                    // (sum(sum(sum(sum(4!)! + sum(4!)!)! + sum(4!)!)! + sum(4!)!)!)!
-                    let postfixExpressions = postfix([ prefixExpression ]);
-                    evaluateExpressions(postfixExpressions, rules);
-                }
-            }
-        }
+        //             // // (sum(sum(sum(sum(4!)! + sum(4!)!)! + sum(4!)!)! + sum(4!)!)!)!
+        //             // let postfixExpressions = postfix([ prefixExpression ]);
+        //             // evaluateExpressions(postfixExpressions, rules);
+        //         }
+        //     }
+        // }
     }
 
-    msg('Finished!');
-    let file = 'data/Summary.txt';
-    fs.writeFileSync(file, rules.name + ': Permutations: ' + spacePad(evaluationTotal.toLocaleString(), 11) + '  Solutions: ' + spacePad(evaluationInRange.toLocaleString(), 9) + '\n', { flag: 'a+' });
+    // msg('Finished!');
+    // let file = 'data/Summary.txt';
+    // fs.writeFileSync(file, rules.name + ': Permutations: ' + spacePad(evaluationTotal.toLocaleString(), 11) + '  Solutions: ' + spacePad(evaluationInRange.toLocaleString(), 9) + '\n', { flag: 'a+' });
 }
 
 
