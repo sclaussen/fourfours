@@ -93,10 +93,7 @@ expressions.
 - The operators +, -, *, /, and ^ (power) can be used.
   - Valid expressions: `4 + 4 * 4 / 4`,  `44 - 44`,  `4 * 4 ^ 4 * 4`
 
-- The functions square, square root, and summation (eg sum(4) is 4 + 3
-  + 2 + 1) can be applied to any number (eg square(4)) or the result
-  of an evaluation (directly prior to a parenthesis) (eg square(4 +
-  4)).
+- The functions square, square root, and summation (eg sum(4) is 4 + 3 + 2 + 1) can be applied to any number (eg square(4)) or the result of an evaluation (directly prior to a parenthesis) (eg square(4 + 4)).
   - Valid expressions: `square(4) + square(4) * square(4) / square(4)`,  `square(44 - 44)`,  `square(4) * square(4) ^ square(4 * 4)`
 
 - The factorial operator can be applied to any number (directly after
