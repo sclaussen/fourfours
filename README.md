@@ -57,8 +57,8 @@ The [generation algorithm](./fourfours.js) works like this:
 
 ## Expression Variability
 
-Given the wikipedia article, here are the capabilities the algorithm
-supports to generate expressions.
+Here are the capabilities the algorithm supports to generate
+expressions.
 
 
 
