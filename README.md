@@ -154,14 +154,32 @@ advanced  ~300,000,000,000      Unknown  4 44 444 4444 4.4 4.44 44.4 4.444 44.44
 
 # Results
 
-Here are some of the output files for each rule set.
+Here are some of the output files for each rule set.  Here's what each
+link means:
+- `Solutions: 10 shortest + 10 longest`: The 10 shortest and the 10
+  longest solutions for each number between 0 and 1000.  Note that if
+  the number of solutions is <= 20 the combination of the 10 shortest
+  and 10 longest will contain duplicates.
+
+- `Solution count`: For each number 0 to 1000, the total number of
+  solutions found.
+
+- `Solution count sorted`: The count of solutions found from 0 to 1000
+  but sorted and the numbers for which solutions were not found have
+  been removed.
+
+- `Solutions`: The raw data of 1001 files, one per each possible
+  solution 0 to 1000, each containing all the solutions found for that
+  number.
+
+
 
 ## simple
 
 - [Solutions: 10 shortest + 10 longest](./data/simple-solutions-10.txt)
 - [Solution count](./data/simple-count.txt)
 - [Solution count sorted](./data/simple-count-sorted.txt)
-- [Solutions](./data/simple/)
+- [Solutions](./data/simple2/)
 
 
 ## power
@@ -169,7 +187,7 @@ Here are some of the output files for each rule set.
 - [Solutions: 10 shortest + 10 longest](./data/power-solutions-10.txt)
 - [Solution count](./data/power-count.txt)
 - [Solution count sorted](./data/power-count-sorted.txt)
-- [Solutions](./data/power/)
+- [Solutions](./data/power2/)
 
 
 ## concat
@@ -177,7 +195,7 @@ Here are some of the output files for each rule set.
 - [Solutions: 10 shortest + 10 longest](./data/concat-solutions-10.txt)
 - [Solution count](./data/concat-count.txt)
 - [Solution count sorted](./data/concat-count-sorted.txt)
-- [Solutions](./data/concat/)
+- [Solutions](./data/concat2/)
 
 
 ## decimal
@@ -185,7 +203,7 @@ Here are some of the output files for each rule set.
 - [Solutions: 10 shortest + 10 longest](./data/decimal-solutions-10.txt)
 - [Solution count](./data/decimal-count.txt)
 - [Solution count sorted](./data/decimal-count-sorted.txt)
-- [Solutions](./data/decimal/)
+- [Solutions](./data/decimal2/)
 
 
 ## factorial
@@ -193,7 +211,7 @@ Here are some of the output files for each rule set.
 - [Solutions: 10 shortest + 10 longest](./data/factorial-solutions-10.txt)
 - [Solution count](./data/factorial-count.txt)
 - [Solution count sorted](./data/factorial-count-sorted.txt)
-- [Solutions](./data/factorial/)
+- [Solutions](./data/factorial2/)
 
 
 ## functions
@@ -201,4 +219,4 @@ Here are some of the output files for each rule set.
 - [Solutions: 10 shortest + 10 longest](./data/functions-solutions-10.txt)
 - [Solution count](./data/functions-count.txt)
 - [Solution count sorted](./data/functions-count-sorted.txt)
-- [Solutions](./data/functions/)
+- [Solutions](./data/functions2/)
