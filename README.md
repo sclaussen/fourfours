@@ -218,7 +218,7 @@ link means:
 
 ## simple
 
-Rule set summary: **4 * / + -**
+Summary: 4 * / + -
 - [Solutions: 10 shortest + 10 longest](./data/simple-solutions-10.txt)
 - [Solution count](./data/simple-count.txt)
 - [Solution count sorted](./data/simple-count-sorted.txt)
@@ -227,7 +227,7 @@ Rule set summary: **4 * / + -**
 
 ## power
 
-Rule set summary: **4 * / + - ^**
+Summary: 4 * / + - ^
 - [Solutions: 10 shortest + 10 longest](./data/power-solutions-10.txt)
 - [Solution count](./data/power-count.txt)
 - [Solution count sorted](./data/power-count-sorted.txt)
@@ -236,7 +236,7 @@ Rule set summary: **4 * / + - ^**
 
 ## concat
 
-Rule set summary: **4 44 444 4444 * / + - ^**
+Summary: 4 44 444 4444 * / + - ^
 - [Solutions: 10 shortest + 10 longest](./data/concat-solutions-10.txt)
 - [Solution count](./data/concat-count.txt)
 - [Solution count sorted](./data/concat-count-sorted.txt)
@@ -245,7 +245,7 @@ Rule set summary: **4 44 444 4444 * / + - ^**
 
 ## decimal
 
-Rule set summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^**
+Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
 - [Solutions: 10 shortest + 10 longest](./data/decimal-solutions-10.txt)
 - [Solution count](./data/decimal-count.txt)
 - [Solution count sorted](./data/decimal-count-sorted.txt)
@@ -254,7 +254,7 @@ Rule set summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^**
 
 ## factorial
 
-Rule set summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !**
+Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
 - [Solutions: 10 shortest + 10 longest](./data/factorial-solutions-10.txt)
 - [Solution count](./data/factorial-count.txt)
 - [Solution count sorted](./data/factorial-count-sorted.txt)
@@ -263,7 +263,7 @@ Rule set summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !**
 
 ## functions
 
-Rule set summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square**
+Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
 - [Solutions: 10 shortest + 10 longest](./data/functions-solutions-10.txt)
 - [Solution count](./data/functions-count.txt)
 - [Solution count sorted](./data/functions-count-sorted.txt)
@@ -272,7 +272,7 @@ Rule set summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum 
 
 ## grande
 
-Rule set summary: **4 * / + - ^ ! sum sqrt square**
+Summary: 4 * / + - ^ ! sum sqrt square
 - [Solutions: 10 shortest + 10 longest](./data/grande-solutions-10.txt)
 - [Solution count](./data/grande-count.txt)
 - [Solution count sorted](./data/grande-count-sorted.txt)
@@ -281,7 +281,7 @@ Rule set summary: **4 * / + - ^ ! sum sqrt square**
 
 ## factorialT
 
-Rule set summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluation=T)**
+Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluation=T)
 - [Solutions: 10 shortest + 10 longest](./data/factorialT-solutions-10.txt)
 - [Solution count](./data/factorialT-count.txt)
 - [Solution count sorted](./data/factorialT-count-sorted.txt)
@@ -290,7 +290,7 @@ Rule set summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (a
 
 ## functionsT
 
-Rule set summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluation=T)**
+Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluation=T)
 - [Solutions: 10 shortest + 10 longest](./data/functionsT-solutions-10.txt)
 - [Solution count](./data/functionsT-count.txt)
 - [Solution count sorted](./data/functionsT-count-sorted.txt)
