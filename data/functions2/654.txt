@@ -1,0 +1,8 @@
+654: ((sqrt(4) * sum(sum(4) / 0.4)) + 4)
+654: ((sum(sum(4) / 0.4) * sqrt(4)) + 4)
+654: (4 + (sqrt(4) * sum(sum(4) / 0.4)))
+654: (4 + (sum(sum(4) / 0.4) * sqrt(4)))
+654: ((sqrt(4) + sum(sum(4) / 0.4)) * sqrt(4))
+654: ((sum(sum(4) / 0.4) + sqrt(4)) * sqrt(4))
+654: (sqrt(4) * (sqrt(4) + sum(sum(4) / 0.4)))
+654: (sqrt(4) * (sum(sum(4) / 0.4) + sqrt(4)))

@@ -1,0 +1,4 @@
+622: (square(sum(4) / 0.4) + sum(sqrt(4) - 4))
+622: (square(sum(4) / 0.4) - sum(4 - sqrt(4)))
+622: (square(sum(4) / 0.4) - sum(4 / sqrt(4)))
+622: (sum(sqrt(4) - 4) + square(sum(4) / 0.4))

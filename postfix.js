@@ -3,44 +3,74 @@ process.env.DEBUG = process.env.DEBUG ? process.env.DEBUG : 'postfix';
 
 
 const d = require('debug')('postfix');
-const p = require('./util').p(d);
 const pc = require('./util').pc(d);
+const p = require('./util').p(d);
 const e = require('./util').e(d);
 const ex = require('./util').ex(d);
 
-const constants = require('./constants');
-const fmt = require('./expression').fmt;
-const pfmt = require('./expression').pfmt;
-const pfmtc = require('./expression').pfmtc;
+const xc = require('./util').xc;
+const x = require('./util').x;
+const xs = require('./util').xs;
+
+const simple = require('./rules').simple;
+const adv = require('./rules').advanced;
+
+const parse = require('./expression').parse;
 
 const paren = require('./paren');
-const parse = require('./expression').parse;
+
+
+var rules;
 
 
 // Tests
-// pfmtc(postfix(paren('4+4+4')));
-// pfmtc(postfix(paren('4+4+4+4')));
+// xc(postfix(adv)(paren(adv)('4+4+4')));
+
+function postfix(r) {
+    rules = r;
+
+    return function(expressions) {
+        // If there are no postfix operators in the rule set simply
+        // return the expressions
+        if (!rules.postfixOperators) {
+            return expressions;
+        }
+
+        // If there are no expressions or the array length is 0,
+        // return the expressions
+        if (!expressions || (typeof expressions === 'object' && expressions.length === 0)) {
+            return expressions;
+        }
+
+        // To enable easy testing, support a string of a single
+        // expressions (aka '4 + 4'), and in that case, parse it into
+        // the expression array that the algorithm requires
+        if (typeof expressions === 'string') {
+            expressions = [ parse(expressions) ];
+        }
 
 
-function postfix(expressions) {
-    if (typeof expressions === 'string') {
-        expressions = [ parse(expressions) ];
+        // Logic
+        let newExpressions = [];
+        for (let expression of expressions) {
+            let response = postfixRecursive(expression, [], 1, 'start');
+            newExpressions = newExpressions.concat(response);
+        }
+
+
+        // Remove duplicate expressions
+        let newExpressionsSet = new Set(newExpressions.map(JSON.stringify));
+        let newExpressionsUnique = Array.from(newExpressionsSet).map(JSON.parse);
+
+
+        return newExpressionsUnique;
     }
-
-    let newExpressions = [];
-    for (let expression of expressions) {
-        let response = postfixRecursive(expression, [], 1);
-        newExpressions = newExpressions.concat(response);
-    }
-
-    let newExpressionsSet = new Set(newExpressions.map(JSON.stringify));
-    let newExpressionsUnique = Array.from(newExpressionsSet).map(JSON.parse);
-
-    return newExpressionsUnique;
 }
 
 
 function postfixRecursive(expression, newExpression, stack, comment) {
+    e('postfixRecursive', stack + ': [' + newExpression + '] [' + expression + '] ' + comment);
+
     if (expression.length === 0) {
         return [ newExpression ];
     }
@@ -53,7 +83,7 @@ function postfixRecursive(expression, newExpression, stack, comment) {
     let tokenCount = 0;
     for (let token of expression) {
 
-        if (constants.infixOperators.includes(token) || constants.prefixOperators.includes(token)) {
+        if (rules.infixOperators.includes(token) || (rules.prefixOperators && rules.prefixOperators.includes(token))) {
             tokenCount++;
             newExpression.push(token);
             continue;
@@ -65,8 +95,16 @@ function postfixRecursive(expression, newExpression, stack, comment) {
             continue;
         }
 
-        // For a ( or number break to insert the postfix operator(s)
-        if (token === ')' || typeof token === 'number') {
+        if (token === ')') {
+            // if (rules.parenPermutation) {
+                break;
+            // }
+            // tokenCount++;
+            // newExpression.push(token);
+            // continue;
+        }
+
+        if (typeof token === 'number') {
             break;
         }
 
@@ -87,7 +125,7 @@ function postfixRecursive(expression, newExpression, stack, comment) {
 
     let token = expression[0];
     let expressions = [];
-    for (let operator of constants.postfixOperators) {
+    for (let operator of rules.postfixOperators) {
 
 
         // Do not generate an expression for factorial of a float

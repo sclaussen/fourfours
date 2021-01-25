@@ -2,30 +2,38 @@
 process.env.DEBUG = process.env.DEBUG ? process.env.DEBUG : 'infix';
 
 const d = require('debug')('infix');
+const pc = require('./util').pc(d);
 const p = require('./util').p(d);
 const e = require('./util').e(d);
 const ex = require('./util').ex(d);
 
-const constants = require('./constants');
-const fmt = require('./expression').fmt;
-const pfmt = require('./expression').pfmt;
-const pfmtc = require('./expression').pfmtc;
+const xc = require('./util').xc;
+const x = require('./util').x;
+const xs = require('./util').xs;
+
+const simple = require('./rules').simple;
+const adv = require('./rules').advanced;
+
+
+var rules;
 
 
 // Tests
-// pfmtc(infix([ [ 4, 4, 4, 4 ] ]));
-// pfmtc(infix([ [ 44, 44 ] ]));
-// pfmtc(infix([ [4, 4, 4, 4], [ 4444 ] ]));
-// pfmtc(infix([ [4, 4, 4, 4], [4, 4, 44], [ 44, 44], [ 4444 ] ]));
+// xc(infix([ [ 4, 4, 4, 4 ] ], ruleSet.simple));
+// xc(infix([ [ 4, 4, 4, 4 ] ], ruleSet.advanced));
 
 
-function infix(expressions) {
-    let newExpressions = [];
-    for (let expression of expressions) {
-        let response = infixRecursive(expression, [], 1);
-        newExpressions = newExpressions.concat(response);
+function infix(r) {
+    rules = r;
+
+    return function(expressions) {
+        let newExpressions = [];
+        for (let expression of expressions) {
+            let response = infixRecursive(expression, [], 1);
+            newExpressions = newExpressions.concat(response);
+        }
+        return newExpressions;
     }
-    return newExpressions;
 }
 
 
@@ -37,11 +45,11 @@ function infixRecursive(expression, newExpression, stack) {
     }
 
     let expressions = [];
-    for (let operator of constants.infixOperators) {
+    for (let operator of rules.infixOperators) {
 
         let newExpressionCopy = [...newExpression];
         newExpressionCopy.push(operator);
-        let response = infixRecursive([...expression], newExpressionCopy, ++stack);
+        let response = infixRecursive([...expression], newExpressionCopy, (stack + 1));
 
         expressions = expressions.concat(response);
     }

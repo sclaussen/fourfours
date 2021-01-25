@@ -1,45 +1,88 @@
 'use strict';
 process.env.DEBUG = process.env.DEBUG ? process.env.DEBUG : 'prefix';
 
-
 const d = require('debug')('prefix');
-const p = require('./util').p(d);
 const pc = require('./util').pc(d);
+const p = require('./util').p(d);
 const e = require('./util').e(d);
 const ex = require('./util').ex(d);
 
-const constants = require('./constants');
-const fmt = require('./expression').fmt;
-const pfmt = require('./expression').pfmt;
-const pfmtc = require('./expression').pfmtc;
+const xc = require('./util').xc;
+const x = require('./util').x;
+const xs = require('./util').xs;
+
+const simple = require('./rules').simple;
+const adv = require('./rules').advanced;
+const max = require('./rules').maximum;
 
 const parse = require('./expression').parse;
+
 const paren = require('./paren');
 const postfix = require('./postfix');
 
 
+var rules;
+
+
 // Tests
-// pfmtc(prefix('4'));
-// pfmtc(postfix(prefix('(4 + 4)')));
-// pfmtc(postfix(prefix(paren('4 + 4 + 4 + 4'))));
+// xc(postfix(adv)(prefix(adv)(paren(adv)('4 + 4 + 4 + 4'))));
+// for (let exp of prefix(max)(paren(max)('4 + 4 + 4 + 4'))) {
+//     // console.error(xs(exp));
+//     xc(postfix(max)([ exp ]));
+// }
+// xc(postfix(adv)(prefix(adv)(paren(adv)('4 + 4 + 4 + 4'))));
+// xc(prefix(adv)('(((4 + 4) + 4) + 4)'));
+// xc(postfix(prefix('(((4 + 4) + 4) + 4)')));
+// for (let exp of prefix('(((4 + 4) + 4) + 4)')) {
+//     console.error(xs(exp));
+//     xc(postfix([ exp ]));
+// }
+// xc(prefix('4'));
+// xc(prefix('((4 + 4) + 4)'));
+// xc(prefix('(((4 + 4) + 4) + 4)', false));
+// xc(postfix(prefix(paren('4 + 4 + 4 + 4'), true)));
+// xc(postfix(prefix(paren('4 + 4 + 4 + 4'))));
 
 
-function prefix(expressions) {
-    if (typeof expressions === 'string') {
-        expressions = [ parse(expressions) ];
+function prefix(r) {
+    rules = r;
+
+    return function(expressions) {
+        // If there are no prefix operators in the rule set simply
+        // return the expressions
+        if (!rules.prefixOperators) {
+            return expressions;
+        }
+
+        // If there are no expressions or the array length is 0,
+        // return the expressions
+        if (!expressions || (typeof expressions === 'object' && expressions.length === 0)) {
+            return expressions;
+        }
+
+        // To enable easy testing, support a string of a single
+        // expressions (aka '4 + 4'), and in that case, parse it into
+        // the expression array that the algorithm requires
+        if (typeof expressions === 'string') {
+            expressions = [ parse(expressions) ];
+        }
+
+
+        // Logic
+        let newExpressions = [];
+        for (let expression of expressions) {
+            let response = prefixRecursive(expression, [], 1, 'start');
+            newExpressions = newExpressions.concat(response);
+        }
+
+
+        // Remove duplicate expressions
+        let newExpressionsSet = new Set(newExpressions.map(JSON.stringify));
+        let newExpressionsUnique = Array.from(newExpressionsSet).map(JSON.parse);
+
+
+        return newExpressionsUnique;
     }
-
-    let newExpressions = [];
-    for (let expression of expressions) {
-        let response = prefixRecursive(expression, [], 1);
-        newExpressions = newExpressions.concat(response);
-    }
-
-    // Remove duplicate expressions
-    let newExpressionsSet = new Set(newExpressions.map(JSON.stringify));
-    let newExpressionsUnique = Array.from(newExpressionsSet).map(JSON.parse);
-
-    return newExpressionsUnique;
 }
 
 
@@ -64,7 +107,7 @@ function prefixRecursive(expression, newExpression, stack, comment) {
     for (let token of expression) {
 
         // Add * / + - ^ to the new expression
-        if (constants.infixOperators.includes(token)) {
+        if (rules.infixOperators.includes(token)) {
             tokenCount++;
             newExpression.push(token);
             continue;
@@ -76,8 +119,16 @@ function prefixRecursive(expression, newExpression, stack, comment) {
             continue;
         }
 
-        // For a ( or number break to insert the prefix operator(s)
-        if (token === '(' || typeof token === 'number') {
+        if (token === '(') {
+            // if (rules.parenPermutation) {
+                break;
+            // }
+            // tokenCount++;
+            // newExpression.push(token);
+            // continue;
+        }
+
+        if (typeof token === 'number') {
             break;
         }
 
@@ -96,14 +147,14 @@ function prefixRecursive(expression, newExpression, stack, comment) {
 
 
     let token = expression[0];
+    let isNumber = typeof token === 'number';
     let expressions = [];
-    p('token', token);
-    for (let operator of constants.prefixOperators) {
+    for (let operator of rules.prefixOperators) {
 
 
         // Do not generate an expression when the operator is sum and the number is a float
         // Do not generate an expression when the operator is sqrt and the number is negative
-        if (typeof token === 'number') {
+        if (isNumber) {
             if (operator === 'sum' && !Number.isInteger(token)) {
                 continue;
             }
@@ -113,33 +164,35 @@ function prefixRecursive(expression, newExpression, stack, comment) {
         }
 
         // Before the recursive call is made, this code does this:
-        // 54 -> (square 54) -- on set for numbers
-        // (4 + (44 + 4)) -> (square(4 + (44 + 4)))  -- one set for ()
+        // 54 -> square(54) -- on set for numbers
+        // (4 + (44 + 4)) -> square(4 + (44 + 4))  -- one set for ()
         let expressionLeftCopy = [...expression];
         let newExpressionLeftCopy = [...newExpression];
-        newExpressionLeftCopy.push('(');
+        // newExpressionLeftCopy.push('(');
         newExpressionLeftCopy.push(operator);
-        newExpressionLeftCopy.push(token);
-        if (typeof token === 'number') {
-            newExpressionLeftCopy.push(')');
-        } else {
-            let depth = 1;
-            for (let i = 1; i < expressionLeftCopy.length; i++) {
-                let token2 = expressionLeftCopy[i];
-                if (token2 === '(') {
-                    depth++;
-                    continue;
-                }
-                if (token2 === ')') {
-                    depth--;
-                    if (depth === 0) {
-                        expressionLeftCopy.splice(i, 0, ')');
-                        break;
-                    }
-                    continue;
-                }
-            }
+        if (isNumber) {
+            newExpressionLeftCopy.push('(');
         }
+        newExpressionLeftCopy.push(token);
+        if (isNumber) {
+            newExpressionLeftCopy.push(')');
+        }
+        // let depth = 1;
+        // for (let i = 1; i < expressionLeftCopy.length; i++) {
+        //     let token2 = expressionLeftCopy[i];
+        //     if (token2 === '(') {
+        //         depth++;
+        //         continue;
+        //     }
+        //     if (token2 === ')') {
+        //         depth--;
+        //         if (depth === 0) {
+        //             expressionLeftCopy.splice(i, 0, ')');
+        //             break;
+        //         }
+        //         continue;
+        //     }
+        // }
 
         expressionLeftCopy.shift();
         let leftResponse = prefixRecursive(expressionLeftCopy, newExpressionLeftCopy, (stack + 1), 'left');

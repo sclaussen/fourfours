@@ -7,7 +7,10 @@ const p = require('./util').p(d);
 const e = require('./util').e(d);
 const ex = require('./util').ex(d);
 
-const constants = require('./constants');
+const o = require('./util').o;
+const oc = require('./util').oc;
+
+const rules = require('./rules').advanced;
 
 
 // Converts an expression string into an array of tokens that comprise
@@ -37,26 +40,36 @@ function parse(expressionString) {
 
 
         // Next token a function name?
-        let functionFound = false;
-        let expressionStringRemaining = expressionString.slice(i);
-        for (let functionName of constants.prefixOperators) {
-            if (expressionStringRemaining.startsWith(functionName)) {
-                expression.push(functionName);
-                i += functionName.length;
-                functionName = true;
-                break;
+        if (rules.prefixOperators) {
+            let functionFound = false;
+            let expressionStringRemaining = expressionString.slice(i);
+            for (let functionName of rules.prefixOperators) {
+                if (expressionStringRemaining.startsWith(functionName)) {
+                    expression.push(functionName);
+                    i += (functionName.length - 1);
+                    functionName = true;
+                    break;
+                }
+            }
+            if (functionFound) {
+                continue;
             }
         }
-        if (functionFound) {
-            continue;
-        }
 
 
-        // Handle all single character tokens
-        if (constants.infixOperators.includes(ch) || constants.postfixOperators.includes(ch)) {
+        // Handle infix
+        if (rules.infixOperators.includes(ch)) {
             expression.push(ch);
             continue;
         }
+
+
+        // Handle postfix
+        if (rules.postfixOperators && rules.postfixOperators.includes(ch)) {
+            expression.push(ch);
+            continue;
+        }
+
 
         switch (ch) {
         case ' ':
@@ -70,44 +83,6 @@ function parse(expressionString) {
     }
 
     return expression;
-}
-
-
-function fmt(expression) {
-    let expressionString = '';
-    let previous = '';
-    for (let token of expression) {
-
-        // Token a function name?
-        if (constants.prefixOperators.includes(token)) {
-            previous = 'function';
-            expressionString += token + ' ';
-            continue;
-        }
-        previous = '';
-
-        // Token an infix operation?
-        if (constants.infixOperators.includes(token)) {
-            expressionString += ' ' + token + ' ';
-            continue;
-        }
-
-        expressionString += token;
-    }
-
-    return expressionString;
-}
-
-
-function pfmt(expression) {
-    console.log(fmt(expression));
-}
-
-
-function pfmtc(expressions) {
-    for (let expression of expressions) {
-        pfmt(expression);
-    }
 }
 
 
@@ -130,6 +105,3 @@ function isDigit(ch) {
 
 
 module.exports.parse = parse;
-module.exports.fmt = fmt;
-module.exports.pfmt = pfmt;
-module.exports.pfmtc = pfmtc;

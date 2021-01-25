@@ -3,21 +3,34 @@ process.env.DEBUG = process.env.DEBUG ? process.env.DEBUG : 'evaluate';
 
 
 const d = require('debug')('evaluate');
+const pc = require('./util').pc(d);
 const p = require('./util').p(d);
 const e = require('./util').e(d);
 const ex = require('./util').ex(d);
 
-const constants = require('./constants');
-const parse = require('./expression').parse;
-const fmt = require('./expression').fmt;
+const xc = require('./util').xc;
+const x = require('./util').x;
+const xs = require('./util').xs;
 
-var factorialCache = {};
+const o = require('./util').o;
+const oc = require('./util').oc;
+
+const simple = require('./rules').simple;
+const adv = require('./rules').advanced;
+
+const parse = require('./expression').parse;
+
+
 var sumCache = {};
+var factorialCache = {};
+
+var rules;
 
 
 // Tests
-p(evaluate('sum 100'));
-// p(evaluate('((sqrt ((square (4 + 4!))) + 4!)) + 4))');
+// o(parse('square(4)'));
+// o(evaluate(adv)('square(4) + sqrt(4) + sum(4)'));
+// p(evaluate(adv)('(((sqrt ((square (4 + 4!))) + 4!)) + sqrt(4))'));
 // p(evaluate('(4 - 444)!'));
 // p(evaluate('((((sqrt 4)! * (sqrt 4)!)! * (sqrt 4)!)! * (sqrt 4!))!'));
 // p(evaluate('sqrt (sqrt (sum (sum 4! * sum 4!)! * sqrt 4!)! * sqrt 4!)!'));
@@ -35,42 +48,71 @@ p(evaluate('sum 100'));
 // ((square ((square (4! + 4!))) + 4!))) + 4!))))
 
 
+function evaluate(r) {
+    rules = r;
 
-function evaluate(expression) {
-    let expressionArray;
-    let result;
-    if (typeof expression === 'string') {
-        expression = parse(expression);
-        result = evaluateArray(expression);
-    } else {
-        result = evaluateArray([...expression]);
+    return function(expression) {
+        let expressionArray;
+        let result;
+        if (typeof expression === 'string') {
+            expression = parse(expression);
+            result = evaluateArray(expression);
+        } else {
+            result = evaluateArray([...expression]);
+        }
+
+        return result;
     }
-
-    return result;
 }
 
 
 function evaluateArray(expression) {
-    e('evaluateArray', fmt(expression));
+    e('evaluateArray', xs(expression));
     while (true) {
-        expression = findAndEvaluateSubexpression(expression);
+
+        if (rules.prefixOperators && expression.length > 3) {
+            expression = findAndEvaluateFunctions(expression);
+        }
+
         if (expression.length === 1) {
             return expression[0];
         }
-        if (expression.length === 3 && expression[0] === '(' && expression[2] === ')') {
-            return expression[1];
+
+        expression = findAndEvaluateSubexpression(expression);
+
+        if (expression.length === 1) {
+            return expression[0];
+        }
+    }
+}
+
+
+function findAndEvaluateFunctions(expression) {
+    e('findAndEvaluateFunctions', xs(expression));
+
+    while (true) {
+        let functionFound = false;
+        for (let i in expression) {
+            i = parseInt(i);
+            let token = expression[i];
+
+            if (rules.prefixOperators.includes(token) && expression[i + 1] === '(' && typeof expression[i + 2] === 'number' && expression[i + 3] === ')') {
+                functionFound = true;
+                let answer = evaluateFunction(token, expression[i + 2]);
+                expression.splice(i, 4,  answer);
+            }
+        }
+
+        if (!functionFound) {
+            ex('findAndEvaluateFunctions', xs(expression));
+            return expression;
         }
     }
 }
 
 
 function findAndEvaluateSubexpression(expression) {
-
-    // Corner case where all the sub-expressions have been evaluated
-    // and there's a single value left in the expression array
-    if (expression.length ===  1) {
-        return expression;
-    }
+    e('findAndEvaluateSubexpression', xs(expression));
 
     // Determine the start and end array indexes of the expression at
     // the maximum parenthetical depth (inclusive of parenthesis) that
@@ -110,45 +152,40 @@ function findAndEvaluateSubexpression(expression) {
     // Here we could be evaluating something like this:
     // - 2 + 3
     // - (2 + 3)
-    // - 2 + 3 * 4
-    // - (2 + sqrt 3 * 4!)
+    // - 2 + 3 * 4 ^ 3
+    // - (2 + 2! * 4!)
     let evaluatedSubexpression = evaluateSubexpression(expression.slice(start, end));
 
 
-    // Remove extraneous parenthesis from the evaluated subexpression to handle this case:
-    // (9) -> 9
-    if (evaluatedSubexpression.length === 3 && evaluatedSubexpression[0] === '(' && evaluatedSubexpression[2] === ')') {
-        evaluatedSubexpression = [ evaluatedSubexpression[1] ];
-        p('Removing parens: ' + evaluatedSubexpression);
-    }
+    // // Remove extraneous parenthesis from the evaluated subexpression to handle this case:
+    // // (9) -> 9
+    // if (evaluatedSubexpression.length === 3 && evaluatedSubexpression[0] === '(' && evaluatedSubexpression[2] === ')') {
+    //     evaluatedSubexpression = [ evaluatedSubexpression[1] ];
+    //     p('Removing parens: ' + evaluatedSubexpression);
+    // }
 
     // Substitue the subexpression with the evaluated subexpression:
     // - 2 + 3 -> 5
     // - (2 + 3) -> 5
     // - 2 + 3 * 4 -> 2 + 12
     // - (2 + sqrt 3 * 4!) -> (2 + sqrt 3 * 24)
-    while (true) {
-        expression = resolveSubexpression(expression, evaluatedSubexpression, start, end)
-        p('expression returned: ' + expression);
-        if (evaluatedSubexpression.length === 3 && evaluatedSubexpression[0] === '(' && evaluatedSubexpression[2] === ')') {
-            evaluatedSubexpression = [ evaluatedSubexpression[1] ];
-            p('Removing parens: ' + evaluatedSubexpression);
-            continue;
-        }
-        break;
-    }
+    expression.splice(start, end - start, ...evaluatedSubexpression);
 
+    ex('findAndEvaluateSubexpression', xs(expression));
     return expression;
 }
 
 
-function evaluateSubexpression(expression) {
-    e('evaluateSubexpression', fmt(expression));
+function evaluateSubexpression(subexpression) {
+    if (subexpression.length === 3 && subexpression[0] === '(' && typeof subexpression[1] === 'number' && subexpression[2] === ')') {
+        let answer =  [ subexpression[1] ];
+        return answer;
+    }
 
     // Search for a factorial operator, if found, evaluate, and return
     let previousNumber = 0;
-    for (let i in expression) {
-        let token = expression[i];
+    for (let i in subexpression) {
+        let token = subexpression[i];
 
         if (typeof token === 'number') {
             previousNumber = token;
@@ -157,28 +194,16 @@ function evaluateSubexpression(expression) {
 
         if (token === '!') {
             let answer = evaluateFactorial(previousNumber);
-            expression.splice(parseInt(i) - 1, 2, answer);
-            ex('evaluateSubexpression', expression);
-            return expression;
-        }
-    }
-
-
-    // Search for a function, if found, evaluate, and return
-    for (let i in expression) {
-        let token = expression[i];
-        if (constants.prefixOperators.includes(token)) {
-            let answer = evaluateFunction(token, expression[parseInt(i) + 1]);
-            expression.splice(i, 2, answer);
-            return expression;
+            subexpression.splice(parseInt(i) - 1, 2, answer);
+            return subexpression;
         }
     }
 
 
     // Handle ^ in left associate manner
     previousNumber = 0;
-    for (let i in expression) {
-        let token = expression[i];
+    for (let i in subexpression) {
+        let token = subexpression[i];
 
         if (typeof token === 'number') {
             previousNumber = token;
@@ -186,18 +211,18 @@ function evaluateSubexpression(expression) {
         }
 
         if (token === '^') {
-            let nextNumber = expression[parseInt(i) + 1];
+            let nextNumber = subexpression[parseInt(i) + 1];
             let answer = evaluateInfix(previousNumber, token, nextNumber);
-            expression.splice(parseInt(i) - 1, 3, answer);
-            return expression;
+            subexpression.splice(parseInt(i) - 1, 3, answer);
+            return subexpression;
         }
     }
 
 
     // Handle * and / in a left associative manner
     previousNumber = 0;
-    for (let i in expression) {
-        let token = expression[i];
+    for (let i in subexpression) {
+        let token = subexpression[i];
 
         if (typeof token === 'number') {
             previousNumber = token;
@@ -205,18 +230,18 @@ function evaluateSubexpression(expression) {
         }
 
         if (token === '*' || token === '/') {
-            let nextNumber = expression[parseInt(i) + 1];
+            let nextNumber = subexpression[parseInt(i) + 1];
             let answer = evaluateInfix(previousNumber, token, nextNumber);
-            expression.splice(parseInt(i) - 1, 3, answer);
-            return expression;
+            subexpression.splice(parseInt(i) - 1, 3, answer);
+            return subexpression;
         }
     }
 
 
     // Handle + and - in a left associative manner
     previousNumber = 0;
-    for (let i in expression) {
-        let token = expression[i];
+    for (let i in subexpression) {
+        let token = subexpression[i];
 
         if (typeof token === 'number') {
             previousNumber = token;
@@ -224,30 +249,16 @@ function evaluateSubexpression(expression) {
         }
 
         if (token === '+' || token === '-') {
-            let nextNumber = expression[parseInt(i) + 1];
+            let nextNumber = subexpression[parseInt(i) + 1];
             let answer = evaluateInfix(previousNumber, token, nextNumber);
-            expression.splice(parseInt(i) - 1, 3, answer);
-            return expression;
+            subexpression.splice(parseInt(i) - 1, 3, answer);
+            return subexpression;
         }
     }
 
-    console.error('Error: Expecting an operator and found none during the inner evaluation of: ' + fmt(expression));
+    console.error('Error: Expecting an operator and found none during the inner evaluation of: ' + xs(subexpression));
 
     process.exit(1);
-}
-
-
-function resolveSubexpression(expression, evaluatedSubexpression, start, end) {
-    e('resolveSubexpression', evaluatedSubexpression);
-    let j = end;
-    for (let i in evaluatedSubexpression) {
-        let token = evaluatedSubexpression[i];
-        expression.splice(j, 0, token);
-        j++;
-    }
-
-    expression.splice(start, end - start);
-    return expression;
 }
 
 
@@ -265,10 +276,10 @@ function evaluateInfix(n1, operator, n2) {
     case '-':
         return n1 - n2;
     case '^':
-        if (n2 > constants.MAX_EXPONENT) {
+        if (n2 > rules.maxExponent) {
             throw 'Exponent too large';
         }
-        if (n2 < (0 - constants.MAX_EXPONENT)) {
+        if (n2 < (0 - rules.maxExponent)) {
             throw 'Exponent too small';
         }
 
@@ -286,7 +297,7 @@ function evaluateFactorial(n) {
         throw 'Factorial only supported for positive integer values';
     }
 
-    if (n > constants.MAX_FACTORIAL) {
+    if (n > rules.maxFactorial) {
         throw 'Factorial number too large';
     }
 
@@ -313,11 +324,11 @@ function evaluateFunction(functionName, number) {
     switch (functionName) {
 
     case 'square':
-        if (number > constants.MAX_SQUARE) {
+        if (number > rules.maxSquare) {
             throw 'Base to be squared is too large';
         }
 
-        if (number < (0 - constants.MAX_SQUARE)) {
+        if (number < (0 - rules.maxSquare)) {
             throw 'Base to be squared is too small';
         }
 
@@ -335,11 +346,11 @@ function evaluateFunction(functionName, number) {
             throw 'Summation only supported for integer values';
         }
 
-        if (number > constants.MAX_SUM) {
+        if (number > rules.maxSum) {
             throw 'Summation number too large';
         }
 
-        if (number < (0 - constants.MAX_SUM)) {
+        if (number < (0 - rules.maxSum)) {
             throw 'Summation number too small';
         }
 

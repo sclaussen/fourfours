@@ -1,0 +1,6 @@
+761: (square(sum(4) / 0.4) + sum(4 * 4))
+761: (sum(4 * 4) + square(sum(4) / 0.4))
+761: (square(sum(4) / 0.4) + sum(4 ^ sqrt(4)))
+761: (square(sum(4) / 0.4) + sum(sqrt(4) ^ 4))
+761: (sum(4 ^ sqrt(4)) + square(sum(4) / 0.4))
+761: (sum(sqrt(4) ^ 4) + square(sum(4) / 0.4))

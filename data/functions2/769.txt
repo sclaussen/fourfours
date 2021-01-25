@@ -1,0 +1,8 @@
+769: (square(4 - square(4)) + square(sum(4) / 0.4))
+769: (square(square(4) - 4) + square(sum(4) / 0.4))
+769: (square(sum(4) / 0.4) + square(4 - square(4)))
+769: (square(sum(4) / 0.4) + square(square(4) - 4))
+769: (square(sqrt(4) + sum(4)) + square(sum(4) / 0.4))
+769: (square(sum(4) + sqrt(4)) + square(sum(4) / 0.4))
+769: (square(sum(4) / 0.4) + square(sqrt(4) + sum(4)))
+769: (square(sum(4) / 0.4) + square(sum(4) + sqrt(4)))

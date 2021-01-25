@@ -2,26 +2,34 @@
 process.env.DEBUG = process.env.DEBUG ? process.env.DEBUG : 'numeric';
 
 const d = require('debug')('numeric');
-const p = require('./util').p(d);
 const pc = require('./util').pc(d);
+const p = require('./util').p(d);
 const e = require('./util').e(d);
 const ex = require('./util').ex(d);
 
-const constants = require('./constants');
-const fmt = require('./expression').fmt;
-const pfmt = require('./expression').pfmt;
-const pfmtc = require('./expression').pfmtc;
+const xc = require('./util').xc;
+const x = require('./util').x;
+const xs = require('./util').xs;
+
+const simple = require('./rules').simple;
+const adv = require('./rules').advanced;
+
+
+var rules;
 
 
 // Tests
-// pc(numeric([ 4, 44 ]));
-// pc(numeric([ 4, 44, 444 ]));
-// pc(numeric([ 4, 44, 444, 4444, 4.4, .44, 44.4, 4.44, .444, 444.4, 44.44, 4.444, .4444 ]));
+// pc(numeric(ruleSet.simple));
+// pc(numeric(ruleSet.advanced));
 
 
-function numeric(numbers) {
-    let newExpressions = numericRecursive(numbers, [], 0, 1);
-    return newExpressions;
+function numeric(r) {
+    rules = r;
+
+    return function() {
+        let newExpressions = numericRecursive(rules.numbers, [], 0, 1);
+        return newExpressions;
+    }
 }
 
 
@@ -48,7 +56,7 @@ function numericRecursive(numbers, equation, currentFourCount, stack) {
         // recursively continue on
         let equationCopy = [...equation];
         equationCopy.push(number);
-        let response = numericRecursive(numbers, equationCopy, totalFours, ++stack);
+        let response = numericRecursive(numbers, equationCopy, totalFours, (stack + 1));
 
         equations = equations.concat(response);
     }
