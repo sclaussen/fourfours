@@ -1,0 +1,2 @@
+539: (square(4!) - ((square(4!) + square(4)) / square(4)))
+539: (square(4!) - ((square(4) + square(4!)) / square(4)))

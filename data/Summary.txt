@@ -16,3 +16,4 @@ grande: Permutations:           0  Solutions:         0
 grande: Permutations:           0  Solutions:         0
 grande: Permutations:           0  Solutions:         0
 grande: Permutations:           0  Solutions:         0
+grande: Permutations:   2,560,000  Solutions:   265,649

@@ -1,0 +1,2 @@
+191: (((square(4) * 4!) - sqrt(4)) / sqrt(4))
+191: (((4! * square(4)) - sqrt(4)) / sqrt(4))

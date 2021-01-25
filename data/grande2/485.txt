@@ -1,0 +1,4 @@
+485: ((square(4!) - (sum(4!) / 4)) - square(4))
+485: ((square(4!) - square(4)) - (sum(4!) / 4))
+485: (square(4!) - ((sum(4!) / 4) + square(4)))
+485: (square(4!) - (square(4) + (sum(4!) / 4)))

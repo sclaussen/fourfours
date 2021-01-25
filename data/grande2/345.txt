@@ -1,0 +1,8 @@
+345: (((square(4!) - 4!) * sum(4)) / square(4))
+345: (((square(4!) - 4!) / square(4)) * sum(4))
+345: ((square(4!) - 4!) * (sum(4) / square(4)))
+345: ((square(4!) - 4!) / (square(4) / sum(4)))
+345: ((sum(4) * (square(4!) - 4!)) / square(4))
+345: ((sum(4) / square(4)) * (square(4!) - 4!))
+345: (sum(4) * ((square(4!) - 4!) / square(4)))
+345: (sum(4) / (square(4) / (square(4!) - 4!)))
