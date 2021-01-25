@@ -40,17 +40,17 @@ solution is found (all other solutions are ignored).
 
 The generation algorithm works like this:
 - **Stage 1**: Numeric permutations are generated (eg 4 4 4 4)
-  - ([Number permutations](./examples/numeric.txt)).
+  - [Number permutations](./examples/numeric.txt)
 - **Stage 2**: Infix operation permutations are generated (eg 4 + 4 + 4 + 4)
-  - ([Infix operator permutations](./examples/infix.txt) for *, /, +, -, and ^ for four fours: `4 4 4 4`).
+  - [Infix operator permutations](./examples/infix.txt) for *, /, +, -, and ^ for four fours: `4 4 4 4`
 - **Stage 3**: Parenthesis permutations are generated (eg (((4 + 4) + 4) + 4))
-  - ([Paren permutations](./examples/paren.txt) for the expression `4 * 4 / 4 + 4`).
+  - [Paren permutations](./examples/paren.txt) for the expression `4 * 4 / 4 + 4`
 - **Stage 4**: Prefix operation (aka functions) permutations are generated (eg sqrt(4) + sqrt(4) + sqrt(4) + sqrt(4))
-  - ([256 Function permutations](./examples/prefix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F).
-  - ([16,384 Function permutations](./examples/prefixT.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T).
+  - [256 Function permutations](./examples/prefix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
+  - [16,384 Function permutations](./examples/prefixT.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
 - **Stage 5**: Postfix operation (aka factorial) permutations are generated (eg sqrt(4!) + sqrt(4)! + sqrt(4) + sqrt(4!))
-  - ([16 Factorial permutations](./examples/postfix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F).
-  - ([128 Factorial permutations](./examples/postfixT.txt) for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T).
+  - [16 Factorial permutations](./examples/postfix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
+  - [128 Factorial permutations](./examples/postfixT.txt) for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
 - **Stage 6**: Expression evaluation
 
 
