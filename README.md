@@ -39,19 +39,19 @@ expression results in an integer between 0 and 1000 inclusively then a
 solution is found (all other solutions are ignored).
 
 The [generation algorithm](./fourfours.js) works like this:
-- **Stage 1**: Numeric permutations are generated (eg 4 4 4 4) [source code](./numeric.js)
+- **Stage 1**: Numeric permutations are generated (eg 4 4 4 4) ([source code](./numeric.js))
   - [Example number permutations](./examples/numeric.txt)
-- **Stage 2**: Infix operation permutations are generated (eg 4 + 4 + 4 + 4) [source code](./infix.js)
+- **Stage 2**: Infix operation permutations are generated (eg 4 + 4 + 4 + 4) ([source code](./infix.js))
   - [Example infix operator permutations](./examples/infix.txt) for *, /, +, -, and ^ for four fours: `4 4 4 4`
-- **Stage 3**: Parenthesis permutations are generated (eg (((4 + 4) + 4) + 4)) [source code](./paren.js)
+- **Stage 3**: Parenthesis permutations are generated (eg (((4 + 4) + 4) + 4)) ([source code](./paren.js))
   - [Example paren permutations](./examples/paren.txt) for the expression `4 * 4 / 4 + 4`
-- **Stage 4**: Prefix operation (aka functions) permutations are generated (eg sqrt(4) + sqrt(4) + sqrt(4) + sqrt(4)) [source code](./prefix.js)
+- **Stage 4**: Prefix operation (aka functions) permutations are generated (eg sqrt(4) + sqrt(4) + sqrt(4) + sqrt(4)) ([source code](./prefix.js))
   - [Example function permutations (256)](./examples/prefix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
   - [Example function permutations (16,384)](./examples/prefixT.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
-- **Stage 5**: Postfix operation (aka factorial) permutations are generated (eg sqrt(4!) + sqrt(4)! + sqrt(4) + sqrt(4!)) [source code](./postfix.js)
+- **Stage 5**: Postfix operation (aka factorial) permutations are generated (eg sqrt(4!) + sqrt(4)! + sqrt(4) + sqrt(4!)) ([source code](./postfix.js))
   - [Example factorial permutations (16)](./examples/postfix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
   - [Example factorial permutations (128)](./examples/postfixT.txt) for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
-- **Stage 6**: Expression evaluation [source code](./evaluation.js)
+- **Stage 6**: Expression evaluation ([source code](./evaluation.js))
 
 
 

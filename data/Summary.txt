@@ -9,3 +9,4 @@ factorial: Permutations:      56,261  Solutions:     7,861
 factorialT: Permutations:     427,066  Solutions:    13,982
 factorial: Permutations:      56,261  Solutions:     7,861
 factorialT: Permutations:     427,066  Solutions:    13,982
+simple: Permutations:         320  Solutions:       227
