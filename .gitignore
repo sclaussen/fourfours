@@ -10,6 +10,10 @@ data/factorial-solutions.txt
 data/factorial1/
 data/functions-solutions.txt
 data/functions1/
+data/grande-solutions.txt
+data/grande/
+data/advanced-solutions.txt
+data/advanced1/
 TAGS
 *.sh
 *.csv

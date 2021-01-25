@@ -96,12 +96,12 @@ function postfixRecursive(expression, newExpression, stack, comment) {
         }
 
         if (token === ')') {
-            // if (rules.parenPermutation) {
+            if (rules.applyToEvaluation) {
                 break;
-            // }
-            // tokenCount++;
-            // newExpression.push(token);
-            // continue;
+            }
+            tokenCount++;
+            newExpression.push(token);
+            continue;
         }
 
         if (typeof token === 'number') {

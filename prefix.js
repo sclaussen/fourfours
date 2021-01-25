@@ -120,12 +120,12 @@ function prefixRecursive(expression, newExpression, stack, comment) {
         }
 
         if (token === '(') {
-            // if (rules.parenPermutation) {
+            if (rules.applyToEvaluation) {
                 break;
-            // }
-            // tokenCount++;
-            // newExpression.push(token);
-            // continue;
+            }
+            tokenCount++;
+            newExpression.push(token);
+            continue;
         }
 
         if (typeof token === 'number') {
@@ -177,22 +177,6 @@ function prefixRecursive(expression, newExpression, stack, comment) {
         if (isNumber) {
             newExpressionLeftCopy.push(')');
         }
-        // let depth = 1;
-        // for (let i = 1; i < expressionLeftCopy.length; i++) {
-        //     let token2 = expressionLeftCopy[i];
-        //     if (token2 === '(') {
-        //         depth++;
-        //         continue;
-        //     }
-        //     if (token2 === ')') {
-        //         depth--;
-        //         if (depth === 0) {
-        //             expressionLeftCopy.splice(i, 0, ')');
-        //             break;
-        //         }
-        //         continue;
-        //     }
-        // }
 
         expressionLeftCopy.shift();
         let leftResponse = prefixRecursive(expressionLeftCopy, newExpressionLeftCopy, (stack + 1), 'left');

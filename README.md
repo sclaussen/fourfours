@@ -4,6 +4,13 @@
 From [Wikipedia - Four Fours](https://en.wikipedia.org/wiki/Four_fours):
 
 ```
+Four fours is a mathematical puzzle. The goal of four fours is to find
+the simplest mathematical expression for every whole number from 0 to
+some maximum, using only common mathematical symbols and the digit
+four (no other digit is allowed).
+
+...
+
 There are many variations of four fours; their primary difference
 is which mathematical symbols are allowed.
 
@@ -29,7 +36,7 @@ the gamma function (Γ(), where Γ(x) = (x − 1)!), and percent
 This algorithm generates permutations of the four fours expressions
 and then evaluates the expressions.  If the evaluation of an
 expression results in an integer between 0 and 1000 inclusively then a
-solution is found (all other numbers are ignored).
+solution is found (all other solutions are ignored).
 
 The generation algorithm works like this:
 - Stage 1: Numeric permutations are generated (eg 4 4 4 4)
@@ -41,41 +48,42 @@ The generation algorithm works like this:
 
 
 
-## Rules
+## Numbers, Parenthesis, and Operators
 
-Given the wikipedia article, here are the rules the algorithm
-uses to generate expressions:
+Given the wikipedia article, here are the capabilities the algorithm
+supports to generate expressions:
 
-- Numbers:
-  - All numbers in the expression must contain one or more 4s and no
-    other digits
-  - Each number in the expression can comprised of one to four digits
-    concatenated together.
-    - Valid numbers: `4`, `44`, `444`, `4444`
-  - Precisely four 4s must be used in the expression.
-    - Valid expressions: `4 + 4 + 4 + 4`, `44 + 44`, `444 + 4`, `4444`
-    - Invalid expressions: `4 + 4`, `444 + 4444`
-  - Each number in the expression can contain a leading decimal, a
-    trailing decimal (aka an integer), or a decimal in between the
-    digits.
-    - Valid numbers: `4`, `.4`, `44`, `.44`, `4.4`, `444`, `.444`, `4.44`, `44.4`, `4444`, `.4444`, `4.444`, `44.44`, `444.4`
-    - Invalid numbers: `40`, `.04`, `.004`, `4.04`
+### Numbers
 
-- Parenthesis:
-  - Parenthesis are applied to the combination of the number and the
-    infix operators to force evaluation precedence.
-    - Valid expressions: `(((4 + 4) + 4) + 4)`, `((44 + 4) * 4)`, `(44 + (4 * 4))`
+- Each expression can contain from one to four numbers as long as the
+  expression contains precisely four fours.
+  - Valid expressions: `4 + 4 + 4 + 4`, `44 + 44`, `444 + 4`, `4444`
+  - Invalid expressions: `4 + 4`, `444 + 4444`
+- The fours in each number can be concatenated together.
+  - Valid numbers: `4`, `44`, `444`, `4444`
+- The fours in each number can contain a leading decimal, a trailing
+  decimal (resulting in an integer), or a decimal in between the
+  digits.
+  - Valid numbers: `4`, `.4`, `44`, `.44`, `4.4`, `444`, `.444`, `4.44`, `44.4`, `4444`, `.4444`, `4.444`, `44.44`, `444.4`
+  - Invalid numbers: `40`, `.04`, `.004`, `4.04`
 
-- Operations:
-  - The operators +, -, *, /, and ^ (power) can be used.
-    - Valid expressions: `4 + 4 * 4 / 4`,  `44 - 44`,  `4 * 4 ^ 4 * 4`
-  - Factorial can be applied to any number or the result of an
-    evaluation (directly after a parenthesis).
-    - Valid expressions: `((4! + 4)! + 4)! + 4)`,  `44! / 44!`,  `(4 ^ 4 ^ 4 ^ 4)!`
-  - The functions square, square root, and summation can be applied to
-    any number or the result of an evaluation (directly prior to a
-    parenthesis).
-    - Valid expressions: `(square((4! + 4)! + 4)! + 4))`,  `(sqrt(44)! / sum(44)!)!`,  `(4 ^ sqrt(4)!) ^ (4 ^ 4)!`
+### Parenthesis
+
+- Parenthesis are applied to the combination of the number and the
+  infix operators to force evaluation precedence.
+  - Valid expressions: `(((4 + 4) + 4) + 4)`, `((44 + 4) * 4)`, `(44 + (4 * 4))`
+
+### Operators
+
+- The operators +, -, *, /, and ^ (power) can be used.
+  - Valid expressions: `4 + 4 * 4 / 4`,  `44 - 44`,  `4 * 4 ^ 4 * 4`
+- Factorial can be applied to any number or the result of an
+  evaluation (directly after a parenthesis).
+  - Valid expressions: `((4! + 4)! + 4)! + 4)`,  `44! / 44!`,  `(4 ^ 4 ^ 4 ^ 4)!`
+- The functions square, square root, and summation can be applied to
+  any number or the result of an evaluation (directly prior to a
+  parenthesis).
+  - Valid expressions: `(square((4! + 4)! + 4)! + 4))`,  `(sqrt(44)! / sum(44)!)!`,  `(4 ^ sqrt(4)!) ^ (4 ^ 4)!`
 
 
 

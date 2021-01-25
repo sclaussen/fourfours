@@ -11,3 +11,8 @@ advanced: Permutations:           0  Solutions:         0
 advanced: Permutations:           0  Solutions:         0
 advanced: Permutations:           0  Solutions:         0
 advanced: Permutations:           0  Solutions:         0
+grande: Permutations:           0  Solutions:         0
+grande: Permutations:           0  Solutions:         0
+grande: Permutations:           0  Solutions:         0
+grande: Permutations:           0  Solutions:         0
+grande: Permutations:           0  Solutions:         0

@@ -10,6 +10,7 @@ module.exports = {
         maxExponent: 0,
         maxSquare: 0,
         maxSum: 0,
+        applyToEvaluation: false,
     },
     power: {
         name: 'power',
@@ -22,6 +23,7 @@ module.exports = {
         maxExponent: 50,
         maxSquare: 0,
         maxSum: 0,
+        applyToEvaluation: false,
     },
     concat: {
         name: 'concat',
@@ -34,6 +36,7 @@ module.exports = {
         maxExponent: 50,
         maxSquare: 0,
         maxSum: 0,
+        applyToEvaluation: false,
     },
     decimal: {
         name: 'decimal',
@@ -46,6 +49,7 @@ module.exports = {
         maxExponent: 50,
         maxSquare: 0,
         maxSum: 0,
+        applyToEvaluation: false,
     },
     factorial: {
         name: 'factorial',
@@ -58,6 +62,7 @@ module.exports = {
         maxExponent: 50,
         maxSquare: 0,
         maxSum: 0,
+        applyToEvaluation: false,
     },
     functions: {
         name: 'functions',
@@ -70,6 +75,20 @@ module.exports = {
         maxExponent: 10,
         maxSquare: 100,
         maxSum: 100,
+        applyToEvaluation: false,
+    },
+    grande: {
+        name: 'grande',
+        maxGoal: 1000,
+        numbers: [ 4 ],
+        infixOperators: [ '*', '/', '+', '-', '^' ],
+        prefixOperators: [ 'sqrt', 'square', 'sum' ],
+        postfixOperators: [ '!' ],
+        maxFactorial: 10,
+        maxExponent: 10,
+        maxSquare: 100,
+        maxSum: 100,
+        applyToEvaluation: false,
     },
     advanced: {
         name: 'advanced',
@@ -82,5 +101,6 @@ module.exports = {
         maxExponent: 10,
         maxSquare: 100,
         maxSum: 100,
+        applyToEvaluation: false,
     },
 };
