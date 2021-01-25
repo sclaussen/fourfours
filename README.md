@@ -38,20 +38,20 @@ and then evaluates the expressions.  If the evaluation of an
 expression results in an integer between 0 and 1000 inclusively then a
 solution is found (all other solutions are ignored).
 
-The generation algorithm works like this:
-- **Stage 1**: Numeric permutations are generated (eg 4 4 4 4)
-  - [Number permutations](./examples/numeric.txt)
-- **Stage 2**: Infix operation permutations are generated (eg 4 + 4 + 4 + 4)
-  - [Infix operator permutations](./examples/infix.txt) for *, /, +, -, and ^ for four fours: `4 4 4 4`
-- **Stage 3**: Parenthesis permutations are generated (eg (((4 + 4) + 4) + 4))
-  - [Paren permutations](./examples/paren.txt) for the expression `4 * 4 / 4 + 4`
-- **Stage 4**: Prefix operation (aka functions) permutations are generated (eg sqrt(4) + sqrt(4) + sqrt(4) + sqrt(4))
-  - [256 Function permutations](./examples/prefix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
-  - [16,384 Function permutations](./examples/prefixT.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
-- **Stage 5**: Postfix operation (aka factorial) permutations are generated (eg sqrt(4!) + sqrt(4)! + sqrt(4) + sqrt(4!))
-  - [16 Factorial permutations](./examples/postfix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
-  - [128 Factorial permutations](./examples/postfixT.txt) for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
-- **Stage 6**: Expression evaluation
+The [generation algorithm](./fourfours.js) works like this:
+- **Stage 1**: Numeric permutations are generated (eg 4 4 4 4) [source code](./numeric.js)
+  - [Example number permutations](./examples/numeric.txt)
+- **Stage 2**: Infix operation permutations are generated (eg 4 + 4 + 4 + 4) [source code](./infix.js)
+  - [Example infix operator permutations](./examples/infix.txt) for *, /, +, -, and ^ for four fours: `4 4 4 4`
+- **Stage 3**: Parenthesis permutations are generated (eg (((4 + 4) + 4) + 4)) [source code](./paren.js)
+  - [Example paren permutations](./examples/paren.txt) for the expression `4 * 4 / 4 + 4`
+- **Stage 4**: Prefix operation (aka functions) permutations are generated (eg sqrt(4) + sqrt(4) + sqrt(4) + sqrt(4)) [source code](./prefix.js)
+  - [Example function permutations (256)](./examples/prefix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
+  - [Example function permutations (16,384)](./examples/prefixT.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
+- **Stage 5**: Postfix operation (aka factorial) permutations are generated (eg sqrt(4!) + sqrt(4)! + sqrt(4) + sqrt(4!)) [source code](./postfix.js)
+  - [Example factorial permutations (16)](./examples/postfix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
+  - [Example factorial permutations (128)](./examples/postfixT.txt) for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
+- **Stage 6**: Expression evaluation [source code](./evaluation.js)
 
 
 
@@ -93,9 +93,10 @@ supports to generate expressions.
 - The operators +, -, *, /, and ^ (power) can be used.
   - Valid expressions: `4 + 4 * 4 / 4`,  `44 - 44`,  `4 * 4 ^ 4 * 4`
 
-- The functions square, square root, and summation can be applied to
-  any number (eg square(4)) or the result of an evaluation (directly
-  prior to a parenthesis) (eg square(4 + 4)).
+- The functions square, square root, and summation (eg sum(4) is 4 + 3
+  + 2 + 1) can be applied to any number (eg square(4)) or the result
+  of an evaluation (directly prior to a parenthesis) (eg square(4 +
+  4)).
   - Valid expressions: `square(4) + square(4) * square(4) / square(4)`,  `square(44 - 44)`,  `square(4) * square(4) ^ square(4 * 4)`
 
 - The factorial operator can be applied to any number (directly after
@@ -118,7 +119,7 @@ Expressions that result in invalid evaluations at runtime are ignored.
 There are arbitrary limits placed on the size of the numbers and
 operations to speed up execution:
 - No factorial for a number greater than 10 (eg 10!)
-- No exponents for less than -10 or greater than 10 (eg 4^10, 4^-10)
+- No exponent values less than -10 or greater than 10 (eg 4^10, 4^-10)
 - No square of a number less than -100 or greater than 100 (eg square(100), square(-100))
 - No summation for a number less than -100 or greater than 100 (eg sum(100), sum(-100))
 
@@ -131,9 +132,9 @@ Note: Square roots are only applied to zero and positive numbers.
 ### Rule Sets
 
 In order to enable different combinations of rules to be applied the
-algorithm supports the concept of rule sets.  The rule sets enable a
-definition for which numbers and operators should be applied to
-generate the possible set of expressions.
+algorithm supports the concept of [rule sets (source)](./rules.js].
+The rule sets enable a definition for which numbers and operators
+should be applied to generate the possible set of expressions.
 
 Generating all the expression permutations for functions and factorial
 results in an explosion of possible expressions.  To provide a relief
@@ -191,19 +192,19 @@ I interrupted the advanced rule set execution because:
 
 Here are some of the output files for each rule set.  Here's what each
 link means:
-- `Solutions: 10 shortest + 10 longest`: The 10 shortest and the 10
+- **Solutions: 10 shortest + 10 longest*8: The 10 shortest and the 10
   longest solutions for each solution between 0 and 1000.  Note that if
   the number of solutions is <= 20 the combination of the 10 shortest
   and 10 longest will contain duplicates.
 
-- `Solution count`: For each solution 0 to 1000, the total number of
+- **Solution count**: For each solution 0 to 1000, the total number of
   solutions found.
 
-- `Solution count sorted`: The count of solutions found from 0 to 1000
+- **Solution count sorted**: The count of solutions found from 0 to 1000
   but sorted and the numbers for which solutions were not found have
   been removed.
 
-- `Solutions`: The raw data of 1001 files, one per each possible
+- **Solutions**: The raw data of 1001 files, one per each possible
   solution 0 to 1000, each containing all the solutions found for that
   number.
 

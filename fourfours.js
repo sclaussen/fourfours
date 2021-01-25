@@ -94,7 +94,7 @@ function evaluateExpressions(expressions, rules) {
         let answer;
         try {
             evaluationTotal++;
-            answer = require('./evaluate')(rules)(expression);
+            answer = evaluate(expression);
         } catch (e) {
             // Purposefully ignore
             // - Divide by zero
