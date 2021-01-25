@@ -49,7 +49,7 @@ The [generation algorithm](./fourfours.js) works like this:
   - [Example function permutations (256)](./examples/prefix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
   - [Example function permutations (16,384)](./examples/prefixT.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
 - **Stage 5**: Postfix operation (aka factorial) permutations are generated (eg sqrt(4!) + sqrt(4)! + sqrt(4) + sqrt(4!)) ([source code](./postfix.js))
-  - [Example factorial permutations (16)](./examples/postfix.txt) sum, sqrt, square for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
+  - [Example factorial permutations (16)](./examples/postfix.txt) `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
   - [Example factorial permutations (128)](./examples/postfixT.txt) for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
 - **Stage 6**: Expression evaluation ([source code](./evaluation.js))
 
