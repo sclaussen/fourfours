@@ -8,3 +8,4 @@ functions: Permutations:   1,575,551  Solutions:   109,735
 factorial: Permutations:      56,261  Solutions:     7,861
 factorialT: Permutations:     427,066  Solutions:    13,982
 factorial: Permutations:      56,261  Solutions:     7,861
+factorialT: Permutations:     427,066  Solutions:    13,982

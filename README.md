@@ -160,8 +160,9 @@ expressions, how many result in an integer solution between 0 and
 1000, and a description of the numbers and operations they support.
 
 ```
-                 Expression    Solutions  Description
-               Permutations       0-1000
+                 Expression    Solutions
+Rule Set       Permutations       0-1000  Description
+--------       ------------    ---------  -----------
 simple                  320          227  4 * / + -
 power                   625          352  4 * / + - ^
 concat                  791          425  4 44 444 4444 * / + - ^
@@ -175,9 +176,14 @@ functionsT       97,221,656    2,847,765  4 44 444 4444 4.4 4.44 44.4 4.444 44.4
 advancedT  ~300,000,000,000      Unknown  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluation=T)
 ```
 
-Note: The advanced solution was not fully executed because I estimated
-that it would take approximately 150 days of execution on my laptop to
-complete.
+I interrupted the advanced rule set execution because:
+
+- For each number/infix/parenthesis combination the algorithm took 70
+  minutes to process around 100 million expression permutations.
+
+- There were a total of 3031 number/infix/parenthesis combinations,
+  thus, via extrapolation it would have taken nearly 150 days of
+  compute time to generate and process nearly 300 billion expressions.
 
 
 
@@ -186,11 +192,11 @@ complete.
 Here are some of the output files for each rule set.  Here's what each
 link means:
 - `Solutions: 10 shortest + 10 longest`: The 10 shortest and the 10
-  longest solutions for each number between 0 and 1000.  Note that if
+  longest solutions for each solution between 0 and 1000.  Note that if
   the number of solutions is <= 20 the combination of the 10 shortest
   and 10 longest will contain duplicates.
 
-- `Solution count`: For each number 0 to 1000, the total number of
+- `Solution count`: For each solution 0 to 1000, the total number of
   solutions found.
 
 - `Solution count sorted`: The count of solutions found from 0 to 1000
@@ -203,7 +209,7 @@ link means:
 
 
 
-## simple
+## simple (4 * / + -)
 
 - [Solutions: 10 shortest + 10 longest](./data/simple-solutions-10.txt)
 - [Solution count](./data/simple-count.txt)
@@ -211,7 +217,7 @@ link means:
 - [Solutions](./data/simple2/)
 
 
-## power
+## power (4 * / + - ^)
 
 - [Solutions: 10 shortest + 10 longest](./data/power-solutions-10.txt)
 - [Solution count](./data/power-count.txt)
@@ -219,7 +225,7 @@ link means:
 - [Solutions](./data/power2/)
 
 
-## concat
+## concat (4 44 444 4444 * / + - ^)
 
 - [Solutions: 10 shortest + 10 longest](./data/concat-solutions-10.txt)
 - [Solution count](./data/concat-count.txt)
@@ -227,7 +233,7 @@ link means:
 - [Solutions](./data/concat2/)
 
 
-## decimal
+## decimal (4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^)
 
 - [Solutions: 10 shortest + 10 longest](./data/decimal-solutions-10.txt)
 - [Solution count](./data/decimal-count.txt)
@@ -235,7 +241,7 @@ link means:
 - [Solutions](./data/decimal2/)
 
 
-## factorial
+## factorial (4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !)
 
 - [Solutions: 10 shortest + 10 longest](./data/factorial-solutions-10.txt)
 - [Solution count](./data/factorial-count.txt)
@@ -243,7 +249,7 @@ link means:
 - [Solutions](./data/factorial2/)
 
 
-## functions
+## functions (4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square)
 
 - [Solutions: 10 shortest + 10 longest](./data/functions-solutions-10.txt)
 - [Solution count](./data/functions-count.txt)
@@ -251,7 +257,7 @@ link means:
 - [Solutions](./data/functions2/)
 
 
-## grande
+## grande (4 * / + - ^ ! sum sqrt square)
 
 - [Solutions: 10 shortest + 10 longest](./data/grande-solutions-10.txt)
 - [Solution count](./data/grande-count.txt)
@@ -259,7 +265,7 @@ link means:
 - [Solutions](./data/grande2/)
 
 
-## factorialT
+## factorialT (4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluation=T))
 
 - [Solutions: 10 shortest + 10 longest](./data/factorialT-solutions-10.txt)
 - [Solution count](./data/factorialT-count.txt)
@@ -267,7 +273,7 @@ link means:
 - [Solutions](./data/factorialT2/)
 
 
-## functionsT
+## functionsT (4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluation=T))
 
 - [Solutions: 10 shortest + 10 longest](./data/functionsT-solutions-10.txt)
 - [Solution count](./data/functionsT-count.txt)
