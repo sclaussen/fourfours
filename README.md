@@ -197,10 +197,11 @@ I interrupted the advanced rule set execution because:
 
 Here are some of the output files for each rule set.  Here's what each
 link means:
-- **Solutions: 10 shortest + 10 longest*8: The 10 shortest and the 10
-  longest solutions for each solution between 0 and 1000.  Note that if
-  the number of solutions is <= 20 the combination of the 10 shortest
-  and 10 longest will contain duplicates.
+
+- **Solutions: 10 shortest + 10 longest 10**: The 10 shortest and the
+  10 longest solutions for each solution between 0 and 1000.  Note
+  that if the number of solutions is <= 20 the combination of the 10
+  shortest and 10 longest will contain duplicates.
 
 - **Solution count**: For each solution 0 to 1000, the total number of
   solutions found.
