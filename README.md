@@ -154,6 +154,12 @@ For example:
 Unless indicated otherwise, `applyToEvaluation1 is set to false in the
 rule sets.
 
+
+
+# Execution Results
+
+## Summary
+
 Here's a summary of each rule set including the total generated
 expressions, how many result in an integer solution between 0 and
 1000, and a description of the numbers and operations they support.
@@ -186,7 +192,7 @@ I interrupted the advanced rule set execution because:
 
 
 
-# Execution Results
+## Data
 
 Here are some of the output files for each rule set.  Here's what each
 link means:
