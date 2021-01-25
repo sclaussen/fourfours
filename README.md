@@ -162,7 +162,8 @@ rule sets.
 
 Here's a summary of each rule set including the total generated
 expressions, how many result in an integer solution between 0 and
-1000, and a description of the numbers and operations they support.
+1000, and a description of the numbers and operations the rule set
+used for its execution.
 
 ```
                  Expression    Solutions
