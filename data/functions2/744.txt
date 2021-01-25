@@ -1,8 +1,0 @@
-744: ((square(4 + sum(4)) - sum(4)) * 4)
-744: ((square(sum(4) + 4) - sum(4)) * 4)
-744: (4 * (square(4 + sum(4)) - sum(4)))
-744: (4 * (square(sum(4) + 4) - sum(4)))
-744: ((square(sqrt(4) - square(4)) - sum(4)) * 4)
-744: ((square(square(4) - sqrt(4)) - sum(4)) * 4)
-744: (4 * (square(sqrt(4) - square(4)) - sum(4)))
-744: (4 * (square(square(4) - sqrt(4)) - sum(4)))

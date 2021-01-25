@@ -1,0 +1,4 @@
+949: (square(sqrt(4) + square(4)) + square(sum(4) / 0.4))
+949: (square(square(4) + sqrt(4)) + square(sum(4) / 0.4))
+949: (square(sum(4) / 0.4) + square(sqrt(4) + square(4)))
+949: (square(sum(4) / 0.4) + square(square(4) + sqrt(4)))

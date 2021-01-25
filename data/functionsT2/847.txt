@@ -1,0 +1,8 @@
+847: (square(square(4) + sum(4)) + sum(sqrt(4) + square(4)))
+847: (square(square(4) + sum(4)) + sum(square(4) + sqrt(4)))
+847: (square(sum(4) + square(4)) + sum(sqrt(4) + square(4)))
+847: (square(sum(4) + square(4)) + sum(square(4) + sqrt(4)))
+847: (sum(sqrt(4) + square(4)) + square(square(4) + sum(4)))
+847: (sum(sqrt(4) + square(4)) + square(sum(4) + square(4)))
+847: (sum(square(4) + sqrt(4)) + square(square(4) + sum(4)))
+847: (sum(square(4) + sqrt(4)) + square(sum(4) + square(4)))

@@ -1,0 +1,8 @@
+714: ((44 * square(4)) + sum(4))
+714: ((square(4) * 44) + sum(4))
+714: (sum(4) + (44 * square(4)))
+714: (sum(4) + (square(4) * 44))
+714: (square(4 * sqrt(44)) + sum(4))
+714: (square(sqrt(44) * 4) + sum(4))
+714: (sum(4) + square(4 * sqrt(44)))
+714: (sum(4) + square(sqrt(44) * 4))

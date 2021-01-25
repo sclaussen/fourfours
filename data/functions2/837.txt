@@ -1,6 +1,0 @@
-837: (square((sum(4) / 0.4) + 4) - 4)
-837: (square(4 + (sum(4) / 0.4)) - 4)
-837: (square(4 + square(sqrt(4) / 0.4)) - 4)
-837: (square(square(sqrt(4) / 0.4) + 4) - 4)
-837: (square(4 + square(sum(4) / sqrt(4))) - 4)
-837: (square(square(sum(4) / sqrt(4)) + 4) - 4)

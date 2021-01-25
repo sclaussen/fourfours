@@ -119,17 +119,21 @@ definition for which numbers and operators should be applied to
 generate the possible set of expressions.
 
 Generating all the expression permutations for functions and factorial
-result in a an explosion of expressions.  There is a rule named
-applyToEvaluation that determines how functions and factorial are
-applied.  When set to false, functions and factorial are only applied
-directly to a number.  When true, they are applied to the number, as
-well as the result of a prior evaluation.  For example:
+results in an explosion of possible expressions.  To provide a relief
+from the potential explosion, there is a rule named applyToEvaluation
+that determines how functions and the factorial operation are applied.
+
+When applyToEvaluation is set to false, functions and factorial are
+only applied directly to a number.  When true, they are applied to the
+number, as well as the result of a prior evaluation.
+
+For example:
 
 - Expression: `(((4 + 4) + 4) + 4)`
-- Factorial spots (applyToEvaluation=false): `(((4! + 4!) + 4!) + 4!)`
-- Factorial spots (applyToEvaluation=true): `(((4! + 4!)! + 4!)! + 4!)!`
-- Function spots (applyToEvaluation=false): `(((square(4) + square(4)) + square(4)) + square(4))`
-- Function spots (applyToEvaluation=true): `square(square(square(square(4) + square(4)) + square(4)) + square(4))`
+- Possible factorial locations (applyToEvaluation=false): `(((4! + 4!) + 4!) + 4!)`
+- Possible factorial locations (applyToEvaluation=true): `(((4! + 4!)! + 4!)! + 4!)!`
+- Possible function locations (applyToEvaluation=false): `(((square(4) + square(4)) + square(4)) + square(4))`
+- Possible function locations (applyToEvaluation=true): `square(square(square(square(4) + square(4)) + square(4)) + square(4))`
 
 Unless indicated otherwise, apply to evaluation is set to false in the
 rule sets.
@@ -139,20 +143,28 @@ expressions, how many result in an integer solution between 0 and
 1000, and a description of the numbers and operations they support.
 
 ```
-                Expression    Solutions  Description
-              Permutations       0-1000
-simple                 320          227  4 * / + -
-power                  625          352  4 * / + - ^
-concat                 791          425  4 44 444 4444 * / + - ^
-decimal             11,930        1,846  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
-factorial          427,066       13,982  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluation=T)
-grande           2,560,000      265,649  4 * / + - ^ ! sum sqrt square
-functions       97,221,656    2,847,765  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluation=T)
-advanced  ~300,000,000,000      Unknown  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluation=T)
+                 Expression    Solutions  Description
+               Permutations       0-1000
+simple                  320          227  4 * / + -
+power                   625          352  4 * / + - ^
+concat                  791          425  4 44 444 4444 * / + - ^
+decimal              11,930        1,846  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
+factorial            56,261        7,861  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
+functions         1,575,551      109,735  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
+grande            2,560,000      265,649  4 * / + - ^ ! sum sqrt square
+
+factorialT          427,066       13,982  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluation=T)
+functionsT       97,221,656    2,847,765  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluation=T)
+advancedT  ~300,000,000,000      Unknown  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluation=T)
 ```
 
+Note: The advanced solution was not fully executed because I estimated
+that it would take approximately 150 days of execution on my laptop to
+complete.
 
-# Results
+
+
+# Execution Results
 
 Here are some of the output files for each rule set.  Here's what each
 link means:
@@ -220,3 +232,27 @@ link means:
 - [Solution count](./data/functions-count.txt)
 - [Solution count sorted](./data/functions-count-sorted.txt)
 - [Solutions](./data/functions2/)
+
+
+## grande
+
+- [Solutions: 10 shortest + 10 longest](./data/grande-solutions-10.txt)
+- [Solution count](./data/grande-count.txt)
+- [Solution count sorted](./data/grande-count-sorted.txt)
+- [Solutions](./data/grande2/)
+
+
+## factorialT
+
+- [Solutions: 10 shortest + 10 longest](./data/factorialT-solutions-10.txt)
+- [Solution count](./data/factorialT-count.txt)
+- [Solution count sorted](./data/factorialT-count-sorted.txt)
+- [Solutions](./data/factorialT2/)
+
+
+## functionsT
+
+- [Solutions: 10 shortest + 10 longest](./data/functionsT-solutions-10.txt)
+- [Solution count](./data/functionsT-count.txt)
+- [Solution count sorted](./data/functionsT-count-sorted.txt)
+- [Solutions](./data/functionsT2/)

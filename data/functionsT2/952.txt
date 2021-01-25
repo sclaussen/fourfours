@@ -1,0 +1,1 @@
+952: ((square(44) / sqrt(4)) - square(4))

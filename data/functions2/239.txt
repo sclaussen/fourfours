@@ -1,3 +1,0 @@
-239: (sqrt(sum(4 - sqrt(4)) ^ sum(4)) - 4)
-239: (sqrt(sum(4 / sqrt(4)) ^ sum(4)) - 4)
-239: (sqrt(sum(sqrt(4) - 4) ^ sum(4)) - 4)

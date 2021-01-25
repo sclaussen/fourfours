@@ -113,16 +113,16 @@ function prefixRecursive(expression, newExpression, stack, comment) {
             continue;
         }
 
-        if (token === ')') {
+        if (token === '(') {
+            if (rules.applyToEvaluation) {
+                break;
+            }
             tokenCount++;
             newExpression.push(token);
             continue;
         }
 
-        if (token === '(') {
-            if (rules.applyToEvaluation) {
-                break;
-            }
+        if (token === ')') {
             tokenCount++;
             newExpression.push(token);
             continue;

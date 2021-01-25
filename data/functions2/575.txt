@@ -1,2 +1,0 @@
-575: (square(sum(4) / sqrt(0.4)) + sum(sum(4) / 0.4))
-575: (sum(sum(4) / 0.4) + square(sum(4) / sqrt(0.4)))
