@@ -129,7 +129,7 @@ Note: Square roots are only applied to zero and positive numbers.
 ### Rule Sets
 
 In order to enable different combinations of rules to be applied the
-algorithm supports the concept of [rule sets (source)](./rules.js].
+algorithm supports the concept of [rule sets (source)](./rules.js).
 The rule sets enable a definition for which numbers and operators
 should be applied to generate the possible set of expressions.
 
