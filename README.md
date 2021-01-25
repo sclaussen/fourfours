@@ -135,22 +135,23 @@ should be applied to generate the possible set of expressions.
 
 Generating all the expression permutations for functions and factorial
 results in an explosion of possible expressions.  To provide a relief
-from the potential explosion, there is a rule named applyToEvaluation
-that determines how functions and the factorial operation are applied.
+from the potential explosion, there is a rule named
+`applyToEvaluation` that determines how functions and the factorial
+operation are applied.
 
-When applyToEvaluation is set to false, functions and factorial are
+When `applyToEvaluation` is set to false, functions and factorial are
 only applied directly to a number.  When true, they are applied to the
 number, as well as the result of a prior evaluation.
 
 For example:
 
-- Expression: `(((4 + 4) + 4) + 4)`
-- Possible factorial locations (applyToEvaluation=false): `(((4! + 4!) + 4!) + 4!)`
-- Possible factorial locations (applyToEvaluation=true): `(((4! + 4!)! + 4!)! + 4!)!`
-- Possible function locations (applyToEvaluation=false): `(((square(4) + square(4)) + square(4)) + square(4))`
-- Possible function locations (applyToEvaluation=true): `square(square(square(square(4) + square(4)) + square(4)) + square(4))`
+- For the expression: `(((4 + 4) + 4) + 4)`
+  - Possible factorial locations (`applyToEvaluation`=false): `(((4! + 4!) + 4!) + 4!)`
+  - Possible factorial locations (`applyToEvaluation`=true): `(((4! + 4!)! + 4!)! + 4!)!`
+  - Possible function locations (`applyToEvaluation`=false): `(((square(4) + square(4)) + square(4)) + square(4))`
+  - Possible function locations (`applyToEvaluation`=true): `square(square(square(square(4) + square(4)) + square(4)) + square(4))`
 
-Unless indicated otherwise, apply to evaluation is set to false in the
+Unless indicated otherwise, `applyToEvaluation1 is set to false in the
 rule sets.
 
 Here's a summary of each rule set including the total generated
