@@ -210,6 +210,10 @@ link means:
   but sorted and the numbers for which solutions were not found have
   been removed.
 
+- **Solutions found**: A list of the solutions found.
+
+- **Solution count sorted**: A list of the solutions not found.
+
 - **Solutions**: The raw data of 1001 files, one per each possible
   solution 0 to 1000, each containing all the solutions found for that
   number.
