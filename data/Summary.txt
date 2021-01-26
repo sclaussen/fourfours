@@ -1,12 +1,12 @@
-simple: Permutations:         625  Solutions:       240
-factorial: Permutations:      10,000  Solutions:     3,374
-functions: Permutations:     160,000  Solutions:    51,947
-combined: Permutations:   2,560,000  Solutions:   265,649
+simple 625 240
+factorial 10,000 3,374
+factorialATE 80,000 6,208
+functions 160,000 51,947
+functionsATE 10,240,000 1,061,793
+combined 2,560,000 265,649
 
-factorialATE: Permutations:      80,000  Solutions:     6,208
-functionsATE: Permutations:  10,240,000  Solutions: 1,061,793
 
-simpleAll: Permutations:      11,930  Solutions:     1,385
-factorialAll: Permutations:      56,261  Solutions:     7,861
-functionsAll: Permutations:   1,575,551  Solutions:   109,735
-factorialAllATE: Permutations:     427,066  Solutions:    13,982
+simpleAll 11,930 1,385
+factorialAll 56,261 7,861
+factorialAllATE 427,066 13,982
+functionsAll 1,575,551 109,735

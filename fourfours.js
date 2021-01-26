@@ -82,7 +82,7 @@ function fourfours(args) {
 
     msg('Finished!');
     let file = 'data/Summary.txt';
-    fs.writeFileSync(file, rules.name + ': Permutations: ' + spacePad(evaluationTotal.toLocaleString(), 11) + '  Solutions: ' + spacePad(evaluationInRange.toLocaleString(), 9) + '\n', { flag: 'a+' });
+    fs.writeFileSync(file, rules.name + ' ' + spacePad(evaluationTotal.toLocaleString(), 11) + ' ' + spacePad(evaluationInRange.toLocaleString(), 9) + '\n', { flag: 'a+' });
 }
 
 

@@ -188,21 +188,19 @@ Rule Set       Permutations       0-1000  Description
 --------       ------------    ---------  -----------
 simple                  625          240  4 * / + - ^
 factorial            10,000        3,374  4 * / + - ^ !
+factorialATE         80,000        6,208  4 * / + - ^ ! (applyToEvaluations=T)
 functions           160,000       51,947  4 * / + - ^ sum sqrt square
+functionsATE     10,240,000    1,061,793  4 * / + - ^ sum sqrt square (applyToEvaluations=T)
 combined          2,560,000      265,649  4 * / + - ^ ! sum sqrt square
+combinedATE               x            x  4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
 
-factorialATE                      4 * / + - ^ ! (applyToEvaluations=T)
-functionsATE             4 * / + - ^ sum sqrt square (applyToEvaluations=T)
-combinedATE            4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
-
-simpleAll                  625          240  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
-factorialAll            10,000        3,374  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
-functionsAll           160,000       51,947  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
-combinedAll          2,560,000      265,649  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square
-
-factorialAllATE                      4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluations=T)
-functionsAllATE                      4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluations=T)
-combinedAllATE                       4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
+simpleAll            11,930        1,385  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
+factorialAll         56,261        7,861  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
+factorialAllATE     427,066       13,982  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluations=T)
+functionsAll      1,575,551      109,735  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
+functionsAllATE           x            x  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluations=T)
+combinedAll               x            x  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square
+combinedAllATE            x            x  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
 ```
 
 I interrupted the advanced rule set execution because:
@@ -245,131 +243,119 @@ link means:
 
 ## simple
 
-- Summary: 4 * / + -
-- Permutations/Solutions: 320/227
-- [Solutions: 10 shortest + 10 longest](./data/simple-solutions-10.txt)
-- [Solution count](./data/simple-count.txt)
-- [Solution count sorted](./data/simple-count-sorted.txt)
-- [Solutions found](./data/simple-solutions-found.txt)
-- [Solutions not found](./data/simple-solutions-notfound.txt)
-- [Solutions](./data/simple2/)
-
-
-## power
-
 - Summary: 4 * / + - ^
-- Permutations/Solutions: 625 352
-- [Solutions: 10 shortest + 10 longest](./data/power-solutions-10.txt)
-- [Solution count](./data/power-count.txt)
-- [Solution count sorted](./data/power-count-sorted.txt)
-- [Solutions found](./data/power-solutions-found.txt)
-- [Solutions not found](./data/power-solutions-notfound.txt)
-- [Solutions](./data/power2/)
-
-
-## factorial4
-
-- Summary: 4 * / + - ^ !
-- Permutations/Solutions: 10,000 3,374
-- [Solutions: 10 shortest + 10 longest](./data/factorial4-solutions-10.txt)
-- [Solution count](./data/factorial4-count.txt)
-- [Solution count sorted](./data/factorial4-count-sorted.txt)
-- [Solutions found](./data/factorial4-solutions-found.txt)
-- [Solutions not found](./data/factorial4-solutions-notfound.txt)
-- [Solutions](./data/factorial4/)
-
-
-## functions4
-
-- Summary: 4 * / + - ^ sum sqrt square
-- Permutations/Solutions: 160,000       51,947
-- [Solutions: 10 shortest + 10 longest](./data/functions4-solutions-10.txt)
-- [Solution count](./data/functions4-count.txt)
-- [Solution count sorted](./data/functions4-count-sorted.txt)
-- [Solutions found](./data/functions4-solutions-found.txt)
-- [Solutions not found](./data/functions4-solutions-notfound.txt)
-- [Solutions](./data/functions4/)
-
-
-## grande
-
-- Summary: 4 * / + - ^ ! sum sqrt square
-- Permutations/Solutions: 2,560,000 265,649
-- [Solutions: 10 shortest + 10 longest](./data/grande-solutions-10.txt)
-- [Solution count](./data/grande-count.txt)
-- [Solution count sorted](./data/grande-count-sorted.txt)
-- [Solutions found](./data/grande-solutions-found.txt)
-- [Solutions not found](./data/grande-solutions-notfound.txt)
-- [Solutions](./data/grande2/)
-
-
-## concat
-
-- Summary: 4 44 444 4444 * / + - ^
-- Permutations/Solutions: 791 425
-- [Solutions: 10 shortest + 10 longest](./data/concat-solutions-10.txt)
-- [Solution count](./data/concat-count.txt)
-- [Solution count sorted](./data/concat-count-sorted.txt)
-- [Solutions found](./data/concat-solutions-found.txt)
-- [Solutions not found](./data/concat-solutions-notfound.txt)
-- [Solutions](./data/concat2/)
-
-
-## decimal
-
-- Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
-- Permutations/Solutions: 11,930 1,846
-- [Solutions: 10 shortest + 10 longest](./data/decimal-solutions-10.txt)
-- [Solution count](./data/decimal-count.txt)
-- [Solution count sorted](./data/decimal-count-sorted.txt)
-- [Solutions found](./data/decimal-solutions-found.txt)
-- [Solutions not found](./data/decimal-solutions-notfound.txt)
-- [Solutions](./data/decimal2/)
+- Permutations/solutions: 625 240
+- [Top 10](./data/simple-solutions-10.txt)
+- [Count](./data/simple-count.txt)
+- [Count (sorted)](./data/simple-count-sorted.txt)
+- [Solved](./data/simple-solutions-found.txt)
+- [Unsolved](./data/simple-solutions-notfound.txt)
+- [All Solutions](./data/simple2/)
 
 
 ## factorial
 
-- Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
-- Permutations/Solutions: 56,261 7,861
-- [Solutions: 10 shortest + 10 longest](./data/factorial-solutions-10.txt)
-- [Solution count](./data/factorial-count.txt)
-- [Solution count sorted](./data/factorial-count-sorted.txt)
-- [Solutions found](./data/factorial-solutions-found.txt)
-- [Solutions not found](./data/factorial-solutions-notfound.txt)
-- [Solutions](./data/factorial2/)
+- Summary: 4 * / + - ^ !
+- Permutations/solutions: 10,000 3,374
+- [Top 10](./data/factorial-solutions-10.txt)
+- [Count](./data/factorial-count.txt)
+- [Count (sorted)](./data/factorial-count-sorted.txt)
+- [Solved](./data/factorial-solutions-found.txt)
+- [Unsolved](./data/factorial-solutions-notfound.txt)
+- [All Solutions](./data/factorial2/)
+
+
+## factorialATE
+
+- Summary: 4 * / + - ^ ! (applyToEvaluations=T)
+- Permutations/solutions: 80,000 6,208
+- [Top 10](./data/factorialATE-solutions-10.txt)
+- [Count](./data/factorialATE-count.txt)
+- [Count (sorted)](./data/factorialATE-count-sorted.txt)
+- [Solved](./data/factorialATE-solutions-found.txt)
+- [Unsolved](./data/factorialATE-solutions-notfound.txt)
+- [All Solutions](./data/factorialATE2/)
 
 
 ## functions
 
+- Summary: 4 * / + - ^ sum sqrt square
+- Permutations/solutions: 160,000 51,947
+- [Top 10](./data/functions-solutions-10.txt)
+- [Count](./data/functions-count.txt)
+- [Count (sorted)](./data/functions-count-sorted.txt)
+- [Solved](./data/functions-solutions-found.txt)
+- [Unsolved](./data/functions-solutions-notfound.txt)
+- [All Solutions](./data/functions2/)
+
+
+## functionsATE
+
+- Summary: 4 * / + - ^ sum sqrt square (applyToEvaluations=T)
+- Permutations/solutions: 10,240,000    1, 061,793
+- [Top 10](./data/functionsATE-solutions-10.txt)
+- [Count](./data/functionsATE-count.txt)
+- [Count (sorted)](./data/functionsATE-count-sorted.txt)
+- [Solved](./data/functionsATE-solutions-found.txt)
+- [Unsolved](./data/functionsATE-solutions-notfound.txt)
+- [All Solutions](./data/functionsATE2/)
+
+
+## combined
+
+- Summary: 4 * / + - ^ ! sum sqrt square
+- Permutations/solutions: 2,560,000 265,649
+- [Top 10](./data/combined-solutions-10.txt)
+- [Count](./data/combined-count.txt)
+- [Count (sorted)](./data/combined-count-sorted.txt)
+- [Solved](./data/combined-solutions-found.txt)
+- [Unsolved](./data/combined-solutions-notfound.txt)
+- [All Solutions](./data/combined2/)
+
+
+## simpleAll
+
+- Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
+- Permutations/solutions: 11,930 1,385
+- [Top 10](./data/simpleAll-solutions-10.txt)
+- [Count](./data/simpleAll-count.txt)
+- [Count (sorted)](./data/simpleAll-count-sorted.txt)
+- [Solved](./data/simpleAll-solutions-found.txt)
+- [Unsolved](./data/simpleAll-solutions-notfound.txt)
+- [All Solutions](./data/simpleAll2/)
+
+
+## factorialAll
+
+- Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
+- Permutations/solutions: 56,261 7,861
+- [Top 10](./data/factorialAll-solutions-10.txt)
+- [Count](./data/factorialAll-count.txt)
+- [Count (sorted)](./data/factorialAll-count-sorted.txt)
+- [Solved](./data/factorialAll-solutions-found.txt)
+- [Unsolved](./data/factorialAll-solutions-notfound.txt)
+- [All Solutions](./data/factorialAll2/)
+
+
+## factorialAllATE
+
+- Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluations=T)
+- Permutations/solutions: 427,066 13,982
+- [Top 10](./data/factorialAllATE-solutions-10.txt)
+- [Count](./data/factorialAllATE-count.txt)
+- [Count (sorted)](./data/factorialAllATE-count-sorted.txt)
+- [Solved](./data/factorialAllATE-solutions-found.txt)
+- [Unsolved](./data/factorialAllATE-solutions-notfound.txt)
+- [All Solutions](./data/factorialAllATE2/)
+
+
+## functionsAll
+
 - Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
-- Permutations/Solutions: 1,575,551 109,735
-- [Solutions: 10 shortest + 10 longest](./data/functions-solutions-10.txt)
-- [Solution count](./data/functions-count.txt)
-- [Solution count sorted](./data/functions-count-sorted.txt)
-- [Solutions found](./data/functions-solutions-found.txt)
-- [Solutions not found](./data/functions-solutions-notfound.txt)
-- [Solutions](./data/functions2/)
-
-
-## factorialT
-
-- Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluation=T)
-- Permutations/Solutions: 427,066 13,982
-- [Solutions: 10 shortest + 10 longest](./data/factorialT-solutions-10.txt)
-- [Solution count](./data/factorialT-count.txt)
-- [Solution count sorted](./data/factorialT-count-sorted.txt)
-- [Solutions found](./data/factorialT-solutions-found.txt)
-- [Solutions not found](./data/factorialT-solutions-notfound.txt)
-- [Solutions](./data/factorialT2/)
-
-
-## functionsT
-
-- Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluation=T)
-- Permutations/Solutions: 97,221,656 2,847,765
-- [Solutions: 10 shortest + 10 longest](./data/functionsT-solutions-10.txt)
-- [Solution count](./data/functionsT-count.txt)
-- [Solution count sorted](./data/functionsT-count-sorted.txt)
-- [Solutions found](./data/functionsT-solutions-found.txt)
-- [Solutions not found](./data/functionsT-solutions-notfound.txt)
-- [Solutions](./data/functionsT2/)
+- Permutations/solutions: 1,575,551 109,735
+- [Top 10](./data/functionsAll-solutions-10.txt)
+- [Count](./data/functionsAll-count.txt)
+- [Count (sorted)](./data/functionsAll-count-sorted.txt)
+- [Solved](./data/functionsAll-solutions-found.txt)
+- [Unsolved](./data/functionsAll-solutions-notfound.txt)
+- [All Solutions](./data/functionsAll2/)
