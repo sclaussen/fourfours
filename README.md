@@ -225,9 +225,9 @@ links:
 
 ## simple
 
-- Rules summary: *4 * / + - ^*
-- Permutations/solutions: *625* / *240*
-- Numbers between 0 and 1000 solved: *26*
+- Rules summary: **4 * / + - ^**
+- Permutations/solutions: **625** / **240**
+- Numbers between 0 and 1000 solved: **26**
 - [Top 10](./data/simple-solutions-10.txt)
 - [Count](./data/simple-count.txt)
 - [Count (sorted)](./data/simple-count-sorted.txt)
@@ -238,9 +238,9 @@ links:
 
 ## factorial
 
-- Rules summary: *4 * / + - ^ !*
-- Permutations/solutions: *10,000* / *3,374*
-- Numbers between 0 and 1000 solved: *152*
+- Rules summary: **4 * / + - ^ !**
+- Permutations/solutions: **10,000** / **3,374**
+- Numbers between 0 and 1000 solved: **152**
 - [Top 10](./data/factorial-solutions-10.txt)
 - [Count](./data/factorial-count.txt)
 - [Count (sorted)](./data/factorial-count-sorted.txt)
@@ -251,9 +251,9 @@ links:
 
 ## factorialATE
 
-- Rules summary: *4 * / + - ^ ! (applyToEvaluations=T)*
-- Permutations/solutions: *80,000* / *6,208*
-- Numbers between 0 and 1000 solved: *178*
+- Rules summary: **4 * / + - ^ ! (applyToEvaluations=T)**
+- Permutations/solutions: **80,000** / **6,208**
+- Numbers between 0 and 1000 solved: **178**
 - [Top 10](./data/factorialATE-solutions-10.txt)
 - [Count](./data/factorialATE-count.txt)
 - [Count (sorted)](./data/factorialATE-count-sorted.txt)
@@ -264,9 +264,9 @@ links:
 
 ## functions
 
-- Rules summary: *4 * / + - ^ sum sqrt square*
-- Permutations/solutions: *160,000* / *51,947*
-- Numbers between 0 and 1000 solved: *328*
+- Rules summary: **4 * / + - ^ sum sqrt square**
+- Permutations/solutions: **160,000** / **51,947**
+- Numbers between 0 and 1000 solved: **328**
 - [Top 10](./data/functions-solutions-10.txt)
 - [Count](./data/functions-count.txt)
 - [Count (sorted)](./data/functions-count-sorted.txt)
@@ -277,9 +277,9 @@ links:
 
 ## functionsATE
 
-- Rules summary: *4 * / + - ^ sum sqrt square (applyToEvaluations=T)*
-- Permutations/solutions: *10,240,000* / *   1, 061,793*
-- Numbers between 0 and 1000 solved: *805*
+- Rules summary: **4 * / + - ^ sum sqrt square (applyToEvaluations=T)**
+- Permutations/solutions: **10,240,000** / **   1, 061,793**
+- Numbers between 0 and 1000 solved: **805**
 - [Top 10](./data/functionsATE-solutions-10.txt)
 - [Count](./data/functionsATE-count.txt)
 - [Count (sorted)](./data/functionsATE-count-sorted.txt)
@@ -290,9 +290,9 @@ links:
 
 ## combined
 
-- Rules summary: *4 * / + - ^ ! sum sqrt square*
-- Permutations/solutions: *2,560,000* / *265,649*
-- Numbers between 0 and 1000 solved: *778*
+- Rules summary: **4 * / + - ^ ! sum sqrt square**
+- Permutations/solutions: **2,560,000** / **265,649**
+- Numbers between 0 and 1000 solved: **778**
 - [Top 10](./data/combined-solutions-10.txt)
 - [Count](./data/combined-count.txt)
 - [Count (sorted)](./data/combined-count-sorted.txt)
@@ -303,9 +303,9 @@ links:
 
 ## simpleAll
 
-- Rules summary: *4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^*
-- Permutations/solutions: *11,930* / *1,385*
-- Numbers between 0 and 1000 solved: *62*
+- Rules summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^**
+- Permutations/solutions: **11,930** / **1,385**
+- Numbers between 0 and 1000 solved: **62**
 - [Top 10](./data/simpleAll-solutions-10.txt)
 - [Count](./data/simpleAll-count.txt)
 - [Count (sorted)](./data/simpleAll-count-sorted.txt)
@@ -316,9 +316,9 @@ links:
 
 ## factorialAll
 
-- Rules summary: *4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !*
-- Permutations/solutions: *56,261* / *7,861*
-- Numbers between 0 and 1000 solved: *232*
+- Rules summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !**
+- Permutations/solutions: **56,261** / **7,861**
+- Numbers between 0 and 1000 solved: **232**
 - [Top 10](./data/factorialAll-solutions-10.txt)
 - [Count](./data/factorialAll-count.txt)
 - [Count (sorted)](./data/factorialAll-count-sorted.txt)
@@ -329,9 +329,9 @@ links:
 
 ## factorialAllATE
 
-- Rules summary: *4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluations=T)*
-- Permutations/solutions: *427,066* / *13,982*
-- Numbers between 0 and 1000 solved: *262*
+- Rules summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluations=T)**
+- Permutations/solutions: **427,066** / **13,982**
+- Numbers between 0 and 1000 solved: **262**
 - [Top 10](./data/factorialAllATE-solutions-10.txt)
 - [Count](./data/factorialAllATE-count.txt)
 - [Count (sorted)](./data/factorialAllATE-count-sorted.txt)
@@ -342,9 +342,9 @@ links:
 
 ## functionsAll
 
-- Rules summary: *4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square*
-- Permutations/solutions: *1,575,551* / *109,735*
-- Numbers between 0 and 1000 solved: *440*
+- Rules summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square**
+- Permutations/solutions: **1,575,551** / **109,735**
+- Numbers between 0 and 1000 solved: **440**
 - [Top 10](./data/functionsAll-solutions-10.txt)
 - [Count](./data/functionsAll-count.txt)
 - [Count (sorted)](./data/functionsAll-count-sorted.txt)
