@@ -5,9 +5,8 @@ functions 160,000 51,947
 functionsATE 10,240,000 1,061,793
 combined 2,560,000 265,649
 
-
 simpleAll 11,930 1,385
 factorialAll 56,261 7,861
 factorialAllATE 427,066 13,982
 functionsAll 1,575,551 109,735
-functionsAllATE: 97,221,656 2,847,765
+functionsAllATE 97,221,656 2,847,765

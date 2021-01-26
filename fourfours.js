@@ -38,9 +38,14 @@ var start = moment();
 fourfours(process.argv);
 
 
+// Invoke via:
+// $ node fourfours RULE_SET_NAME
 function fourfours(args) {
 
-    // Rules
+
+    // The first argument is the name of the rule set, load it, and
+    // then use it to initialize all the modules whose behavior is
+    // modified by the rule set.
     let rules = ruleSet.simple;
     if (args.length > 2) {
         rules = ruleSet[args[2]];
@@ -63,13 +68,11 @@ function fourfours(args) {
             // (((4 + 4) + 4) + 4)
             let parenExpressions = paren([ infixExpression ]);
             for (let parenExpression of parenExpressions) {
-                // msg(parenExpression);
 
 
                 // (sum(sqrt(square(sum(4) + sqrt(4)) + sqaure(4)) + sum(4)))
                 let prefixExpressions = prefix([ parenExpression ]);
                 for (let prefixExpression of prefixExpressions) {
-                    // msg(prefixExpression);
 
 
                     // (sum(sum(sum(sum(4!)! + sum(4!)!)! + sum(4!)!)! + sum(4!)!)!)!

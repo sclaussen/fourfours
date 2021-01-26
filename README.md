@@ -34,9 +34,8 @@ the gamma function (Γ(), where Γ(x) = (x − 1)!), and percent
 ## Algorithm
 
 This algorithm generates permutations of the four fours expressions
-and then evaluates the expressions.  If the evaluation of an
-expression results in an integer between 0 and 1000 inclusively then a
-solution is found (all other solutions are ignored).
+and then evaluates each expression searching for solutions between 0
+and 1000.
 
 The [generation algorithm](./fourfours.js) works like this:
 - **Stage 1**: Numeric permutations are generated (eg 4 4 4 4) ([source code](./numeric.js))
@@ -51,7 +50,7 @@ The [generation algorithm](./fourfours.js) works like this:
 - **Stage 5**: Postfix operation (aka factorial) permutations are generated (eg sqrt(4!) + sqrt(4)! + sqrt(4) + sqrt(4!)) ([source code](./postfix.js))
   - [Example factorial permutations (16)](./examples/postfix.txt) for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=F
   - [Example factorial permutations (128)](./examples/postfixT.txt) for the expression `(((4 * 4) / 4) + 4)` with applyToEvaluation=T
-- **Stage 6**: Expression evaluation ([source code](./evaluation.js))
+- **Stage 6**: Expression evaluation ([source code](./evaluate.js))
 
 
 
@@ -64,7 +63,7 @@ expressions.
 
 ### Numbers
 
-Each expression can contain from one to four numbers as long as the
+Each expression can contain one to four numbers as long as the
 expression contains precisely four fours.  The fours in each number
 can be concatenated together.  The fours in each number can contain a
 leading decimal, a trailing decimal, or a decimal in between the
@@ -130,14 +129,14 @@ generating the expression permutations.
 
 Generating all the expression permutations for functions and factorial
 operations results in an explosion of possible expressions.  To
-provide a relief from the potential explosion, the rule
+provide relief from the permutation explosion, the rule
 `applyToEvaluation` can be applied.
 
 When `applyToEvaluation` is set to false, functions and factorial
 operations are only applied directly to a number.  When the value is
 true, the functions and factorial operations are applied to the number
-as well as the result of a prior evaluation resulting in a
-significantly larger number of expression permutations.
+as well as the result of a prior evaluation (resulting in a
+significantly larger number of expression permutations).
 
 For example:
 
@@ -157,7 +156,8 @@ The table below contains a summary of each rule set including the
 total generated expressions, how many expressions result in an integer
 number between 0 and 1000, the total numbers between 0 and 1000 that
 were solved by application of the rule set, and a description of the
-numbers and operations the rule set defines.
+numbers and operations the rule set defines.  Rule sets are defined
+[here](./rules.js).
 
 
 ```
