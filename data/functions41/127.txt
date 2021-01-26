@@ -1,3 +1,0 @@
-127: (((square(4) * square(4)) - sqrt(4)) / sqrt(4))
-127: (((square(4) ^ sqrt(4)) - sqrt(4)) / sqrt(4))
-127: (((4 ^ 4) - sqrt(4)) / sqrt(4))

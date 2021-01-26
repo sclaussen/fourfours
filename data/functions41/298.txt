@@ -1,8 +1,0 @@
-298: ((square(4) * (sqrt(4) + square(4))) + sum(4))
-298: ((square(4) * (square(4) + sqrt(4))) + sum(4))
-298: (((sqrt(4) + square(4)) * square(4)) + sum(4))
-298: (((square(4) + sqrt(4)) * square(4)) + sum(4))
-298: (sum(4) + (square(4) * (sqrt(4) + square(4))))
-298: (sum(4) + (square(4) * (square(4) + sqrt(4))))
-298: (sum(4) + ((sqrt(4) + square(4)) * square(4)))
-298: (sum(4) + ((square(4) + sqrt(4)) * square(4)))

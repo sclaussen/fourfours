@@ -1,4 +1,0 @@
-185: (sum(4) * ((sum(4) / 4) + square(4)))
-185: (sum(4) * (square(4) + (sum(4) / 4)))
-185: (((sum(4) / 4) + square(4)) * sum(4))
-185: ((square(4) + (sum(4) / 4)) * sum(4))

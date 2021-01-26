@@ -1,4 +1,0 @@
-284: ((square(4) * (sqrt(4) + square(4))) - 4)
-284: ((square(4) * (square(4) + sqrt(4))) - 4)
-284: (((sqrt(4) + square(4)) * square(4)) - 4)
-284: (((square(4) + sqrt(4)) * square(4)) - 4)

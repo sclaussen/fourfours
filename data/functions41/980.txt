@@ -1,4 +1,0 @@
-980: (sum(4) * ((sum(4) * sum(4)) - sqrt(4)))
-980: (((sum(4) * sum(4)) - sqrt(4)) * sum(4))
-980: (sum(4) * ((sum(4) ^ sqrt(4)) - sqrt(4)))
-980: (((sum(4) ^ sqrt(4)) - sqrt(4)) * sum(4))

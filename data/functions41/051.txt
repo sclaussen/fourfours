@@ -1,4 +1,0 @@
-051: (((sum(4) * sum(4)) + sqrt(4)) / sqrt(4))
-051: ((sqrt(4) + (sum(4) * sum(4))) / sqrt(4))
-051: ((sqrt(4) + (sum(4) ^ sqrt(4))) / sqrt(4))
-051: (((sum(4) ^ sqrt(4)) + sqrt(4)) / sqrt(4))

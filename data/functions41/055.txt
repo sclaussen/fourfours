@@ -1,4 +1,0 @@
-055: (((sum(4) * sum(4)) + sum(4)) / sqrt(4))
-055: ((sum(4) + (sum(4) * sum(4))) / sqrt(4))
-055: ((sum(4) + (sum(4) ^ sqrt(4))) / sqrt(4))
-055: (((sum(4) ^ sqrt(4)) + sum(4)) / sqrt(4))

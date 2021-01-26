@@ -1,6 +1,0 @@
-222: ((square(4) * (sum(4) + 4)) - sqrt(4))
-222: ((square(4) * (4 + sum(4))) - sqrt(4))
-222: ((square(4) * (square(4) - sqrt(4))) - sqrt(4))
-222: (((sum(4) + 4) * square(4)) - sqrt(4))
-222: (((4 + sum(4)) * square(4)) - sqrt(4))
-222: (((square(4) - sqrt(4)) * square(4)) - sqrt(4))
