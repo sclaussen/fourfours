@@ -1,0 +1,2 @@
+513: (((sqrt(4) ^ sum(4)) + sqrt(4)) / sqrt(4))
+513: ((sqrt(4) + (sqrt(4) ^ sum(4))) / sqrt(4))

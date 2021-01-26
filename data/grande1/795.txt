@@ -1,0 +1,4 @@
+795: (((square(4!) + sum(4!)) / 4) + square(4!))
+795: (((sum(4!) + square(4!)) / 4) + square(4!))
+795: (square(4!) + ((square(4!) + sum(4!)) / 4))
+795: (square(4!) + ((sum(4!) + square(4!)) / 4))

@@ -1,0 +1,3 @@
+734: (sum(44) - (4 ^ 4))
+734: (sum(44) - (square(4) ^ sqrt(4)))
+734: (sum(44) - (square(4) * square(4)))

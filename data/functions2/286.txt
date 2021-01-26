@@ -1,0 +1,4 @@
+286: (((sqrt(4) + square(4)) * square(4)) - sqrt(4))
+286: (((square(4) + sqrt(4)) * square(4)) - sqrt(4))
+286: ((square(4) * (sqrt(4) + square(4))) - sqrt(4))
+286: ((square(4) * (square(4) + sqrt(4))) - sqrt(4))

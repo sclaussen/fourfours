@@ -1,0 +1,4 @@
+540: (((4 * square(4)) - sum(4)) * sum(4))
+540: (((square(4) * 4) - sum(4)) * sum(4))
+540: (sum(4) * ((4 * square(4)) - sum(4)))
+540: (sum(4) * ((square(4) * 4) - sum(4)))

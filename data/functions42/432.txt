@@ -1,0 +1,8 @@
+432: (((square(4) + sum(4)) * square(4)) + square(4))
+432: (((sum(4) + square(4)) * square(4)) + square(4))
+432: ((square(4) * (square(4) + sum(4))) + square(4))
+432: ((square(4) * (sum(4) + square(4))) + square(4))
+432: (square(4) + ((square(4) + sum(4)) * square(4)))
+432: (square(4) + ((sum(4) + square(4)) * square(4)))
+432: (square(4) + (square(4) * (square(4) + sum(4))))
+432: (square(4) + (square(4) * (sum(4) + square(4))))

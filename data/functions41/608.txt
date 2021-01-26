@@ -1,0 +1,4 @@
+608: (square(4) * ((sum(4) * 4) - sqrt(4)))
+608: (square(4) * ((4 * sum(4)) - sqrt(4)))
+608: (((sum(4) * 4) - sqrt(4)) * square(4))
+608: (((4 * sum(4)) - sqrt(4)) * square(4))

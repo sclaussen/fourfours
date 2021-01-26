@@ -1,0 +1,4 @@
+609: (((sqrt(4) / 0.4) ^ 4) - square(4))
+609: (((sum(4) / sqrt(4)) ^ 4) - square(4))
+609: (((sum(4) / 0.4) ^ sqrt(4)) - square(4))
+609: (((sum(4) ^ 4) / square(4)) - square(4))

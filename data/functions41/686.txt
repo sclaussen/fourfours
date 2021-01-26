@@ -1,0 +1,4 @@
+686: (sum(4) + ((square(4) + sum(4)) ^ sqrt(4)))
+686: (sum(4) + ((sum(4) + square(4)) ^ sqrt(4)))
+686: (((square(4) + sum(4)) ^ sqrt(4)) + sum(4))
+686: (((sum(4) + square(4)) ^ sqrt(4)) + sum(4))

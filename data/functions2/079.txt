@@ -1,0 +1,8 @@
+079: (((sqrt(4) * square(4)) - 0.4) / 0.4)
+079: (((square(4) * sqrt(4)) - 0.4) / 0.4)
+079: (((square(4) + square(4)) - 0.4) / 0.4)
+079: (((square(4) - 0.4) + square(4)) / 0.4)
+079: ((square(4) + (square(4) - 0.4)) / 0.4)
+079: ((square(4) - (0.4 - square(4))) / 0.4)
+079: (((square(4) * sum(4)) - sqrt(4)) / sqrt(4))
+079: (((sum(4) * square(4)) - sqrt(4)) / sqrt(4))

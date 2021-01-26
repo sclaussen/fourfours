@@ -1,0 +1,8 @@
+426: ((square(4) * (square(4) + sum(4))) + sum(4))
+426: ((square(4) * (sum(4) + square(4))) + sum(4))
+426: (((square(4) + sum(4)) * square(4)) + sum(4))
+426: (((sum(4) + square(4)) * square(4)) + sum(4))
+426: (sum(4) + (square(4) * (square(4) + sum(4))))
+426: (sum(4) + (square(4) * (sum(4) + square(4))))
+426: (sum(4) + ((square(4) + sum(4)) * square(4)))
+426: (sum(4) + ((sum(4) + square(4)) * square(4)))

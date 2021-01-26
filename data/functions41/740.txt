@@ -1,0 +1,8 @@
+740: (sum(4) * ((square(4) * 4) + sum(4)))
+740: (sum(4) * ((4 * square(4)) + sum(4)))
+740: (((square(4) * 4) + sum(4)) * sum(4))
+740: (((4 * square(4)) + sum(4)) * sum(4))
+740: (sum(4) * (sum(4) + (square(4) * 4)))
+740: (sum(4) * (sum(4) + (4 * square(4))))
+740: ((sum(4) + (square(4) * 4)) * sum(4))
+740: ((sum(4) + (4 * square(4))) * sum(4))

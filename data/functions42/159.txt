@@ -1,0 +1,8 @@
+159: ((square(4) * sum(4)) - (4 / 4))
+159: ((sum(4) * square(4)) - (4 / 4))
+159: ((square(4) * sum(4)) - (sum(4) / sum(4)))
+159: ((sum(4) * square(4)) - (sum(4) / sum(4)))
+159: ((square(4) * sum(4)) - (sqrt(4) / sqrt(4)))
+159: ((sum(4) * square(4)) - (sqrt(4) / sqrt(4)))
+159: ((square(4) * sum(4)) - (square(4) / square(4)))
+159: ((sum(4) * square(4)) - (square(4) / square(4)))

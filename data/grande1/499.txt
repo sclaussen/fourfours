@@ -1,0 +1,4 @@
+499: (square(4!) - ((sum(4!) / 4) + sqrt(4)))
+499: ((square(4!) - (sum(4!) / 4)) - sqrt(4))
+499: (square(4!) - (sqrt(4) + (sum(4!) / 4)))
+499: ((square(4!) - sqrt(4)) - (sum(4!) / 4))

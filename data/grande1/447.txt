@@ -1,0 +1,8 @@
+447: ((4! * (sum(4!) - sqrt(4))) / square(4))
+447: (4! * ((sum(4!) - sqrt(4)) / square(4)))
+447: ((4! / square(4)) * (sum(4!) - sqrt(4)))
+447: (4! / (square(4) / (sum(4!) - sqrt(4))))
+447: (((sum(4!) - sqrt(4)) * 4!) / square(4))
+447: ((sum(4!) - sqrt(4)) * (4! / square(4)))
+447: (((sum(4!) - sqrt(4)) / square(4)) * 4!)
+447: ((sum(4!) - sqrt(4)) / (square(4) / 4!))

@@ -1,0 +1,4 @@
+678: (sqrt(4) + ((square(4) + sum(4)) ^ sqrt(4)))
+678: (sqrt(4) + ((sum(4) + square(4)) ^ sqrt(4)))
+678: (((square(4) + sum(4)) ^ sqrt(4)) + sqrt(4))
+678: (((sum(4) + square(4)) ^ sqrt(4)) + sqrt(4))

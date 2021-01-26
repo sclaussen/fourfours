@@ -1,0 +1,4 @@
+069: ((square(4) * 4) + (sum(4) / sqrt(4)))
+069: ((4 * square(4)) + (sum(4) / sqrt(4)))
+069: ((sum(4) / sqrt(4)) + (square(4) * 4))
+069: ((sum(4) / sqrt(4)) + (4 * square(4)))

@@ -1,0 +1,2 @@
+688: ((44 * square(4)) - square(4))
+688: ((square(4) * 44) - square(4))

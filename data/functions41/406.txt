@@ -1,0 +1,4 @@
+406: ((square(4) * (square(4) + sum(4))) - sum(4))
+406: ((square(4) * (sum(4) + square(4))) - sum(4))
+406: (((square(4) + sum(4)) * square(4)) - sum(4))
+406: (((sum(4) + square(4)) * square(4)) - sum(4))

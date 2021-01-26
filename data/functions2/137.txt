@@ -1,0 +1,4 @@
+137: ((square(44) / square(4)) + square(4))
+137: (square(4) + (square(44) / square(4)))
+137: ((square(4.4) / square(0.4)) + square(4))
+137: (square(4) + (square(4.4) / square(0.4)))

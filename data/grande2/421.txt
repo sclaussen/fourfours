@@ -1,0 +1,2 @@
+421: (square(4!) - ((sum(4!) + sum(4)) / sqrt(4)))
+421: (square(4!) - ((sum(4) + sum(4!)) / sqrt(4)))

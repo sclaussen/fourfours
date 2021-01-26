@@ -1,0 +1,3 @@
+890: (sum(44) - (sum(4) * sum(4)))
+890: (sum(44) - (sum(4) ^ sqrt(4)))
+890: (sum(44) - (square(4) / square(0.4)))

@@ -1,0 +1,2 @@
+674: (((square(4) + sum(4)) ^ sqrt(4)) - sqrt(4))
+674: (((sum(4) + square(4)) ^ sqrt(4)) - sqrt(4))

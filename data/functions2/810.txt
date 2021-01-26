@@ -1,0 +1,4 @@
+810: (((sqrt(4) + square(4)) ^ sqrt(4)) / 0.4)
+810: (((square(4) + sqrt(4)) ^ sqrt(4)) / 0.4)
+810: (((sqrt(4) + square(4)) / sqrt(0.4)) ^ sqrt(4))
+810: (((square(4) + sqrt(4)) / sqrt(0.4)) ^ sqrt(4))

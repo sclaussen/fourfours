@@ -1,0 +1,4 @@
+389: ((4! * square(4)) + (sum(4) / sqrt(4)))
+389: ((square(4) * 4!) + (sum(4) / sqrt(4)))
+389: ((sum(4) / sqrt(4)) + (4! * square(4)))
+389: ((sum(4) / sqrt(4)) + (square(4) * 4!))

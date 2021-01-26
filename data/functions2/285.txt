@@ -1,0 +1,4 @@
+285: (((sqrt(4) / square(0.4)) + square(4)) * sum(4))
+285: ((square(4) + (sqrt(4) / square(0.4))) * sum(4))
+285: (sum(4) * ((sqrt(4) / square(0.4)) + square(4)))
+285: (sum(4) * (square(4) + (sqrt(4) / square(0.4))))

@@ -1,0 +1,4 @@
+613: (((square(4!) + square(4)) / square(4)) + square(4!))
+613: (((square(4) + square(4!)) / square(4)) + square(4!))
+613: (square(4!) + ((square(4!) + square(4)) / square(4)))
+613: (square(4!) + ((square(4) + square(4!)) / square(4)))
