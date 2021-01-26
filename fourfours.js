@@ -57,7 +57,7 @@ function fourfours(args) {
         // 4 * 4 + 4 - 4
         let infixExpressions = infix([ numericExpression ]);
         for (let infixExpression of infixExpressions) {
-            // msg(infixExpression);
+            msg(infixExpression);
 
 
             // (((4 + 4) + 4) + 4)
