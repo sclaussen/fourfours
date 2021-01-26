@@ -101,7 +101,8 @@ Invalid mathematical expressions that are known at generation time to
 be invalid are not generated.
 - Invalid expression: `4.4! + sum(4.4)` (decimal factorial/sum)
 
-Expressions that result in invalid evaluations at runtime are ignored.
+Expressions that result in invalid evaluations are skipped and thus
+will not represent a valid solution.
 - Invalid expression: `(4 * (4 / (4 - 4)))` (divide by zero)
 - Invalid expression: `(((4 - 4) - 4) - 4)!` (negative factorial)
 
@@ -112,9 +113,10 @@ operations to speed up execution:
 - No square of a number less than -100 or greater than 100 (eg square(100), square(-100))
 - No summation for a number less than -100 or greater than 100 (eg sum(100), sum(-100))
 
-Note: Summations are only applied to integers.
-Note: Factorials are only applied to positive integers.
-Note: Square roots are only applied to zero and positive numbers.
+Other items of note:
+- Summations are only applied to integers.
+- Factorials are only applied to positive integers.
+- Square roots are only applied to zero and positive numbers.
 
 
 
@@ -122,29 +124,27 @@ Note: Square roots are only applied to zero and positive numbers.
 
 In order to enable different combinations of rules to be applied the
 algorithm supports the concept of [rule sets (source)](./rules.js).
-The rule sets enable a definition for which numbers and operators
-should be applied to generate the possible set of expressions.
+Rule sets define which numbers and operators are applied when
+generating the expression permutations.
 
 Generating all the expression permutations for functions and factorial
-results in an explosion of possible expressions.  To provide a relief
-from the potential explosion, there is a rule named
-`applyToEvaluation` that determines how functions and the factorial
-operation are applied.
+operations results in an explosion of possible expressions.  To
+provide a relief from the potential explosion, the rule
+`applyToEvaluation` can be applied.
 
-When `applyToEvaluation` is set to false, functions and factorial are
-only applied directly to a number.  When true, they are applied to the
-number, as well as the result of a prior evaluation.
+When `applyToEvaluation` is set to false, functions and factorial
+operations are only applied directly to a number.  When the value is
+true, the functions and factorial operations are applied to the number
+as well as the result of a prior evaluation resulting in a
+significantly larger number of expression permutations.
 
 For example:
 
 - For the expression: `(((4 + 4) + 4) + 4)`
-  - Possible factorial locations (`applyToEvaluation`=false): `(((4! + 4!) + 4!) + 4!)`
-  - Possible factorial locations (`applyToEvaluation`=true): `(((4! + 4!)! + 4!)! + 4!)!`
-  - Possible function locations (`applyToEvaluation`=false): `(((square(4) + square(4)) + square(4)) + square(4))`
-  - Possible function locations (`applyToEvaluation`=true): `square(square(square(square(4) + square(4)) + square(4)) + square(4))`
-
-Unless indicated otherwise, `applyToEvaluation1 is set to false in the
-rule sets.
+  - factorial locations (`applyToEvaluation=false`): `(((4! + 4!) + 4!) + 4!)`
+  - factorial locations (`applyToEvaluation=true`): `(((4! + 4!)! + 4!)! + 4!)!`
+  - function locations (`applyToEvaluation=false`): `(((square(4) + square(4)) + square(4)) + square(4))`
+  - function locations (`applyToEvaluation=true`): `square(square(square(square(4) + square(4)) + square(4)) + square(4))`
 
 
 
@@ -152,37 +152,12 @@ rule sets.
 
 ## Summary
 
-Here's a summary of each rule set including the total generated
-expressions, how many result in an integer solution between 0 and
-1000, and a description of the numbers and operations the rule set
-used for its execution.
+The table below contains a summary of each rule set including the
+total generated expressions, how many expressions result in an integer
+number between 0 and 1000, the total numbers between 0 and 1000 that
+were solved by application of the rule set, and a description of the
+numbers and operations the rule set defines.
 
-
-factorial
-functions
-combined
-factorialATE
-functionsATE
-combinedATE
-simpleAll
-factorialAll
-functionsAll
-combinedAll
-factorialAllATE
-functionsAllATE
-combinedAllATE
-
-
-     778 combined-solutions-found.txt
-     152 factorial-solutions-found.txt
-     178 factorialATE-solutions-found.txt
-     232 factorialAll-solutions-found.txt
-     262 factorialAllATE-solutions-found.txt
-     328 functions-solutions-found.txt
-     805 functionsATE-solutions-found.txt
-     440 functionsAll-solutions-found.txt
-      26 simple-solutions-found.txt
-      62 simpleAll-solutions-found.txt
 
 ```
                  Expression    Solutions
@@ -205,7 +180,8 @@ combinedAll               x            x          4 44 444 4444 4.4 4.44 44.4 4.
 combinedAllATE            x            x          4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
 ```
 
-I interrupted the advanced rule set execution because:
+I interrupted the combinedATE rule set execution because (and didn't
+attempt the combined All and combinedAllATE for the same reason):
 
 - For each number/infix/parenthesis combination the algorithm took 70
   minutes to process around 100 million expression permutations.
