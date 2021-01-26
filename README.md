@@ -76,8 +76,7 @@ expressions.
 
 ### Parenthesis
 
-- Parenthesis are applied to the combination of the number and the
-  infix operators to force evaluation precedence.
+- Parenthesis can be used to enforced evaluation precedence.
   - Valid expressions: `(((4 + 4) + 4) + 4)`, `((44 + 4) * 4)`, `(44 + (4 * 4))`
 
 
@@ -88,8 +87,7 @@ expressions.
   square, square root, and summation (eg sum(4) is 4 + 3 + 2 + 1) can
   be applied to any number (eg square(4)) or the result of an
   evaluation (eg square(4 + 4)).  The factorial operator can be
-  applied to any number (eg 4!) or the result of an evaluation (eg (4
-  + 4)!).
+  applied to any number (eg 4!) or the result of an evaluation (eg (4 + 4)!).
 
   - Valid expressions: `4 + 4 * 4 / 4`,  `44 - 44`,  `4 * 4 ^ 4 * 4`
   - Valid expressions: `square(4) + square(4) * square(4) / square(4)`,  `square(44 - 44)`,  `square(4) * square(4) ^ square(4 * 4)`
