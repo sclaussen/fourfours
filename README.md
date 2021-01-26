@@ -176,20 +176,17 @@ simpleAll            11,930        1,385      62  4 44 444 4444 4.4 4.44 44.4 4.
 factorialAll         56,261        7,861     232  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
 factorialAllATE     427,066       13,982     262  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluations=T)
 functionsAll      1,575,551      109,735     440  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
-functionsAllATE           x            x          4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluations=T)
+functionsAllATE  97,221,656    2,847,765     885  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluations=T)
 combinedAll               x            x          4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square
 combinedAllATE            x            x          4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
 ```
 
-I interrupted the combinedATE rule set execution because (and didn't
-attempt the combined All and combinedAllATE for the same reason):
-
+I interrupted the combinedATE rule set execution because:
 - For each number/infix/parenthesis combination the algorithm took 70
-  minutes to process around 100 million expression permutations.
-
+  minutes to process around ~100 million expression permutations.
 - There were a total of 3031 number/infix/parenthesis combinations,
-  thus, via extrapolation it would have taken nearly 150 days of
-  compute time to generate and process nearly 300 billion expressions.
+  thus, it would have taken nearly 150 days of compute time to
+  generate and process nearly 300 billion expressions.
 
 
 
@@ -351,3 +348,16 @@ links:
 - [Solved](./data/functionsAll-solutions-found.txt)
 - [Unsolved](./data/functionsAll-solutions-notfound.txt)
 - [All Solutions](./data/functionsAll2/)
+
+
+## functionsAllATE
+
+- Rules summary: **4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluations=T)**
+- Permutations/solutions: **97,221,656** / **2,847,765 885**
+- Numbers between 0 and 1000 solved: **885**
+- [Top 10](./data/functionsAllATE-solutions-10.txt)
+- [Count](./data/functionsAllATE-count.txt)
+- [Count (sorted)](./data/functionsAllATE-count-sorted.txt)
+- [Solved](./data/functionsAllATE-solutions-found.txt)
+- [Unsolved](./data/functionsAllATE-solutions-notfound.txt)
+- [All Solutions](./data/functionsAllATE2/)

@@ -1,0 +1,5 @@
+993: (sum(4 - sqrt(4)) + sum(44))
+993: (sum(4 / sqrt(4)) + sum(44))
+993: (sum(44) + sum(4 - sqrt(4)))
+993: (sum(44) + sum(4 / sqrt(4)))
+993: (sum(44) - sum(sqrt(4) - 4))

@@ -1,0 +1,2 @@
+618: ((sum(sum(4) / 0.4) - square(4)) * sqrt(4))
+618: (sqrt(4) * (sum(sum(4) / 0.4) - square(4)))

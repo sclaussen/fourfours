@@ -1,0 +1,6 @@
+727: (square((sum(4) / 0.4) + sqrt(4)) - sqrt(4))
+727: (square(sqrt(4) + (sum(4) / 0.4)) - sqrt(4))
+727: (square(sqrt(4) + square(sqrt(4) / 0.4)) - sqrt(4))
+727: (square(square(sqrt(4) / 0.4) + sqrt(4)) - sqrt(4))
+727: (square(sqrt(4) + square(sum(4) / sqrt(4))) - sqrt(4))
+727: (square(square(sum(4) / sqrt(4)) + sqrt(4)) - sqrt(4))

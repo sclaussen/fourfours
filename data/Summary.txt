@@ -10,3 +10,4 @@ simpleAll 11,930 1,385
 factorialAll 56,261 7,861
 factorialAllATE 427,066 13,982
 functionsAll 1,575,551 109,735
+functionsAllATE: 97,221,656 2,847,765
