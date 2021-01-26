@@ -65,18 +65,12 @@ expressions.
 ### Numbers
 
 - Each expression can contain from one to four numbers as long as the
-  expression contains precisely four fours.
-  - Valid expressions: `4 + 4 + 4 + 4`, `44 + 44`, `444 + 4`, `4444`
-  - Invalid expressions: `4 + 4`, `444 + 4444`
-
-- The fours in each number can be concatenated together.
-  - Valid numbers: `4`, `44`, `444`, `4444`
-
-- The fours in each number can contain a leading decimal, a trailing
-  decimal (resulting in an integer), or a decimal in between the
+  expression contains precisely four fours.  The fours in each number
+  can be concatenated together.  The fours in each number can contain
+  a leading decimal, a trailing decimal, or a decimal in between the
   digits.
-  - Valid numbers (complete set): `4`, `.4`, `44`, `.44`, `4.4`, `444`, `.444`, `4.44`, `44.4`, `4444`, `.4444`, `4.444`, `44.44`, `444.4`
-  - Invalid numbers: `40`, `.04`, `.004`, `4.04`
+  - Complete set of valid numbers: `4`, `.4`, `44`, `.44`, `4.4`, `444`, `.444`, `4.44`, `44.4`, `4444`, `.4444`, `4.444`, `44.44`, `444.4`
+  - Expressions using precisely four fours: `4 + 4 + 4 + 4`, `44 + 44`, `444 + 4`, `4444`, `4.444 + .4`
 
 
 
@@ -90,15 +84,15 @@ expressions.
 
 ### Operators
 
-- The operators +, -, *, /, and ^ (power) can be used.
+- The operators +, -, *, /, and ^ (power) can be used.  The functions
+  square, square root, and summation (eg sum(4) is 4 + 3 + 2 + 1) can
+  be applied to any number (eg square(4)) or the result of an
+  evaluation (eg square(4 + 4)).  The factorial operator can be
+  applied to any number (eg 4!) or the result of an evaluation (eg (4
+  + 4)!).
+
   - Valid expressions: `4 + 4 * 4 / 4`,  `44 - 44`,  `4 * 4 ^ 4 * 4`
-
-- The functions square, square root, and summation (eg sum(4) is 4 + 3 + 2 + 1) can be applied to any number (eg square(4)) or the result of an evaluation (directly prior to a parenthesis) (eg square(4 + 4)).
   - Valid expressions: `square(4) + square(4) * square(4) / square(4)`,  `square(44 - 44)`,  `square(4) * square(4) ^ square(4 * 4)`
-
-- The factorial operator can be applied to any number (directly after
-  the number) or the result of an evaluation (directly after any
-  parenthesis).
   - Valid expressions: `((4! + 4)! + 4)! + 4)`,  `44! / 44!`,  `(44! / 44)!`,  `(4 ^ 4 ^ 4 ^ 4)!`
 
 
