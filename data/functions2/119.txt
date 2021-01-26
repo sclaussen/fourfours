@@ -1,2 +1,0 @@
-119: ((square(44) / square(4)) - sqrt(4))
-119: ((square(4.4) / square(0.4)) - sqrt(4))

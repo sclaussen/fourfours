@@ -1,8 +1,0 @@
-846: ((square(4!) + sum(4!)) - (sum(4!) / sum(4)))
-846: ((square(4!) - (sum(4!) / sum(4))) + sum(4!))
-846: ((sum(4!) + square(4!)) - (sum(4!) / sum(4)))
-846: ((sum(4!) - (sum(4!) / sum(4))) + square(4!))
-846: (square(4!) + (sum(4!) - (sum(4!) / sum(4))))
-846: (square(4!) - ((sum(4!) / sum(4)) - sum(4!)))
-846: (sum(4!) + (square(4!) - (sum(4!) / sum(4))))
-846: (sum(4!) - ((sum(4!) / sum(4)) - square(4!)))

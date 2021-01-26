@@ -1,2 +1,0 @@
-357: (square(4!) - ((square(4!) + sum(4!)) / 4))
-357: (square(4!) - ((sum(4!) + square(4!)) / 4))

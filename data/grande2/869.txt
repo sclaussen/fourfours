@@ -1,4 +1,0 @@
-869: (((square(4!) + sum(4)) / sqrt(4)) + square(4!))
-869: (((sum(4) + square(4!)) / sqrt(4)) + square(4!))
-869: (square(4!) + ((square(4!) + sum(4)) / sqrt(4)))
-869: (square(4!) + ((sum(4) + square(4!)) / sqrt(4)))

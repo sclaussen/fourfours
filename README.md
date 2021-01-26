@@ -212,7 +212,7 @@ link means:
 
 - **Solutions found**: A list of the solutions found.
 
-- **Solution count sorted**: A list of the solutions not found.
+- **Solution not found**: A list of the solutions not found.
 
 - **Solutions**: The raw data of 1001 files, one per each possible
   solution 0 to 1000, each containing all the solutions found for that

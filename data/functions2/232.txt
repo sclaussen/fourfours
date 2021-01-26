@@ -1,8 +1,0 @@
-232: (((sum(4) * sum(4)) + square(4)) * sqrt(4))
-232: ((square(4) + (sum(4) * sum(4))) * sqrt(4))
-232: (sqrt(4) * ((sum(4) * sum(4)) + square(4)))
-232: (sqrt(4) * (square(4) + (sum(4) * sum(4))))
-232: (((sum(4) ^ sqrt(4)) + square(4)) * sqrt(4))
-232: ((square(4) + (sum(4) ^ sqrt(4))) * sqrt(4))
-232: (sqrt(4) * ((sum(4) ^ sqrt(4)) + square(4)))
-232: (sqrt(4) * (square(4) + (sum(4) ^ sqrt(4))))

@@ -1,8 +1,0 @@
-412: ((0.4 * sum(44)) + square(4))
-412: ((sum(44) * 0.4) + square(4))
-412: (square(4) + (0.4 * sum(44)))
-412: (square(4) + (sum(44) * 0.4))
-412: (((square(4) + sum(4)) * square(4)) - 4)
-412: (((sum(4) + square(4)) * square(4)) - 4)
-412: ((square(4) * (square(4) + sum(4))) - 4)
-412: ((square(4) * (sum(4) + square(4))) - 4)

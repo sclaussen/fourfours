@@ -1,5 +1,0 @@
-431: (square(4!) + ((sum(4) - sum(4!)) / sqrt(4)))
-431: (((sum(4) - sum(4!)) / sqrt(4)) + square(4!))
-431: (square(4!) - ((square(4!) + 4) / 4))
-431: (square(4!) - ((4 + square(4!)) / 4))
-431: (square(4!) - ((sum(4!) - sum(4)) / sqrt(4)))

@@ -1,8 +1,0 @@
-861: ((4! * (square(4!) - sqrt(4))) / square(4))
-861: (4! * ((square(4!) - sqrt(4)) / square(4)))
-861: ((4! / square(4)) * (square(4!) - sqrt(4)))
-861: (4! / (square(4) / (square(4!) - sqrt(4))))
-861: (((square(4!) - sqrt(4)) * 4!) / square(4))
-861: ((square(4!) - sqrt(4)) * (4! / square(4)))
-861: (((square(4!) - sqrt(4)) / square(4)) * 4!)
-861: ((square(4!) - sqrt(4)) / (square(4) / 4!))

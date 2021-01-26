@@ -1,4 +1,0 @@
-067: (((square(4) + sum(4)) / 0.4) + sqrt(4))
-067: (((sum(4) + square(4)) / 0.4) + sqrt(4))
-067: (sqrt(4) + ((square(4) + sum(4)) / 0.4))
-067: (sqrt(4) + ((sum(4) + square(4)) / 0.4))

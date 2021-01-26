@@ -1,4 +1,0 @@
-131: ((square(44) / square(4)) + sum(4))
-131: (sum(4) + (square(44) / square(4)))
-131: ((square(4.4) / square(0.4)) + sum(4))
-131: (sum(4) + (square(4.4) / square(0.4)))

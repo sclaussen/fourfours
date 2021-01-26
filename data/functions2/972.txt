@@ -1,6 +1,0 @@
-972: ((square(44) / sqrt(4)) + 4)
-972: (4 + (square(44) / sqrt(4)))
-972: ((sum(44) - sqrt(4)) - square(4))
-972: ((sum(44) - square(4)) - sqrt(4))
-972: (sum(44) - (sqrt(4) + square(4)))
-972: (sum(44) - (square(4) + sqrt(4)))

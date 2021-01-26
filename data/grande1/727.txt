@@ -1,4 +1,0 @@
-727: (((sqrt(4) + sum(4!)) / sqrt(4)) + square(4!))
-727: (((sum(4!) + sqrt(4)) / sqrt(4)) + square(4!))
-727: (square(4!) + ((sqrt(4) + sum(4!)) / sqrt(4)))
-727: (square(4!) + ((sum(4!) + sqrt(4)) / sqrt(4)))

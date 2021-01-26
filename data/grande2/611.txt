@@ -1,3 +1,0 @@
-611: (((square(4!) - square(4)) / square(4)) + square(4!))
-611: (square(4!) + ((square(4!) - square(4)) / square(4)))
-611: (square(4!) - ((square(4) - square(4!)) / square(4)))

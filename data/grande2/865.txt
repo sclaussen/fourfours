@@ -1,8 +1,0 @@
-865: (((4! * square(4!)) + square(4)) / square(4))
-865: (((square(4!) * 4!) + square(4)) / square(4))
-865: ((square(4) + (4! * square(4!))) / square(4))
-865: ((square(4) + (square(4!) * 4!)) / square(4))
-865: (((sqrt(4) + square(4!)) / sqrt(4)) + square(4!))
-865: (((square(4!) + sqrt(4)) / sqrt(4)) + square(4!))
-865: (square(4!) + ((sqrt(4) + square(4!)) / sqrt(4)))
-865: (square(4!) + ((square(4!) + sqrt(4)) / sqrt(4)))

@@ -1,8 +1,0 @@
-503: ((sqrt(4) + square(4!)) - (sum(4!) / 4))
-503: ((square(4!) + sqrt(4)) - (sum(4!) / 4))
-503: (sqrt(4) + (square(4!) - (sum(4!) / 4)))
-503: (square(4!) + (sqrt(4) - (sum(4!) / 4)))
-503: ((sqrt(4) - (sum(4!) / 4)) + square(4!))
-503: ((square(4!) - (sum(4!) / 4)) + sqrt(4))
-503: (sqrt(4) - ((sum(4!) / 4) - square(4!)))
-503: (square(4!) - ((sum(4!) / 4) - sqrt(4)))

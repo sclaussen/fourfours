@@ -1,8 +1,0 @@
-702: (((sum(4!) / sqrt(4)) + square(4!)) - 4!)
-702: (((sum(4!) / sqrt(4)) - 4!) + square(4!))
-702: ((square(4!) + (sum(4!) / sqrt(4))) - 4!)
-702: ((square(4!) - 4!) + (sum(4!) / sqrt(4)))
-702: ((sum(4!) / sqrt(4)) + (square(4!) - 4!))
-702: ((sum(4!) / sqrt(4)) - (4! - square(4!)))
-702: (square(4!) + ((sum(4!) / sqrt(4)) - 4!))
-702: (square(4!) - (4! - (sum(4!) / sqrt(4))))

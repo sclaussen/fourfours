@@ -1,2 +1,0 @@
-626: (((sum(4) ^ 4) + square(4)) / square(4))
-626: ((square(4) + (sum(4) ^ 4)) / square(4))

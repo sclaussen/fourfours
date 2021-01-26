@@ -1,12 +1,1 @@
 simple: Permutations:         320  Solutions:       227
-power: Permutations:         625  Solutions:       352
-concat: Permutations:         791  Solutions:       425
-decimal: Permutations:      11,930  Solutions:     1,846
-factorialT: Permutations:     427,066  Solutions:    13,982
-functionsT: Permutations:  97,221,656  Solutions: 2,847,765
-functions: Permutations:   1,575,551  Solutions:   109,735
-factorial: Permutations:      56,261  Solutions:     7,861
-factorialT: Permutations:     427,066  Solutions:    13,982
-factorial: Permutations:      56,261  Solutions:     7,861
-factorialT: Permutations:     427,066  Solutions:    13,982
-simple: Permutations:         320  Solutions:       227

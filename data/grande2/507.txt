@@ -1,7 +1,0 @@
-507: (((4! - sum(4!)) / 4) + square(4!))
-507: (square(4!) + ((4! - sum(4!)) / 4))
-507: (square(4!) - ((sum(4!) - 4!) / 4))
-507: (((sqrt(4) ^ sum(4)) - sum(4)) / sqrt(4))
-507: (((sum(4!) - square(4!)) / 4) + square(4!))
-507: (square(4!) + ((sum(4!) - square(4!)) / 4))
-507: (square(4!) - ((square(4!) - sum(4!)) / 4))

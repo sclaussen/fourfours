@@ -1,7 +1,0 @@
-504: (((4 ^ 4) - 4) * sqrt(4))
-504: (sqrt(4) * ((4 ^ 4) - 4))
-504: (((square(4) ^ sqrt(4)) - 4) * sqrt(4))
-504: (sqrt(4) * ((square(4) ^ sqrt(4)) - 4))
-504: (((square(4) * square(4)) - 4) * sqrt(4))
-504: (sqrt(4) * ((square(4) * square(4)) - 4))
-504: (((sqrt(4) ^ sum(4)) - square(4)) / sqrt(4))

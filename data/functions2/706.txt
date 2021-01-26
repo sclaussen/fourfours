@@ -1,4 +1,0 @@
-706: ((44 * square(4)) + sqrt(4))
-706: ((square(4) * 44) + sqrt(4))
-706: (sqrt(4) + (44 * square(4)))
-706: (sqrt(4) + (square(4) * 44))

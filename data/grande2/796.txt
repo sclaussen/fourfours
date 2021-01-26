@@ -1,6 +1,0 @@
-796: (((4! - sqrt(4)) * sum(4)) + square(4!))
-796: ((sum(4) * (4! - sqrt(4))) + square(4!))
-796: (square(4!) + ((4! - sqrt(4)) * sum(4)))
-796: (square(4!) + (sum(4) * (4! - sqrt(4))))
-796: (square(4!) - ((sqrt(4) - 4!) * sum(4)))
-796: (square(4!) - (sum(4) * (sqrt(4) - 4!)))
