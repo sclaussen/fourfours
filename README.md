@@ -181,26 +181,36 @@ functionsAllATE
 combinedAllATE
 
 
+     778 combined-solutions-found.txt
+     152 factorial-solutions-found.txt
+     178 factorialATE-solutions-found.txt
+     232 factorialAll-solutions-found.txt
+     262 factorialAllATE-solutions-found.txt
+     328 functions-solutions-found.txt
+     805 functionsATE-solutions-found.txt
+     440 functionsAll-solutions-found.txt
+      26 simple-solutions-found.txt
+      62 simpleAll-solutions-found.txt
 
 ```
                  Expression    Solutions
-Rule Set       Permutations       0-1000  Description
---------       ------------    ---------  -----------
-simple                  625          240  4 * / + - ^
-factorial            10,000        3,374  4 * / + - ^ !
-factorialATE         80,000        6,208  4 * / + - ^ ! (applyToEvaluations=T)
-functions           160,000       51,947  4 * / + - ^ sum sqrt square
-functionsATE     10,240,000    1,061,793  4 * / + - ^ sum sqrt square (applyToEvaluations=T)
-combined          2,560,000      265,649  4 * / + - ^ ! sum sqrt square
-combinedATE               x            x  4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
+Rule Set       Permutations       0-1000  Solved  Description
+--------       ------------    ---------  ------  -----------
+simple                  625          240      26  4 * / + - ^
+factorial            10,000        3,374     152  4 * / + - ^ !
+factorialATE         80,000        6,208     178  4 * / + - ^ ! (applyToEvaluations=T)
+functions           160,000       51,947     328  4 * / + - ^ sum sqrt square
+functionsATE     10,240,000    1,061,793     805  4 * / + - ^ sum sqrt square (applyToEvaluations=T)
+combined          2,560,000      265,649     778  4 * / + - ^ ! sum sqrt square
+combinedATE               x            x          4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
 
-simpleAll            11,930        1,385  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
-factorialAll         56,261        7,861  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
-factorialAllATE     427,066       13,982  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluations=T)
-functionsAll      1,575,551      109,735  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
-functionsAllATE           x            x  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluations=T)
-combinedAll               x            x  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square
-combinedAllATE            x            x  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
+simpleAll            11,930        1,385      62  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
+factorialAll         56,261        7,861     232  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
+factorialAllATE     427,066       13,982     262  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluations=T)
+functionsAll      1,575,551      109,735     440  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
+functionsAllATE           x            x          4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluations=T)
+combinedAll               x            x          4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square
+combinedAllATE            x            x          4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
 ```
 
 I interrupted the advanced rule set execution because:
@@ -245,6 +255,7 @@ link means:
 
 - Summary: 4 * / + - ^
 - Permutations/solutions: 625 240
+- Solved: 26
 - [Top 10](./data/simple-solutions-10.txt)
 - [Count](./data/simple-count.txt)
 - [Count (sorted)](./data/simple-count-sorted.txt)
@@ -257,6 +268,7 @@ link means:
 
 - Summary: 4 * / + - ^ !
 - Permutations/solutions: 10,000 3,374
+- Solved: 152
 - [Top 10](./data/factorial-solutions-10.txt)
 - [Count](./data/factorial-count.txt)
 - [Count (sorted)](./data/factorial-count-sorted.txt)
@@ -269,6 +281,7 @@ link means:
 
 - Summary: 4 * / + - ^ ! (applyToEvaluations=T)
 - Permutations/solutions: 80,000 6,208
+- Solved: 178
 - [Top 10](./data/factorialATE-solutions-10.txt)
 - [Count](./data/factorialATE-count.txt)
 - [Count (sorted)](./data/factorialATE-count-sorted.txt)
@@ -281,6 +294,7 @@ link means:
 
 - Summary: 4 * / + - ^ sum sqrt square
 - Permutations/solutions: 160,000 51,947
+- Solved: 328
 - [Top 10](./data/functions-solutions-10.txt)
 - [Count](./data/functions-count.txt)
 - [Count (sorted)](./data/functions-count-sorted.txt)
@@ -293,6 +307,7 @@ link means:
 
 - Summary: 4 * / + - ^ sum sqrt square (applyToEvaluations=T)
 - Permutations/solutions: 10,240,000    1, 061,793
+- Solved: 805
 - [Top 10](./data/functionsATE-solutions-10.txt)
 - [Count](./data/functionsATE-count.txt)
 - [Count (sorted)](./data/functionsATE-count-sorted.txt)
@@ -305,6 +320,7 @@ link means:
 
 - Summary: 4 * / + - ^ ! sum sqrt square
 - Permutations/solutions: 2,560,000 265,649
+- Solved: 778
 - [Top 10](./data/combined-solutions-10.txt)
 - [Count](./data/combined-count.txt)
 - [Count (sorted)](./data/combined-count-sorted.txt)
@@ -317,6 +333,7 @@ link means:
 
 - Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
 - Permutations/solutions: 11,930 1,385
+- Solved: 62
 - [Top 10](./data/simpleAll-solutions-10.txt)
 - [Count](./data/simpleAll-count.txt)
 - [Count (sorted)](./data/simpleAll-count-sorted.txt)
@@ -329,6 +346,7 @@ link means:
 
 - Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
 - Permutations/solutions: 56,261 7,861
+- Solved: 232
 - [Top 10](./data/factorialAll-solutions-10.txt)
 - [Count](./data/factorialAll-count.txt)
 - [Count (sorted)](./data/factorialAll-count-sorted.txt)
@@ -341,6 +359,7 @@ link means:
 
 - Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluations=T)
 - Permutations/solutions: 427,066 13,982
+- Solved: 262
 - [Top 10](./data/factorialAllATE-solutions-10.txt)
 - [Count](./data/factorialAllATE-count.txt)
 - [Count (sorted)](./data/factorialAllATE-count-sorted.txt)
@@ -353,6 +372,7 @@ link means:
 
 - Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
 - Permutations/solutions: 1,575,551 109,735
+- Solved: 440
 - [Top 10](./data/functionsAll-solutions-10.txt)
 - [Count](./data/functionsAll-count.txt)
 - [Count (sorted)](./data/functionsAll-count-sorted.txt)
