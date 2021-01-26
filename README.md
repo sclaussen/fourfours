@@ -77,7 +77,7 @@ digits.
 
 ### Parenthesis
 
-Parenthesis can be used to enforced evaluation precedence.
+Parenthesis can be used to enforce evaluation precedence.
 - Valid expressions: `(((4 + 4) + 4) + 4)`, `((44 + 4) * 4)`, `(44 + (4 * 4))`
 
 
