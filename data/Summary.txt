@@ -1,2 +1,3 @@
 simple: Permutations:         320  Solutions:       227
 power: Permutations:         625  Solutions:       352
+concat: Permutations:         791  Solutions:       425
