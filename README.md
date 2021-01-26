@@ -229,25 +229,27 @@ I interrupted the advanced rule set execution because:
 Here are some of the output files for each rule set.  Here's what each
 link means:
 
-- **Solutions: 10 shortest + 10 longest 10**: The 10 shortest and the
-  10 longest solutions for each solution between 0 and 1000.  Note
-  that if the number of solutions is <= 20 the combination of the 10
-  shortest and 10 longest will contain duplicates.
+- **Top 10**: The 10 shortest expressions and the 10 longest
+  expressions that result in a solution for each number between 0 and
+  1000.  Note that if the number of solutions is < 20 the combination
+  of the 10 shortest and 10 longest expressions will contain duplicates.
 
-- **Solution count**: For each solution 0 to 1000, the total number of
-  solutions found.
+- **Count**: For each number 0 to 1000, the total number of solutions
+  found.
 
-- **Solution count sorted**: The count of solutions found from 0 to 1000
-  but sorted and the numbers for which solutions were not found have
-  been removed.
+- **Count (sorted)**: The sorted count of the number from 0 to 1000
+  found.  All numbers for which no solutions were not found have been
+  removed.
 
-- **Solutions found**: A list of the solutions found.
+- **Solved**: A list of the numbers between 0 and 1000 found atleast
+  once.
 
-- **Solution not found**: A list of the solutions not found.
+- **Unsolved**: A list of the numbers between 0 and 1000 that were not
+  found.
 
-- **Solutions**: The raw data of 1001 files, one per each possible
-  solution 0 to 1000, each containing all the solutions found for that
-  number.
+- **All Solutions**: The raw data directory containing 1001 files, one
+  per each number 0 to 1000, each containing all the solutions found
+  for that number.
 
 
 
