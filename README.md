@@ -278,7 +278,7 @@ links:
 ## functionsATE
 
 - Rules summary: **4 * / + - ^ sum sqrt square (applyToEvaluations=T)**
-- Permutations/solutions: **10,240,000** / **   1, 061,793**
+- Permutations/solutions: **10,240,000** / **1,061,793**
 - Numbers between 0 and 1000 solved: **805**
 - [Top 10](./data/functionsATE-solutions-10.txt)
 - [Count](./data/functionsATE-count.txt)
