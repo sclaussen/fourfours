@@ -1,6 +1,0 @@
-231: ((4 ^ 4) - (sum(4) / 0.4))
-231: ((4 ^ 4) - (4 / square(0.4)))
-231: ((square(4) ^ sqrt(4)) - (sum(4) / 0.4))
-231: ((square(4) * square(4)) - (sum(4) / 0.4))
-231: ((square(4) ^ sqrt(4)) - (4 / square(0.4)))
-231: ((square(4) * square(4)) - (4 / square(0.4)))

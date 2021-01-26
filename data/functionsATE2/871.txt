@@ -1,0 +1,4 @@
+871: (sum(4) + sum(square(4) + square(sum(4) / sqrt(4))))
+871: (sum(4) + sum(square(sum(4) / sqrt(4)) + square(4)))
+871: (sum(square(4) + square(sum(4) / sqrt(4))) + sum(4))
+871: (sum(square(sum(4) / sqrt(4)) + square(4)) + sum(4))

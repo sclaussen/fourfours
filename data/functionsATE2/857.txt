@@ -1,0 +1,6 @@
+857: (sum(square(4) + square(sum(4) / sqrt(4))) - 4)
+857: (sum(square(sum(4) / sqrt(4)) + square(4)) - 4)
+857: (square(4 + square(sum(4) / sqrt(4))) + square(4))
+857: (square(4) + square(4 + square(sum(4) / sqrt(4))))
+857: (square(4) + square(square(sum(4) / sqrt(4)) + 4))
+857: (square(square(sum(4) / sqrt(4)) + 4) + square(4))

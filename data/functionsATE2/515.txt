@@ -1,0 +1,4 @@
+515: ((sum(sum(4) * sum(4)) / sum(4)) + sum(4))
+515: (sum(4) + (sum(sum(4) * sum(4)) / sum(4)))
+515: ((sum(sum(4) ^ sqrt(4)) / sum(4)) + sum(4))
+515: (sum(4) + (sum(sum(4) ^ sqrt(4)) / sum(4)))

@@ -1,0 +1,4 @@
+634: (4 + sum(square(sum(4) / sqrt(4)) + sum(4)))
+634: (4 + sum(sum(4) + square(sum(4) / sqrt(4))))
+634: (sum(square(sum(4) / sqrt(4)) + sum(4)) + 4)
+634: (sum(sum(4) + square(sum(4) / sqrt(4))) + 4)

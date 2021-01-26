@@ -1,0 +1,4 @@
+870: (sqrt(4) * sum(4 + square(sum(4) / sqrt(4))))
+870: (sqrt(4) * sum(square(sum(4) / sqrt(4)) + 4))
+870: (sum(4 + square(sum(4) / sqrt(4))) * sqrt(4))
+870: (sum(square(sum(4) / sqrt(4)) + 4) * sqrt(4))

@@ -1,8 +1,4 @@
-641: (((sqrt(4) / 0.4) ^ 4) + square(4))
-641: (square(4) + ((sqrt(4) / 0.4) ^ 4))
 641: (((sum(4) / sqrt(4)) ^ 4) + square(4))
 641: (square(4) + ((sum(4) / sqrt(4)) ^ 4))
-641: (((sum(4) / 0.4) ^ sqrt(4)) + square(4))
 641: (((sum(4) ^ 4) / square(4)) + square(4))
-641: (square(4) + ((sum(4) / 0.4) ^ sqrt(4)))
 641: (square(4) + ((sum(4) ^ 4) / square(4)))

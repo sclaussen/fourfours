@@ -1,0 +1,4 @@
+801: ((sqrt(4) + square(4 * sum(4))) / sqrt(4))
+801: ((sqrt(4) + square(sum(4) * 4)) / sqrt(4))
+801: ((square(4 * sum(4)) + sqrt(4)) / sqrt(4))
+801: ((square(sum(4) * 4) + sqrt(4)) / sqrt(4))

@@ -42,7 +42,3 @@
 896: (4 * (square(4) * (square(4) - sqrt(4))))
 896: (square(4) * ((square(4) - sqrt(4)) * 4))
 896: (square(4) * (4 * (square(4) - sqrt(4))))
-896: (((square(4) / 0.4) + square(4)) * square(4))
-896: ((square(4) + (square(4) / 0.4)) * square(4))
-896: (square(4) * ((square(4) / 0.4) + square(4)))
-896: (square(4) * (square(4) + (square(4) / 0.4)))

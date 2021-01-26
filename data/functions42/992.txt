@@ -1,8 +1,0 @@
-992: (((4 * square(4)) - sqrt(4)) * square(4))
-992: (((square(4) * 4) - sqrt(4)) * square(4))
-992: (square(4) * ((4 * square(4)) - sqrt(4)))
-992: (square(4) * ((square(4) * 4) - sqrt(4)))
-992: ((sqrt(4) ^ sum(4)) - (sqrt(4) * square(4)))
-992: ((sqrt(4) ^ sum(4)) - (square(4) * sqrt(4)))
-992: (((sqrt(4) ^ sum(4)) - square(4)) - square(4))
-992: ((sqrt(4) ^ sum(4)) - (square(4) + square(4)))

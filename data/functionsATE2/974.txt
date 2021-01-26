@@ -1,0 +1,4 @@
+974: (sum((4 * sum(4)) + 4) - square(4))
+974: (sum((sum(4) * 4) + 4) - square(4))
+974: (sum(4 + (4 * sum(4))) - square(4))
+974: (sum(4 + (sum(4) * 4)) - square(4))

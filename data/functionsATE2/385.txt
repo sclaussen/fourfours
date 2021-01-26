@@ -1,0 +1,5 @@
+385: (square(4 + square(4)) - sum(sum(4) / sqrt(4)))
+385: (square(square(4) + 4) - sum(sum(4) / sqrt(4)))
+385: (square(sum(4) + sum(4)) - sum(sum(4) / sqrt(4)))
+385: (square(sqrt(4) * sum(4)) - sum(sum(4) / sqrt(4)))
+385: (square(sum(4) * sqrt(4)) - sum(sum(4) / sqrt(4)))

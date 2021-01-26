@@ -1,6 +1,3 @@
-212: ((4 ^ 4) - 44)
-212: ((square(4) ^ sqrt(4)) - 44)
-212: ((square(4) * square(4)) - 44)
 212: (((4 + sum(4)) ^ sqrt(4)) + square(4))
 212: (((sum(4) + 4) ^ sqrt(4)) + square(4))
 212: (square(4) + ((4 + sum(4)) ^ sqrt(4)))

@@ -1,0 +1,4 @@
+843: (sqrt(4) + square(4 + square(sum(4) / sqrt(4))))
+843: (sqrt(4) + square(square(sum(4) / sqrt(4)) + 4))
+843: (square(4 + square(sum(4) / sqrt(4))) + sqrt(4))
+843: (square(square(sum(4) / sqrt(4)) + 4) + sqrt(4))

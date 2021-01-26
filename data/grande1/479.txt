@@ -1,2 +1,0 @@
-479: (((square(4) * sum(4!)) - sum(4)) / sum(4))
-479: (((sum(4!) * square(4)) - sum(4)) / sum(4))

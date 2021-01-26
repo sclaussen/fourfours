@@ -1,0 +1,2 @@
+973: ((square(44) + sum(4)) / sqrt(4))
+973: ((sum(4) + square(44)) / sqrt(4))

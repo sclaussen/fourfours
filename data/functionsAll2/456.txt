@@ -1,0 +1,8 @@
+456: ((44 * sum(4)) + square(4))
+456: ((sum(4) * 44) + square(4))
+456: (square(4) + (44 * sum(4)))
+456: (square(4) + (sum(4) * 44))
+456: (((sqrt(4) / square(0.4)) + square(4)) * square(4))
+456: ((square(4) + (sqrt(4) / square(0.4))) * square(4))
+456: (square(4) * ((sqrt(4) / square(0.4)) + square(4)))
+456: (square(4) * (square(4) + (sqrt(4) / square(0.4))))

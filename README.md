@@ -165,24 +165,44 @@ expressions, how many result in an integer solution between 0 and
 1000, and a description of the numbers and operations the rule set
 used for its execution.
 
+
+factorial
+functions
+combined
+factorialATE
+functionsATE
+combinedATE
+simpleAll
+factorialAll
+functionsAll
+combinedAll
+factorialAllATE
+functionsAllATE
+combinedAllATE
+
+
+
 ```
                  Expression    Solutions
 Rule Set       Permutations       0-1000  Description
 --------       ------------    ---------  -----------
-simple                  320          227  4 * / + -
-power                   625          352  4 * / + - ^
-factorial4           10,000        3,374  4 * / + - ^ !
-functions4          160,000       51,947  4 * / + - ^ sum sqrt square
-grande            2,560,000      265,649  4 * / + - ^ ! sum sqrt square
+simple                  625          240  4 * / + - ^
+factorial            10,000        3,374  4 * / + - ^ !
+functions           160,000       51,947  4 * / + - ^ sum sqrt square
+combined          2,560,000      265,649  4 * / + - ^ ! sum sqrt square
 
-concat                  791          425  4 44 444 4444 * / + - ^
-decimal              11,930        1,846  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
-factorial            56,261        7,861  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
-functions         1,575,551      109,735  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
+factorialATE                      4 * / + - ^ ! (applyToEvaluations=T)
+functionsATE             4 * / + - ^ sum sqrt square (applyToEvaluations=T)
+combinedATE            4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
 
-factorialT          427,066       13,982  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluation=T)
-functionsT       97,221,656    2,847,765  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluation=T)
-advancedT  ~300,000,000,000      Unknown  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluation=T)
+simpleAll                  625          240  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
+factorialAll            10,000        3,374  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
+functionsAll           160,000       51,947  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
+combinedAll          2,560,000      265,649  4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square
+
+factorialAllATE                      4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvaluations=T)
+functionsAllATE                      4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square (applyToEvaluations=T)
+combinedAllATE                       4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! sum sqrt square (applyToEvaluations=T)
 ```
 
 I interrupted the advanced rule set execution because:
@@ -271,6 +291,18 @@ link means:
 - [Solutions](./data/functions4/)
 
 
+## grande
+
+- Summary: 4 * / + - ^ ! sum sqrt square
+- Permutations/Solutions: 2,560,000 265,649
+- [Solutions: 10 shortest + 10 longest](./data/grande-solutions-10.txt)
+- [Solution count](./data/grande-count.txt)
+- [Solution count sorted](./data/grande-count-sorted.txt)
+- [Solutions found](./data/grande-solutions-found.txt)
+- [Solutions not found](./data/grande-solutions-notfound.txt)
+- [Solutions](./data/grande2/)
+
+
 ## concat
 
 - Summary: 4 44 444 4444 * / + - ^
@@ -317,18 +349,6 @@ link means:
 - [Solutions found](./data/functions-solutions-found.txt)
 - [Solutions not found](./data/functions-solutions-notfound.txt)
 - [Solutions](./data/functions2/)
-
-
-## grande
-
-- Summary: 4 * / + - ^ ! sum sqrt square
-- Permutations/Solutions: 2,560,000 265,649
-- [Solutions: 10 shortest + 10 longest](./data/grande-solutions-10.txt)
-- [Solution count](./data/grande-count.txt)
-- [Solution count sorted](./data/grande-count-sorted.txt)
-- [Solutions found](./data/grande-solutions-found.txt)
-- [Solutions not found](./data/grande-solutions-notfound.txt)
-- [Solutions](./data/grande2/)
 
 
 ## factorialT

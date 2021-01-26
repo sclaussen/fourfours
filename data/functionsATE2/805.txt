@@ -1,0 +1,6 @@
+805: ((square(4 * sum(4)) + sum(4)) / sqrt(4))
+805: ((square(sum(4) * 4) + sum(4)) / sqrt(4))
+805: ((sum(4) + square(4 * sum(4))) / sqrt(4))
+805: ((sum(4) + square(sum(4) * 4)) / sqrt(4))
+805: (sum(4 * sum(4)) - sum(sum(4) / sqrt(4)))
+805: (sum(sum(4) * 4) - sum(sum(4) / sqrt(4)))

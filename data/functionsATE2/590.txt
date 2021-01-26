@@ -1,0 +1,8 @@
+590: (square(sqrt(sum(4) - 4) * sum(4)) - sum(4))
+590: (square(sum(4) * sqrt(sum(4) - 4)) - sum(4))
+590: (square(sqrt(4 + sqrt(4)) * sum(4)) - sum(4))
+590: (square(sqrt(sqrt(4) + 4) * sum(4)) - sum(4))
+590: (square(sum(4) * sqrt(4 + sqrt(4))) - sum(4))
+590: (square(sum(4) * sqrt(sqrt(4) + 4)) - sum(4))
+590: (square(sqrt(square(4) - sum(4)) * sum(4)) - sum(4))
+590: (square(sum(4) * sqrt(square(4) - sum(4))) - sum(4))

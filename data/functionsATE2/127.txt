@@ -1,0 +1,7 @@
+127: (((4 ^ 4) - sqrt(4)) / sqrt(4))
+127: ((square(4 * 4) - sqrt(4)) / sqrt(4))
+127: ((sqrt(square(4) ^ 4) - sqrt(4)) / sqrt(4))
+127: ((square(4 ^ sqrt(4)) - sqrt(4)) / sqrt(4))
+127: ((square(sqrt(4) ^ 4) - sqrt(4)) / sqrt(4))
+127: (((square(4) ^ sqrt(4)) - sqrt(4)) / sqrt(4))
+127: (((square(4) * square(4)) - sqrt(4)) / sqrt(4))

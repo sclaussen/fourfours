@@ -1,0 +1,2 @@
+661: (square(square(4) + sum(4)) - sum(sum(4) / sqrt(4)))
+661: (square(sum(4) + square(4)) - sum(sum(4) / sqrt(4)))

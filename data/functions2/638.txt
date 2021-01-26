@@ -1,4 +1,3 @@
-638: (((4 ^ 4) / 0.4) - sqrt(4))
 638: (((4 * square(4)) * sum(4)) - sqrt(4))
 638: (((4 * sum(4)) * square(4)) - sqrt(4))
 638: (((square(4) * 4) * sum(4)) - sqrt(4))
@@ -11,8 +10,3 @@
 638: ((square(4) * (sum(4) * 4)) - sqrt(4))
 638: ((sum(4) * (4 * square(4))) - sqrt(4))
 638: ((sum(4) * (square(4) * 4)) - sqrt(4))
-638: (((square(4) ^ sqrt(4)) / 0.4) - sqrt(4))
-638: (((square(4) * square(4)) / 0.4) - sqrt(4))
-638: (((square(4) / 0.4) * square(4)) - sqrt(4))
-638: ((square(4) * (square(4) / 0.4)) - sqrt(4))
-638: ((square(4) / (0.4 / square(4))) - sqrt(4))

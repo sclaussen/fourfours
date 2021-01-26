@@ -1,0 +1,4 @@
+865: (4 + sum(square(4) + square(sum(4) / sqrt(4))))
+865: (4 + sum(square(sum(4) / sqrt(4)) + square(4)))
+865: (sum(square(4) + square(sum(4) / sqrt(4))) + 4)
+865: (sum(square(sum(4) / sqrt(4)) + square(4)) + 4)

@@ -1,0 +1,6 @@
+245: (sqrt(4) + sqrt(sum(4 - sqrt(4)) ^ sum(4)))
+245: (sqrt(4) + sqrt(sum(4 / sqrt(4)) ^ sum(4)))
+245: (sqrt(4) + sqrt(sum(sqrt(4) - 4) ^ sum(4)))
+245: (sqrt(sum(4 - sqrt(4)) ^ sum(4)) + sqrt(4))
+245: (sqrt(sum(4 / sqrt(4)) ^ sum(4)) + sqrt(4))
+245: (sqrt(sum(sqrt(4) - 4) ^ sum(4)) + sqrt(4))

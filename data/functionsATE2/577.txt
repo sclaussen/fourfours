@@ -1,0 +1,6 @@
+577: (square(4) + sum(sum(sqrt(4) * square(4)) / square(4)))
+577: (square(4) + sum(sum(square(4) * sqrt(4)) / square(4)))
+577: (sum(sum(sqrt(4) * square(4)) / square(4)) + square(4))
+577: (sum(sum(square(4) * sqrt(4)) / square(4)) + square(4))
+577: (square(4) + sum(sum(square(4) + square(4)) / square(4)))
+577: (sum(sum(square(4) + square(4)) / square(4)) + square(4))

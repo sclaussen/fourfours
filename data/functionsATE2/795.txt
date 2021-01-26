@@ -1,0 +1,4 @@
+795: ((square(4 * sum(4)) - sum(4)) / sqrt(4))
+795: ((square(sum(4) * 4) - sum(4)) / sqrt(4))
+795: (sum(4 * sum(4)) - square(sum(4) / sqrt(4)))
+795: (sum(sum(4) * 4) - square(sum(4) / sqrt(4)))

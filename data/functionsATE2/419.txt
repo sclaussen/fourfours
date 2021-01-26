@@ -1,0 +1,2 @@
+419: (sum(4 + square(sum(4) / sqrt(4))) - square(4))
+419: (sum(square(sum(4) / sqrt(4)) + 4) - square(4))

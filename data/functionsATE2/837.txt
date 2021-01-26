@@ -1,0 +1,2 @@
+837: (square(4 + square(sum(4) / sqrt(4))) - 4)
+837: (square(square(sum(4) / sqrt(4)) + 4) - 4)

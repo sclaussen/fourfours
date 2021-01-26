@@ -1,0 +1,6 @@
+950: ((sum(4 + sum(4)) - sum(4)) * sum(4))
+950: ((sum(sum(4) + 4) - sum(4)) * sum(4))
+950: (sum(4) * (sum(4 + sum(4)) - sum(4)))
+950: (sum(4) * (sum(sum(4) + 4) - sum(4)))
+950: ((sum(square(4) - sqrt(4)) - sum(4)) * sum(4))
+950: (sum(4) * (sum(square(4) - sqrt(4)) - sum(4)))

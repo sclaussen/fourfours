@@ -1,0 +1,6 @@
+553: (square(sum(4) / sqrt(4)) + sum(sqrt(4) * square(4)))
+553: (square(sum(4) / sqrt(4)) + sum(square(4) * sqrt(4)))
+553: (sum(sqrt(4) * square(4)) + square(sum(4) / sqrt(4)))
+553: (sum(square(4) * sqrt(4)) + square(sum(4) / sqrt(4)))
+553: (square(sum(4) / sqrt(4)) + sum(square(4) + square(4)))
+553: (sum(square(4) + square(4)) + square(sum(4) / sqrt(4)))

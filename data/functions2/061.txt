@@ -1,6 +1,0 @@
-061: (((square(4) + sum(4)) / 0.4) - 4)
-061: (((sum(4) + square(4)) / 0.4) - 4)
-061: (((sqrt(4) + square(4)) / 0.4) + square(4))
-061: (((square(4) + sqrt(4)) / 0.4) + square(4))
-061: (square(4) + ((sqrt(4) + square(4)) / 0.4))
-061: (square(4) + ((square(4) + sqrt(4)) / 0.4))

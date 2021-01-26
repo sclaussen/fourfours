@@ -1,4 +1,3 @@
-468: ((square(44) / 4) - square(4))
 468: ((sqrt(4) + square(4)) * (square(4) + sum(4)))
 468: ((sqrt(4) + square(4)) * (sum(4) + square(4)))
 468: ((square(4) + sqrt(4)) * (square(4) + sum(4)))

@@ -1,0 +1,6 @@
+565: (4 + sum(sum(sqrt(4) * square(4)) / square(4)))
+565: (4 + sum(sum(square(4) * sqrt(4)) / square(4)))
+565: (sum(sum(sqrt(4) * square(4)) / square(4)) + 4)
+565: (sum(sum(square(4) * sqrt(4)) / square(4)) + 4)
+565: (4 + sum(sum(square(4) + square(4)) / square(4)))
+565: (sum(sum(square(4) + square(4)) / square(4)) + 4)

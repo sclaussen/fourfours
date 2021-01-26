@@ -1,2 +1,0 @@
-969: ((sqrt(4) + square(44)) / sqrt(4))
-969: ((square(44) + sqrt(4)) / sqrt(4))

@@ -1,0 +1,8 @@
+710: ((4 + sum(square(4) + sum(4))) * sqrt(4))
+710: ((4 + sum(sum(4) + square(4))) * sqrt(4))
+710: ((sum(square(4) + sum(4)) + 4) * sqrt(4))
+710: ((sum(sum(4) + square(4)) + 4) * sqrt(4))
+710: (sqrt(4) * (4 + sum(square(4) + sum(4))))
+710: (sqrt(4) * (4 + sum(sum(4) + square(4))))
+710: (sqrt(4) * (sum(square(4) + sum(4)) + 4))
+710: (sqrt(4) * (sum(sum(4) + square(4)) + 4))

@@ -1,0 +1,8 @@
+646: ((sqrt(4) * square(sqrt(4) + square(4))) - sqrt(4))
+646: ((sqrt(4) * square(square(4) + sqrt(4))) - sqrt(4))
+646: ((square(sqrt(4) + square(4)) * sqrt(4)) - sqrt(4))
+646: ((square(square(4) + sqrt(4)) * sqrt(4)) - sqrt(4))
+646: (square(4) + sum(square(sum(4) / sqrt(4)) + sum(4)))
+646: (square(4) + sum(sum(4) + square(sum(4) / sqrt(4))))
+646: (sum(square(sum(4) / sqrt(4)) + sum(4)) + square(4))
+646: (sum(sum(4) + square(sum(4) / sqrt(4))) + square(4))

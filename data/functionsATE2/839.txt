@@ -1,0 +1,2 @@
+839: (square(4 + square(sum(4) / sqrt(4))) - sqrt(4))
+839: (square(square(sum(4) / sqrt(4)) + 4) - sqrt(4))

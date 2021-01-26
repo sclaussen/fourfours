@@ -1,0 +1,4 @@
+835: (sum(4 * sum(4)) + sum(sum(4) / sqrt(4)))
+835: (sum(sum(4) * 4) + sum(sum(4) / sqrt(4)))
+835: (sum(sum(4) / sqrt(4)) + sum(4 * sum(4)))
+835: (sum(sum(4) / sqrt(4)) + sum(sum(4) * 4))

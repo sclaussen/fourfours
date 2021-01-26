@@ -1,3 +1,0 @@
-335: (sum(4!) + ((square(4!) - square(4)) / square(4)))
-335: (((square(4!) - square(4)) / square(4)) + sum(4!))
-335: (sum(4!) - ((square(4) - square(4!)) / square(4)))

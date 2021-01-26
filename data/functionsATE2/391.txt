@@ -1,0 +1,8 @@
+391: ((4 * sum(4)) + sum(square(4) + sum(4)))
+391: ((4 * sum(4)) + sum(sum(4) + square(4)))
+391: ((sum(4) * 4) + sum(square(4) + sum(4)))
+391: ((sum(4) * 4) + sum(sum(4) + square(4)))
+391: (sum(square(4) + sum(4)) + (4 * sum(4)))
+391: (sum(square(4) + sum(4)) + (sum(4) * 4))
+391: (sum(sum(4) + square(4)) + (4 * sum(4)))
+391: (sum(sum(4) + square(4)) + (sum(4) * 4))

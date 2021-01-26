@@ -1,0 +1,5 @@
+964: ((square(44) / sqrt(4)) - 4)
+964: ((sum(44) - square(4)) - sum(4))
+964: ((sum(44) - sum(4)) - square(4))
+964: (sum(44) - (square(4) + sum(4)))
+964: (sum(44) - (sum(4) + square(4)))
