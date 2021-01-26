@@ -1,6 +1,0 @@
-433: (sum((sum(4) / 0.4) + 4) - sqrt(4))
-433: (sum(4 + (sum(4) / 0.4)) - sqrt(4))
-433: (sum(4 + square(sqrt(4) / 0.4)) - sqrt(4))
-433: (sum(square(sqrt(4) / 0.4) + 4) - sqrt(4))
-433: (sum(4 + square(sum(4) / sqrt(4))) - sqrt(4))
-433: (sum(square(sum(4) / sqrt(4)) + 4) - sqrt(4))

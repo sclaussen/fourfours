@@ -1,3 +1,0 @@
-557: (sum(sum(sqrt(4) * square(4)) / square(4)) - 4)
-557: (sum(sum(square(4) * sqrt(4)) / square(4)) - 4)
-557: (sum(sum(square(4) + square(4)) / square(4)) - 4)

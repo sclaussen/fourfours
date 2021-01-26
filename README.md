@@ -222,6 +222,8 @@ Summary: 4 * / + -
 - [Solutions: 10 shortest + 10 longest](./data/simple-solutions-10.txt)
 - [Solution count](./data/simple-count.txt)
 - [Solution count sorted](./data/simple-count-sorted.txt)
+- [Solutions found](./data/simple-solutions-found.txt)
+- [Solutions not found](./data/simple-solutions-notfound.txt)
 - [Solutions](./data/simple2/)
 
 
@@ -231,6 +233,8 @@ Summary: 4 * / + - ^
 - [Solutions: 10 shortest + 10 longest](./data/power-solutions-10.txt)
 - [Solution count](./data/power-count.txt)
 - [Solution count sorted](./data/power-count-sorted.txt)
+- [Solutions found](./data/power-solutions-found.txt)
+- [Solutions not found](./data/power-solutions-notfound.txt)
 - [Solutions](./data/power2/)
 
 
@@ -240,6 +244,8 @@ Summary: 4 44 444 4444 * / + - ^
 - [Solutions: 10 shortest + 10 longest](./data/concat-solutions-10.txt)
 - [Solution count](./data/concat-count.txt)
 - [Solution count sorted](./data/concat-count-sorted.txt)
+- [Solutions found](./data/concat-solutions-found.txt)
+- [Solutions not found](./data/concat-solutions-notfound.txt)
 - [Solutions](./data/concat2/)
 
 
@@ -249,6 +255,8 @@ Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^
 - [Solutions: 10 shortest + 10 longest](./data/decimal-solutions-10.txt)
 - [Solution count](./data/decimal-count.txt)
 - [Solution count sorted](./data/decimal-count-sorted.txt)
+- [Solutions found](./data/decimal-solutions-found.txt)
+- [Solutions not found](./data/decimal-solutions-notfound.txt)
 - [Solutions](./data/decimal2/)
 
 
@@ -258,6 +266,8 @@ Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ !
 - [Solutions: 10 shortest + 10 longest](./data/factorial-solutions-10.txt)
 - [Solution count](./data/factorial-count.txt)
 - [Solution count sorted](./data/factorial-count-sorted.txt)
+- [Solutions found](./data/factorial-solutions-found.txt)
+- [Solutions not found](./data/factorial-solutions-notfound.txt)
 - [Solutions](./data/factorial2/)
 
 
@@ -267,6 +277,8 @@ Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
 - [Solutions: 10 shortest + 10 longest](./data/functions-solutions-10.txt)
 - [Solution count](./data/functions-count.txt)
 - [Solution count sorted](./data/functions-count-sorted.txt)
+- [Solutions found](./data/functions-solutions-found.txt)
+- [Solutions not found](./data/functions-solutions-notfound.txt)
 - [Solutions](./data/functions2/)
 
 
@@ -276,6 +288,8 @@ Summary: 4 * / + - ^ ! sum sqrt square
 - [Solutions: 10 shortest + 10 longest](./data/grande-solutions-10.txt)
 - [Solution count](./data/grande-count.txt)
 - [Solution count sorted](./data/grande-count-sorted.txt)
+- [Solutions found](./data/grande-solutions-found.txt)
+- [Solutions not found](./data/grande-solutions-notfound.txt)
 - [Solutions](./data/grande2/)
 
 
@@ -285,6 +299,8 @@ Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ ! (applyToEvalu
 - [Solutions: 10 shortest + 10 longest](./data/factorialT-solutions-10.txt)
 - [Solution count](./data/factorialT-count.txt)
 - [Solution count sorted](./data/factorialT-count-sorted.txt)
+- [Solutions found](./data/factorialT-solutions-found.txt)
+- [Solutions not found](./data/factorialT-solutions-notfound.txt)
 - [Solutions](./data/factorialT2/)
 
 
@@ -294,4 +310,6 @@ Summary: 4 44 444 4444 4.4 4.44 44.4 4.444 44.44 444.4 * / + - ^ sum sqrt square
 - [Solutions: 10 shortest + 10 longest](./data/functionsT-solutions-10.txt)
 - [Solution count](./data/functionsT-count.txt)
 - [Solution count sorted](./data/functionsT-count-sorted.txt)
+- [Solutions found](./data/functionsT-solutions-found.txt)
+- [Solutions not found](./data/functionsT-solutions-notfound.txt)
 - [Solutions](./data/functionsT2/)

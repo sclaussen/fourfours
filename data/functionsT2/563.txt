@@ -1,6 +1,0 @@
-563: (sqrt(4) + sum(sum(sqrt(4) * square(4)) / square(4)))
-563: (sqrt(4) + sum(sum(square(4) * sqrt(4)) / square(4)))
-563: (sum(sum(sqrt(4) * square(4)) / square(4)) + sqrt(4))
-563: (sum(sum(square(4) * sqrt(4)) / square(4)) + sqrt(4))
-563: (sqrt(4) + sum(sum(square(4) + square(4)) / square(4)))
-563: (sum(sum(square(4) + square(4)) / square(4)) + sqrt(4))

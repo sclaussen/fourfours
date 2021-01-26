@@ -1,4 +1,0 @@
-454: (444 + sum(4))
-454: (sum(4) + 444)
-454: (square(sum(4) / 0.4) - sum(sqrt(4) + square(4)))
-454: (square(sum(4) / 0.4) - sum(square(4) + sqrt(4)))

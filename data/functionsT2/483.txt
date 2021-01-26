@@ -1,2 +1,0 @@
-483: ((square(44) - 4) / 4)
-483: square(sqrt(square(44) - 4) / sqrt(4))
